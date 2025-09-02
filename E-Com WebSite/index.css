@@ -15,7 +15,7 @@ body{
 /*=====NAVIGATION BAR=====*/
 nav {
     height: 10vh;
-    background-color: black;
+    background-color: #328E6E;
     margin-top: 10px;
     padding: 0 2% 0 2%;
 }
@@ -34,6 +34,9 @@ nav ul li {
     line-height: 10vh;
     margin: 0 0 0 50px ;
     border-bottom: 3px;
+}
+nav ul li a {
+    color: #F6F6F6;
 }
 nav ul li a:hover {
     color: aqua;
@@ -105,4 +108,5 @@ label #btn {
         left: 0;
     }
 }
+
 
