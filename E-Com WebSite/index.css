@@ -2,10 +2,13 @@
     font-family: 'MonumentExtend';
     src: url(MonumentExtended-Regular.otf);
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'MonumentExtend';
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
     color: rgb(40, 40, 40);
     text-decoration: none;
 }
@@ -27,13 +30,14 @@ nav img {
 }
 nav ul {
     float: right;
-    margin-right: 31%;
+    margin-right: 22%;
 }
 nav ul li {
     display: inline-block;
     line-height: 10vh;
-    margin: 0 0 0 50px ;
+    margin: 0 0 0 75px ;
     border-bottom: 3px;
+    font-size: 18px;
 }
 nav ul li a {
     color: #F6F6F6;
@@ -53,12 +57,21 @@ label #btn {
 #check {
     display: none;
 }
+/*=====MAIN HOME CONTENT=====*/
+.home {
+    background-image: url("Images\ &\ Logos/background.png");
+    opacity: 0.5;
+    background-size: cover;
+    width: 100%;
+    height: 88.6vh;
+    position: relative;
+}
 
 
 /*=====MEDIA QUERIES=====*/
 @media (max-width: 1200px) {
     nav img {
-        left: 8%;
+        left: 2%;
         top: 0.5vh;
     }
     nav ul {
@@ -67,20 +80,23 @@ label #btn {
 }
 @media (max-width: 992px) {
     nav img {
-        left: 6%;
+        left: 2%;
         top: 0.5vh;
         width: 50px;
     }
     nav ul {
         margin-right: 15%;
     }
+    nav ul li {
+        margin: 0 0 0 60px ;
+    }
     nav ul li a{
-        font-size: 13px;
+        font-size: 15px;
     }
 }
 @media (max-width:762px) {
     nav img {
-        left: 6%;
+        left: 2%;
         top: 0.5vh;
         width: 50px;
     }
@@ -97,7 +113,7 @@ label #btn {
         transition: all 0.5s;
     }
     nav ul li a{
-        font-size: 13px;
+        font-size: 16px;
     }
     nav ul li {
         display: block;
@@ -108,6 +124,7 @@ label #btn {
         left: 0;
     }
 }
+
 
 
 
