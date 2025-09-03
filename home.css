@@ -78,8 +78,10 @@ label #btn {
     font-size: 65px;
 }
 .home-content-subtitle {
-    letter-spacing: 13px;
-    margin-bottom: 3vh;
+    letter-spacing: 12.5px;
+    margin-bottom: 5vh;
+    font-weight: 600;
+    line-height: 4vh;
 }
 .content-para {
     font-family: "Roboto", sans-serif;
@@ -90,6 +92,26 @@ label #btn {
 .home-image {
     width: 643px;
     margin-left: 55%;
+}
+.button-box {
+    margin-top: 5.5vh;
+}
+.button-spacing {
+    margin-left: 5%;
+}
+.green-button {
+    background-color: transparent;
+    color: #136045;
+    padding: 15px 30px 15px 30px;
+    border-color: #136045;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 35%;
+}
+.green-button:hover {
+    background-color: #136045;
+    color: white;
 }
 
 /*=====MEDIA QUERIES=====*/
@@ -162,3 +184,4 @@ label #btn {
     }
 
 }
+
