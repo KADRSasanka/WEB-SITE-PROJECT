@@ -78,7 +78,7 @@ label #btn {
     font-size: 65px;
 }
 .home-content-subtitle {
-    letter-spacing: 13.5px;
+    letter-spacing: 13px;
     margin-bottom: 3vh;
 }
 .content-para {
@@ -160,4 +160,5 @@ label #btn {
         width: 630px;
         margin-left: 8%;
     }
+
 }
