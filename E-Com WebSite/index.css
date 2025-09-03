@@ -60,13 +60,25 @@ label #btn {
 /*=====MAIN HOME CONTENT=====*/
 .home {
     background-image: url("Images\ &\ Logos/background.png");
-    opacity: 0.5;
+    opacity: 1;
     background-size: cover;
     width: 100%;
     height: 88.6vh;
     position: relative;
 }
-
+.home-content {
+    margin: 0 0 0 2%;
+    width: auto;
+    position: absolute;
+}
+.home-content-title {
+    font-family: "MonumentExtend";
+    color: #062743;
+    font-size: 50px;
+}
+.home-content-subtitle {
+    letter-spacing: 8.3px;
+}
 
 /*=====MEDIA QUERIES=====*/
 @media (max-width: 1200px) {
@@ -124,6 +136,7 @@ label #btn {
         left: 0;
     }
 }
+
 
 
 
