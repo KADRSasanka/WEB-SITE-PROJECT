@@ -79,6 +79,10 @@ label #btn {
 .home-content-subtitle {
     letter-spacing: 8.3px;
 }
+.home-image {
+    width: 643px;
+    margin-left: 55%;
+}
 
 /*=====MEDIA QUERIES=====*/
 @media (max-width: 1200px) {
@@ -88,6 +92,10 @@ label #btn {
     }
     nav ul {
         margin-right: 15%;
+    }
+    .home-image {
+        width: 565px;
+        margin-left: 50%;
     }
 }
 @media (max-width: 992px) {
@@ -136,6 +144,7 @@ label #btn {
         left: 0;
     }
 }
+
 
 
 
