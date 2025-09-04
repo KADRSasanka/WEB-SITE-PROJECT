@@ -113,6 +113,51 @@ label #btn {
     background-color: #136045;
     color: white;
 }
+/*=====DESCRIBE BAR=====*/
+.catogories {
+    width: 80%;
+    height: 20vh;
+    background-color: #E1EEBC;
+    margin: -11vh 0 0 10%;
+    position: relative;
+    border-radius: 75px;
+    box-shadow: 0px 0px 3px 3px #040e0032;
+    display: flex;
+}
+.catogory-card {
+    position: absolute;
+    width: 30%;
+    height: 13vh;
+    margin: 3.6vh 0 0 2.5%;
+    display: flex;
+}
+.card-2 {
+    margin: 3.6vh 0 0 35%;
+}
+.card-3 {
+    margin: 3.6vh 0 0 67%;
+}
+
+.round {
+    width: 26%;
+    height: 13vh;
+    border-radius: 50%;
+    background-color: #B0DB9C;
+    position: relative;
+    margin-right: 4.5%;
+}
+.catogory-icon {
+    position: relative;
+    width: 80%;
+    margin: 1.5vh 0 0 10%;
+}
+.catogory-text {
+    padding-top: 10px;
+    font-size: 32px;
+}
+.catogory-sub-text {
+    margin: -32px 0 0 0;
+}
 
 /*=====MEDIA QUERIES=====*/
 @media (max-width: 1200px) {
@@ -184,4 +229,5 @@ label #btn {
     }
 
 }
+
 
