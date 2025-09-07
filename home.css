@@ -561,7 +561,6 @@ nav .login-form a p:hover {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
 @media (max-width:768px) {
     #btn {
         display: inline-block;
