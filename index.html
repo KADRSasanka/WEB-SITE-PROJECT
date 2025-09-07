@@ -12,20 +12,69 @@
 <body>
     <!--NAVIGATION BAR-->
     <nav>
-        <input type="checkbox" name="check" id="check">
-        <label for="check">
-            <i class="fa-solid fa-bars" style="color: #ffffff;" id="btn"></i> <!--MENU ICON -->
-        </label>
         <img src="Images & Logos/novax-white.png" alt="Logos"> <!--LOGO-->
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#review">Review</a></li>
+            <li><a href="#">Blogs</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
+        <div class="icons">
+            <div><i class="fa-solid fa-bars" style="color: #ffffff;" id="btn"></i></div>
+            <div><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;" id="search-btn"></i></div>
+            <div><i class="fa-solid fa-cart-shopping" style="color: #ffffff;" id="cart-btn"></i><span class="cart-span">0</span></div>
+            <div><i class="fa-solid fa-circle-user" style="color: #ffffff;" id="login-btn"></i></div>
+        </div>
+        <form action="" class="search-form">
+            <input type="search" name="search-box" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fa-solid fa-magnifying-glass"></label>
+        </form>
+        <div class="shopping-cart">
+            <div class="box">
+                <i class="fa-solid fa-trash" style="color: #062743;"></i>
+                <img src="Images & Logos/img1-watermelon.png" alt="Watermelon">
+                <div class="content">
+                    <h3>Watermelon</h3>
+                    <span class="price">LKR 160.00</span>
+                    <span class="quantity">Qty: 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-trash" style="color: #062743;"></i>
+                <img src="Images & Logos/img2-onion.png" alt="Watermelon">
+                <div class="content">
+                    <h3>Onion</h3>
+                    <span class="price">LKR 160.00</span>
+                    <span class="quantity">Qty: 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-trash"  style="color: #062743;"></i>
+                <img src="Images & Logos/img3-chicken.png" alt="Watermelon">
+                <div class="content">
+                    <h3>Chicken</h3>
+                    <span class="price">LKR 160.00</span>
+                    <span class="quantity">Qty: 1</span>
+                </div>
+            </div>
+            <div class="total">TOTAL: LKR 650.58</div>
+            <a href="#" class="checkout-btn">CheckOut</a>
+        </div>
+        <form action="" class="login-form">
+            <h3>LOGIN NOW</h3>
+            <input type="email" placeholder="Your E-mail" class="box box1">
+            <input type="password" placeholder="Your Password" class="box box1">
+            <a href="#">
+                <p>Forgot My Password</p>
+            </a>
+            <a href="#">
+                <p>Dont Have an Account</p>
+            </a>
+            <input type="submit" value="LOG IN" class="checkout-btn">
+        </form>
     </nav>
     <!--NAVIGATION BAR END-->
     <!--HOME CONTENT-->
@@ -37,11 +86,11 @@
                 We believe in bringing you the freshest ingredients and quality products. <br> 
                 Explore our wide selection of farm-fresh fruits and vegetables, premium <br>meats, 
                 and artisanal goods, all hand-picked for you. Experience the <br>difference of quality, 
-                from our store to your table.
+                from our store to your table
             </p>
             <div class="button-box">
-                <button class="green-button">Discover Shop</button>
-                <button class="green-button button-spacing">Discover Shop</button>
+                <button class="button1">Green</button>
+                <button class="button1 button-spacing">Green</button>
             </div>
         </div>
         <img src="Images & Logos/1234-Photoroom.png " alt="Picture" class="home-image">
@@ -52,22 +101,135 @@
             <div><p class="catogory-text">Secure Payments</p><p class="catogory-sub-text">Your Payments are 100% free.</p></div>
         </div>
         <div class="catogory-card card-2">
-            <div class="round"><img src="Images & Logos/call_centre.png" class="catogory-icon"></div>
+            <div class="round"><img src="Images & Logos/call_centre.png" class="catogory-icon catogory-icon "></div>
             <div><p class="catogory-text">24/7 Support</p><p class="catogory-sub-text">Contact Us Anytime.</p></div>
         </div>
-        <div class="catogory-card card-3">
+        <div class="catogory-card catogory-card-extend card-3">
             <div class="round"><img src="Images & Logos/grocery_icon.png" class="catogory-icon"></div>
-            <div><p class="catogory-text">Variety of Items</p><p class="catogory-sub-text">Choose your desired ones.</p></div>
+            <div><p class="catogory-text">Fresh and Organic</p><p class="catogory-sub-text">Choose your desired ones.</p></div>
         </div>
     </div>
+    <!--HOME CONTENT END-->
+
+    <!--CATOGORY CONTENT-->
+    <section class="item-catogory-section" id="categories">
+        <p class="heading1">Discover our <span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Categories</span></p>
+        <div class="box-container">
+            <div class="box">
+                <img src="Images & Logos/s1.png" alt="Fish & Meat">
+                <h3>Fish & Meat</h3>
+            </div>
+            <div class="box">
+                <img src="Images & Logos/s2.png" alt="Fruits & Vegetables">
+                <h3>Fruits & Vegetables</h3>
+            </div>
+            <div class="box">
+                <img src="Images & Logos/s3.png" alt="Bakery Items & Cakes">
+                <h3>Bakery Items & Cakes</h3>
+            </div>
+            <div class="box">
+                <img src="Images & Logos/s4.png" alt="Dairy Products & Protein">
+                <h3>Dairy Products & Protein</h3>
+            </div>
+            <div class="box">
+                <img src="Images & Logos/s5.png" alt="Household Materials">
+                <h3>Household Materials</h3>
+            </div>
+            <div class="box">
+                <img src="Images & Logos/s6.png" alt="Processed Foods">
+                <h3>Processed Foods</h3>
+            </div>
+        </div>
+    </section>
+    <!--CATOGORY CONTENT END-->
+
+    <!--AD-->
+    <section class="ad" id="about">
+        <div class="add">
+            <div class="ad-content">
+                <div class="ad-textbox">
+                    <h3>XpressMart</h3>
+                    <h1>Fresher & Faster</h1>
+                    <p>A supermarket is a self-service shop offering a wide variety of food, beverages and household products, organized into sections.</p>
+                    <button class="button1 button2">Learn More >></button>
+                </div>
+                <div class="ad-img">
+                    <img src="Images & Logos/ad-img.png">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--AD END-->
+    <!--PRODUCTS SECTION-->
+    <section class="product-section" id="products">
+        <p class="heading1">Best Seller <span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Products</span></p>
+        <button class="all-next">All Products&nbsp;<i class="fa-solid fa-circle-arrow-right"></i></button>
+        <div class="product-container">
+            <div class="product-card">
+                <div class="product-image"><img src="Images & Logos/products/pr1.png"></div>
+                <h3>Hellman's Real Myonnaise</h3>
+                <p>Household materials</p>
+                <p class="price">LKR 499.00</p>
+                <button class="buy-now"><i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="Images & Logos/products/pr2.jpg"></div>
+                <h3>Dove Intense Repair Hair Shampoo</h3>
+                <p>Household materials</p>
+                <p class="price">LKR 499.00</p>
+                <button class="buy-now"><i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="Images & Logos/products/pr3.jpg"></div>
+                <h3>Sparkling Fresh Water Bottle</h3>
+                <p>Processed Foods & Drinks</p>
+                <p class="price">LKR 499.00</p>
+                <button class="buy-now"><i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="Images & Logos/products/pr4.png"></div>
+                <h3>Chicken Wings</h3>
+                <p>Fish & Meats</p>
+                <p class="price">LKR 499.00</p>
+                <button class="buy-now"><i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="Images & Logos/products/pr5.png"></div>
+                <h3>Tomato</h3>
+                <p>Fruits & Vegetables</p>
+                <p class="price">LKR 499.00</p>
+                <button class="buy-now"><i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="Images & Logos/products/pr6.png"></div>
+                <h3>Milka Alpine Milk Choco Bar</h3>
+                <p>Processed Foods</p>
+                <p class="price">LKR 499.00</p>
+                <button class="buy-now"><i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="Images & Logos/products/pr7.png"></div>
+                <h3>Pedigree Vital Dog Food</h3>
+                <p>Processed Foods</p>
+                <p class="price">LKR 499.00</p>
+                <button class="buy-now"><i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="Images & Logos/products/pr1.png"></div>
+                <h3>Pedigree Vital Dog Food</h3>
+                <p>Processed Foods</p>
+                <p class="price">LKR 499.00</p>
+                <button class="buy-now"><i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    <!--PRODUCTS SECTION END-->
+
+    <!--REVIEWS SECTION START-->
+    <section class="review-section" id="review">
+        <p class="heading1"><span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Our Guests</span> Love Us</p>
+    </section>
+    <!--REVIEWS SECTION END-->
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
