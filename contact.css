@@ -92,7 +92,7 @@ nav .icons div:hover {
 }
 nav .search-form {
     position: absolute;
-    top: 105%; right: -105%;
+    top: 38%; right: -105%;
     width: 25rem;
     height: 4rem;
     background: #F6F6F6;
@@ -130,7 +130,7 @@ nav .search-form label:hover {
 }
 nav .shopping-cart {
     position: absolute;
-    top: 105%; right: -110%;
+    top: 38%; right: -110%;
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: var(--box-shadow);
@@ -186,7 +186,7 @@ nav .shopping-cart .checkout-btn {
 }
 nav .login-form {
     position: absolute;
-    top: 105%; right: -110%;
+    top: 38%; right: -110%;
     width: 25rem;
     box-shadow: var(--box-shadow);
     padding: 1.5rem;
