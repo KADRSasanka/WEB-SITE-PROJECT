@@ -130,7 +130,7 @@ nav .search-form label:hover {
 }
 nav .shopping-cart {
     position: absolute;
-    top: -38%; right: -110%;
+    top: 105%; right: -110%;
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: var(--box-shadow);
