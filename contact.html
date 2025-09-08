@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="semantic.css">
+    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="shortcut icon" href="Images & Logos/novax-black.png" type="image/x-icon">
@@ -14,25 +15,74 @@
 <body>
     <!--NAVIGATION BAR-->
     <nav>
-        <input type="checkbox" name="check" id="check">
-        <label for="check">
-            <i class="fa-solid fa-bars" style="color: #ffffff;" id="btn"></i> <!--MENU ICON -->
-        </label>
         <img src="Images & Logos/novax-white.png" alt="Logos"> <!--LOGO-->
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Home</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Review</a></li>
+            <li><a href="#">Blogs</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
+        <div class="icons">
+            <div><i class="fa-solid fa-bars" style="color: #ffffff;" id="btn"></i></div>
+            <div><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;" id="search-btn"></i></div>
+            <div><i class="fa-solid fa-cart-shopping" style="color: #ffffff;" id="cart-btn"></i><span class="cart-span">0</span></div>
+            <div><i class="fa-solid fa-circle-user" style="color: #ffffff;" id="login-btn"></i></div>
+        </div>
+        <form action="" class="search-form">
+            <input type="search" name="search-box" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fa-solid fa-magnifying-glass"></label>
+        </form>
+        <div class="shopping-cart">
+            <div class="box">
+                <i class="fa-solid fa-trash" style="color: #062743;"></i>
+                <img src="Images & Logos/img1-watermelon.png" alt="Watermelon">
+                <div class="content">
+                    <h3>Watermelon</h3>
+                    <span class="price">LKR 160.00</span>
+                    <span class="quantity">Qty: 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-trash" style="color: #062743;"></i>
+                <img src="Images & Logos/img2-onion.png" alt="Watermelon">
+                <div class="content">
+                    <h3>Onion</h3>
+                    <span class="price">LKR 160.00</span>
+                    <span class="quantity">Qty: 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-trash"  style="color: #062743;"></i>
+                <img src="Images & Logos/img3-chicken.png" alt="Watermelon">
+                <div class="content">
+                    <h3>Chicken</h3>
+                    <span class="price">LKR 160.00</span>
+                    <span class="quantity">Qty: 1</span>
+                </div>
+            </div>
+            <div class="total">TOTAL: LKR 650.58</div>
+            <a href="#" class="checkout-btn">CheckOut</a>
+        </div>
+        <form action="" class="login-form">
+            <h3>LOGIN NOW</h3>
+            <input type="email" placeholder="Your E-mail" class="box box1">
+            <input type="password" placeholder="Your Password" class="box box1">
+            <a href="#">
+                <p>Forgot My Password</p>
+            </a>
+            <a href="#">
+                <p>Dont Have an Account</p>
+            </a>
+            <input type="submit" value="LOG IN" class="checkout-btn">
+        </form>
     </nav>
     <!--NAVIGATION BAR END-->
 
     <div class="contact-form">
-        <form action="">
+        <form action="POST">
             <h1>Get In Touch With Us</h1>
             <div class="contact-details">
                 <p>

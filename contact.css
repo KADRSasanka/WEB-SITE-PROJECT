@@ -20,140 +20,211 @@ body {
     background-size: cover;
 
 }
-
 /*=====NAVIGATION BAR=====*/
+.checkout-btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.7rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid var(--dark);
+    color: var(--dark);
+    cursor: pointer;
+    background: none;
+}
+.checkout-btn:hover {
+    color: var(--light);
+    background-color: var(--dark);
+}
 nav {
+    position: fixed;
+    display: flex;
     height: 10vh;
     background-color: #328E6E;
-    margin-top: 10px;
-    padding: 0 2% 0 2%;
+    margin-top: 10px; left: 0; right: 0;
+    padding: 2rem 5%;
+    z-index: 1000;
+    align-items: center;
+    justify-content: space-between;
 }
-
 /*=====NAV BAR - LOGO=====*/
 nav img {
     width: 60px;
     margin-top: 0.8vh;
     position: relative;
 }
-
-nav ul {
-    float: right;
-    margin-right: 22%;
-}
-
 nav ul li {
     display: inline-block;
     line-height: 10vh;
-    margin: 0 0 0 75px;
+    margin: 0 1.8rem;
     border-bottom: 3px;
-    font-size: 18px;
+    font-size: 1.3rem;
+    color: var(--light);
 }
-
 nav ul li a {
     color: #F6F6F6;
 }
-
 nav ul li a:hover {
-    color: aqua;
+    color: var(--green);
 }
-
-/* ✅ Hide hamburger & checkbox by default (desktop view) */
-label #btn {
+nav .icons {
+    display: flex;
+}
+nav .icons div {
+    height: 4.5rem;
+    width: 4rem;
+    line-height: 4.5rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 0.3rem;
+    text-align: center;
+}
+nav .icons div:hover {
+    background: var(--green);
+    color: #F6F6F6;
+}
+/*=====MENU ICON (Hidden in Large Displays)=====*/
+#btn {
     display: none;
-    font-size: 24px;
-    color: white;
+}
+nav .search-form {
+    position: absolute;
+    top: 105%; right: -105%;
+    width: 25rem;
+    height: 4rem;
+    background: #F6F6F6;
+    border-radius: 0.5rem; border: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    transition: 1s ease;
+    z-index: 999;
+}
+nav .search-form.active {
+    right: 1rem;
+}
+nav .search-form input {
+    width: 100%;
+    height: 100%;
+    background: none; text-transform: none;
+    font-size: 1rem;
+    color: var(--dark);
+    padding: 0.5rem;
+}
+nav .search-form label {
+    font-size: 1.2rem;
+    padding-right: 0.5rem;
+    color: var(--dark);
     cursor: pointer;
 }
-
-#check {
-    display: none;
-    /* hides the white square checkbox */
+nav .search-form label:hover {
+    color: var(--green);
+}
+.cart-span {
+    font-size: 5px;
+    border-radius: 50%;
+}
+nav .shopping-cart {
+    position: absolute;
+    top: 105%; right: -110%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    width: 25rem;
+    background: #F6F6F6;
+    z-index: 999;
+    transition: 1s ease;
+}
+nav .shopping-cart.active {
+    right: 2rem;
+}
+nav .shopping-cart .box {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative; margin: 0.7rem 0;
+}
+nav .shopping-cart .box img {
+    height: 5.5rem;
+}
+nav .shopping-cart .box .fa-trash {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%; right: 2rem;
+    cursor: pointer;
+    color: var(--light);
+    transform: translateY(-50%);
+}
+nav .shopping-cart .box .fa-trash:hover {
+    color: var(--green);
+}
+nav .shopping-cart .box .content h3 {
+    font-size: 1.5rem;
+    color: var(--dark);
+}
+nav .shopping-cart .box .content span {
+    font-size: 1.1rem;
+    color: rgb(60, 60, 60);
+}
+nav .shopping-cart .box .content .quantity {
+    padding-left: 1rem;
+}
+nav .shopping-cart .total {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    text-align: center;
+    color: var(--dark);
+}
+nav .shopping-cart .checkout-btn {
+    display: block;
+    text-align: center;
+    margin: 1rem;
+}
+nav .login-form {
+    position: absolute;
+    top: 105%; right: -110%;
+    width: 25rem;
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background: #F6F6F6;
+    text-align: center;
+    z-index: 999;
+    transition: 1s ease;
+}
+nav .login-form.active {
+    right: 2rem;
+}
+nav .login-form .box {
+    width: 100%;
+    margin: 0.7rem 0;
+    background: #f0f0f0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1.3rem;
+    color: var(--dark);
+    text-transform: none;
+}
+nav .login-form h3 {
+    font-size: 2rem;
+    color: var(--dark);
+}
+nav .login-form a p {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    color: rgb(60, 60, 60);
+}
+nav .login-form a p:hover {
+    color: var(--green);
+    transform: scale(1.2);
 }
 
-@media (max-width: 1200px) {
-    nav img {
-        left: 2%;
-        top: 0.5vh;
-    }
 
-    nav ul {
-        margin-right: 15%;
-    }
 
-    .home-image {
-        width: 643px;
-        margin-left: 43%;
-    }
-}
-
-@media (max-width: 992px) {
-    nav img {
-        left: 2%;
-        top: 0.5vh;
-        width: 50px;
-    }
-
-    nav ul {
-        margin-right: 15%;
-    }
-
-    nav ul li {
-        margin: 0 0 0 60px;
-    }
-
-    nav ul li a {
-        font-size: 15px;
-    }
-
-    .home-image {
-        width: 643px;
-        margin-left: 30%;
-    }
-}
-
-@media (max-width: 762px) {
-    nav img {
-        left: 2%;
-        top: 0.5vh;
-        width: 50px;
-    }
-
-    /* ✅ Show hamburger only on small screens */
-    label #btn {
-        display: block;
-    }
-
-    ul {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background-color: #136045;
-        top: 11.4vh;
-        left: -100%;
-        text-align: center;
-        transition: all 0.5s;
-        z-index: 2;
-    }
-
-    nav ul li a {
-        font-size: 16px;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 50px 0 0 0;
-        line-height: 5vh;
-    }
-
-    #check:checked~ul {
-        left: 0;
-    }
-
-    .home-image {
-        width: 630px;
-        margin-left: 8%;
-    }
-}
 /* ==== The Information Form ==== */
 
 form {
@@ -335,3 +406,54 @@ footer hr {
 
 }
 
+
+
+
+
+/*=====MEDIA QUERIES=====*/
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+    }
+    nav {
+        padding: 2rem;
+    }
+}
+@media (max-width:768px) {
+    #btn {
+        display: inline-block;
+    }
+    .home {
+        background-size: cover;
+    }
+    nav ul {
+        position: absolute;
+        top: 105%; right: -110%;
+        width: 30rem;
+        box-shadow: var(--box-shadow);
+        border-radius: .5rem;
+        background: #F6F6F6;
+    }
+    nav ul.active {
+        right: 1rem;
+        transition: 1s ease;
+    }
+    nav ul li a {
+        font-size: 2rem;
+        font-weight: 400;
+        margin: 0 10rem;
+        display: block;
+        color: var(--dark);
+    }
+    nav ul li a:hover {
+        color: var(--green);
+    }
+}
+@media (max-width:450px) {
+    html {
+        font-size: 50%;
+    }
+    nav {
+        width: 100%;
+    }
+}
