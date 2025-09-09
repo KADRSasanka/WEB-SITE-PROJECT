@@ -44,3 +44,34 @@ window.onscroll = () => {
     loginForm.classList.remove('active');
     navbar.classList.remove('active');
 }
+document.getElementById("catogorieslink").addEventListener("click", function(e) {
+  e.preventDefault(); // prevent default jump
+  document.getElementById("catogories").scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+document.getElementById("homeLink").addEventListener("click", function(e) {
+  e.preventDefault();
+  document.getElementById("home").scrollIntoView({
+    behavior: "smooth"
+  });
+});
+document.getElementById("aboutLink").addEventListener("click", function(e) {
+  e.preventDefault();
+  document.getElementById("about").scrollIntoView({
+    behavior: "smooth"
+  });
+});
+document.getElementById("productsLink").addEventListener("click", function(e) {
+  e.preventDefault();
+  document.getElementById("products").scrollIntoView({
+    behavior: "smooth"
+  });
+});
+document.getElementById("reviewLink").addEventListener("click", function(e) {
+  e.preventDefault();
+  document.getElementById("review").scrollIntoView({
+    behavior: "smooth"
+  });
+});
