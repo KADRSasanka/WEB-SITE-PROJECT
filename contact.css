@@ -429,6 +429,7 @@ footer hr {
 .address i {
     font-size: 1.2em;
     margin-right: 8px;
+    color: #f6f6f6;
 }
 
 .ancors h3 {
@@ -478,6 +479,8 @@ footer hr {
 
 .ancors h3 {
     font-weight: bold;
+    color: #ffffff;
+    font-size: 1rem;
 }
 
 .email p {
@@ -485,13 +488,18 @@ footer hr {
 }
 
 .social-media {
-    margin: 2rem 9rem 0 0;
+    margin: 0 9rem 0 0;
     padding: 20px;
     font-size: 20px;
 }
 
 .social-media span {
     line-height: 3rem;
+}
+
+.social-media span i {
+    color: #F6F6F6;
+    padding-right: 10px ;
 }
 
 .social-media span a {
