@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="semantic.css">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="FAQ.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -15,12 +14,12 @@
     <nav>
         <img src="Images & Logos/novax-white.png" alt="Logos"> <!--LOGO-->
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#categories">Categories</a></li>
             <li><a href="#products">Products</a></li>
             <li><a href="#review">Review</a></li>
-            <li><a href="#">Blogs</a></li>
+            <li><a href="#">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="icons">
@@ -78,6 +77,90 @@
         </form>
     </nav>
     <!--NAVIGATION BAR END-->
-    <script src="script.js"></script>
+
+    <!--FAQ Section-->
+    <section class="faq-section">
+        <h1>Frequently Asekd Questions</h1>
+
+        <div class="faq">
+            <button class="faq-question">
+                What is Xpreesmart?        
+            <span>+</span></button>
+            <div class="faq-answer">
+                <p>Xpreesmart is an online platform where you can shop for a wide range of products at affordable prices with fast delivery and excellent customer service.</p>
+            </div>    
+        </div>
+
+        <div class="faq">
+            <button class="faq-question">
+                How do I place an order?       
+            <span>+</span></button>
+            <div class="faq-answer">
+                <p>Simply browse our website, add items to your cart, and proceed to checkout. You can pay securely using multiple payment options.</p>
+            </div>    
+        </div>
+
+        <div class="faq">
+            <button class="faq-question">
+                What payment methods do you accept?      
+            <span>+</span></button>
+            <div class="faq-answer">
+                <p>We accept major credit/debit cards, mobile payments, and cash on delivery (where available).</p>
+            </div>    
+        </div>
+
+        <div class="faq">
+            <button class="faq-question">
+                 How long will delivery take?     
+            <span>+</span></button>
+            <div class="faq-answer">
+                <p>Delivery times depend on your location. Typically, orders are delivered within 2–5 business days.</p>
+            </div>    
+        </div>
+
+        <div class="faq">
+            <button class="faq-question">
+                 Can I track my order?    
+            <span>+</span></button>
+            <div class="faq-answer">
+                <p>Yes, once your order is confirmed, you will receive a tracking number via email or SMS to follow your package.</p>
+            </div>    
+        </div>
+
+        <div class="faq">
+            <button class="faq-question">
+                 Do you offer customer support?
+            <span>+</span></button>
+            <div class="faq-answer">
+                <p>Absolutely! Our customer support team is available 24/7 via live chat, email, or phone.</p>
+            </div>    
+        </div>
+        </section>
+
+        <script src="script.js">
+        
+        document.addEvenListener("DOMContentLoaded", () =>{    
+            const questions = document.querySelectorAll(".faq-question");
+
+            quesions.forEach(q=> {
+                q.addEventListener("click", () => {                
+                    const answer = q.nextElementSibling;
+
+                    if (answer.style.maxHeight && answer.style.maxHeight !== "0px" ){
+                        answer.style.maxHeight = "0px";
+                        q.querySelector("span").textContent = "+"; 
+
+                    } else{
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        q.querySelector("span").textContent = "-";
+
+                    }
+                });
+            });
+
+        });
+
+
+    </script>    
 </body>
 </html>
