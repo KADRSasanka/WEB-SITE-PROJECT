@@ -324,11 +324,16 @@ textarea {
     gap: 8px;
     font-size: 16px;
     padding: 15px 16px;
-    background-color: #0d0837;
+    background-color: transparent;
     color: #fff;
-    border: none;
+    border: 2px solid #f6f6f6;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.send-button:hover {
+    background-color: var(--green);
+    transition-duration: 0.5s;
 }
 
 .send-button img {
