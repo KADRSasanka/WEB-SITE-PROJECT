@@ -20,15 +20,25 @@
       font-size: 20px;
     }
     .col {
-      position: relative;
-      margin-top: 115px;
+        width: 85%;
+        position: relative;
+        margin-top: 106px;
 
     }
     /*===Title===*/
     .title {
-      font-family: "MonumentExtend";
       text-align: center;
       margin: 141px 0 42px;
+    }
+    .title h1 {
+      font-family: "MonumentExtend";
+      font-size: 30px;
+      font-weight: bold;
+    }
+    .title p {
+      font-size: 16px;
+      color: #555;
+      margin-top: -7px;
     }
     
     /*===Team ===*/
@@ -70,3 +80,16 @@
   .spacer{
     height: 30vh;
   }
+  /*===About Images===*/
+.about-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 115px;
+}
+.about-image img {
+    width: 82%;
+    height: 325px;
+    border-radius: 10px;
+}
