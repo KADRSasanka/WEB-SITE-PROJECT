@@ -431,11 +431,36 @@ footer hr {
     margin-right: 8px;
 }
 
+.ancors h3 {
+    margin: 0px 0px -11px 29px;
+    padding-left: 4rem;
+}
 
 .ancors {
-    padding-right: 20%;
+    padding-right: 11rem;
+    margin: 10px;
     font-size: 18px;
     color: #ffffff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.lists {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0 0 0;
+    padding: 0.5rem 0px 0 6rem;
+}
+
+.left,
+.right {
+    margin: 0;
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .ancors ul {
