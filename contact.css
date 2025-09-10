@@ -435,6 +435,8 @@ footer hr {
 .ancors h3 {
     margin: 0px 0px -11px 29px;
     padding-left: 4rem;
+    display: flex;
+    justify-content: center;
 }
 
 .ancors {
@@ -481,6 +483,7 @@ footer hr {
     font-weight: bold;
     color: #ffffff;
     font-size: 1.45rem;
+    padding-left: 14.5rem;
 }
 
 .email p {
@@ -499,7 +502,7 @@ footer hr {
 
 .social-media span i {
     color: #F6F6F6;
-    padding-right: 10px ;
+    padding-right: 10px;
 }
 
 .social-media span a {
