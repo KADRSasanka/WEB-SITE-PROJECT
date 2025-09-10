@@ -9,11 +9,12 @@
     <link rel="shortcut icon" href="Images & Logos/novax-black.png" type="image/x-icon">
     <title>Xpress Mart</title>
 </head>
-<body>
+<body>-
     <!--NAVIGATION BAR-->
     <nav>
         <img src="Images & Logos/novax-white.png" alt="Logos"> <!--LOGO-->
         <ul>
+<<<<<<< Updated upstream
             <li><a href="#" id="homeLink">Home</a></li>
             <li><a href="#about" id="aboutLink">About</a></li>
             <li><a href="#categories" id="catogorieslink">Categories</a></li>
@@ -21,6 +22,15 @@
             <li><a href="#review" id="reviewLink">Review</a></li>
             <li><a href="#" id="blogsLink">Blogs</a></li>
             <li><a href="contact.html" id="contactLink">Contact</a></li>
+=======
+            <li><a href="#">Home</a></li>
+            <li><a href="#about" id="aboutLink">About Us</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact</a></li>
+>>>>>>> Stashed changes
         </ul>
         <div class="icons">
             <div><i class="fa-solid fa-bars" style="color: #ffffff;" id="btn"></i></div>
@@ -96,6 +106,7 @@
         </div>
         <img src="Images & Logos/1234-Photoroom.png " alt="Picture" class="home-image">
     </div>
+<<<<<<< Updated upstream
     <section id="catogories">
     <div class="catogories">
         <div class="catogory-card">
@@ -313,8 +324,8 @@
                             <img src="Images & Logos/dp (2).png" alt="profile pic">
                         </div>
                         <div class="name-user">
-                            <strong>Tharindu Madarasinghe</strong>
-                            <span>@madaransitr</span>
+                            <strong>Geesith Kariyawasam</strong>
+                            <span>@geesithkariyawasm</span>
                         </div>
                     </div>
                     <div class="review-comment">
@@ -334,6 +345,36 @@
     </section>
     <!--REVIEWS SECTION END-->
     <script src="script.js"></script>
+=======
+    <section id="about">
+        <div class="about-us">
+            <h1 class="about-us-title">About Us</h1>
+            <p class="about-us-subtitle">Your Trusted Local Grocery Store</p>
+            <p class="about-us-para">
+                At Xpress Mart, we are committed to providing our community with the freshest and highest quality groceries. 
+                Our store is more than just a place to shop; it's a hub for local families to gather, share, and enjoy the best 
+                that our region has to offer. We take pride in sourcing our products from trusted local farmers and suppliers, 
+                ensuring that every item on our shelves meets our rigorous standards for quality and freshness.
+            </p>
+            <p class="about-us-para">
+                Our friendly and knowledgeable staff are always here to assist you, whether you're looking for recipe ideas, 
+                dietary advice, or simply need help finding a product. We believe in building strong relationships with our 
+                customers and strive to create a welcoming atmosphere where everyone feels valued and appreciated.
+            </p>
+            <p class="about-us-para">
+                Thank you for choosing Xpress Mart as your go-to grocery store. We look forward to serving you and your family 
+                for many years to come.
+        </div>
+    </section>
+    <script>
+    document.getElementById("aboutLink").addEventListener("click", function(e) {
+      e.preventDefault(); // stop default jump
+      document.getElementById("about").scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+  </script>
+>>>>>>> Stashed changes
 </body>
 </html>
 
