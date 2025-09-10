@@ -271,7 +271,7 @@ nav .login-form a p:hover {
 /* ==== The Information Form ==== */
 
 form {
-    background: linear-gradient(to right, rgb(0, 115, 17), rgb(0, 126, 0, 0.8));
+    background-color: #328E6E;
     width: 60%;
     padding: 1.5rem;
     margin: 100px auto;
@@ -324,7 +324,7 @@ textarea {
     gap: 8px;
     font-size: 16px;
     padding: 15px 16px;
-    background: linear-gradient(270deg, #ffff, lightgreen);
+    background-color: #0d0837;
     color: #fff;
     border: none;
     border-radius: 5px;
