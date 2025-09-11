@@ -16,13 +16,13 @@
     <nav>
         <img src="Images & Logos/novax-white.png" alt="Logos"> <!--LOGO-->
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#categories">Categories</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#review">Review</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#" id="homeLink">Home</a></li>
+            <li><a href="#about" id="aboutLink">About</a></li>
+            <li><a href="#categories" id="catogorieslink">Categories</a></li>
+            <li><a href="#products" id="productsLink">Products</a></li>
+            <li><a href="#review" id="reviewLink">Review</a></li>
+            <li><a href="#" id="blogsLink">FAQs</a></li>
+            <li><a href="contact.html" id="contactLink">Contact</a></li>
         </ul>
         <div class="icons">
             <div><i class="fa-solid fa-bars" style="color: #ffffff;" id="btn"></i></div>
@@ -81,46 +81,52 @@
     </nav>
     <!--NAVIGATION BAR END-->
     <!--HOME CONTENT-->
-    <div class="home">
-        <div class="home-content">
-            <h1 class="home-content-title">Xpress Mart</h1>
-            <p class="home-content-subtitle">WHERE FRESHNESS MEETS VALUES</p>
-            <p class="content-para">
-                We believe in bringing you the freshest ingredients and quality products. <br>
-                Explore our wide selection of farm-fresh fruits and vegetables, premium <br>meats,
-                and artisanal goods, all hand-picked for you. Experience the <br>difference of quality,
-                from our store to your table
-            </p>
-            <div class="button-box">
-                <button class="button1">25% off Offer</button>
-                <button class="button1 button-spacing">Discover Us</button>
+    <section id="home">
+        <div class="home">
+            <div class="home-content">
+                <h1 class="home-content-title">Xpress Mart</h1>
+                <p class="home-content-subtitle">WHERE FRESHNESS MEETS VALUES</p>
+                <p class="content-para">
+                    We believe in bringing you the freshest ingredients and quality products. <br>
+                    Explore our wide selection of farm-fresh fruits and vegetables, premium <br>meats,
+                    and artisanal goods, all hand-picked for you. Experience the <br>difference of quality,
+                    from our store to your table
+                </p>
+                <div class="button-box">
+                    <button class="button1">25% off Offer</button>
+                    <button class="button1 button-spacing">Discover Us</button>
+                </div>
             </div>
+            <img src="Images & Logos/1234-Photoroom.png " alt="Picture" class="home-image">
         </div>
-        <img src="Images & Logos/1234-Photoroom.png " alt="Picture" class="home-image">
-    </div>
-    <div class="catogories">
-        <div class="catogory-card">
-            <div class="round"><img src="Images & Logos/secure_payment.png" class="catogory-icon"></div>
-            <div>
-                <p class="catogory-text">Secure Payments</p>
-                <p class="catogory-sub-text">Your Payments are 100% free.</p>
-            </div>
+        <section id="catogories">
+            <div class="catogories">
+                <div class="catogory-card">
+                    <div class="round"><img src="Images & Logos/secure_payment.png" class="catogory-icon"></div>
+                    <div>
+                        <p class="catogory-text">Secure Payments</p>
+                        <p class="catogory-sub-text">Your Payments are 100% free.</p>
+                    </div>
+                </div>
+                <div class="catogory-card card-2">
+                    <div class="round"><img src="Images & Logos/call_centre.png" class="catogory-icon catogory-icon ">
+                    </div>
+                    <div>
+                        <p class="catogory-text">24/7 Support</p>
+                        <p class="catogory-sub-text">Contact Us Anytime.</p>
+                    </div>
+                </div>
+                <div class="catogory-card catogory-card-extend card-3">
+                    <div class="round"><img src="Images & Logos/grocery_icon.png" class="catogory-icon"></div>
+                    <div>
+                        <p class="catogory-text">Fresh and Organic</p>
+                        <p class="catogory-sub-text">Choose your desired ones.</p>
+                    </div>
+                </div>
+        </section>
+
         </div>
-        <div class="catogory-card card-2">
-            <div class="round"><img src="Images & Logos/call_centre.png" class="catogory-icon catogory-icon "></div>
-            <div>
-                <p class="catogory-text">24/7 Support</p>
-                <p class="catogory-sub-text">Contact Us Anytime.</p>
-            </div>
-        </div>
-        <div class="catogory-card catogory-card-extend card-3">
-            <div class="round"><img src="Images & Logos/grocery_icon.png" class="catogory-icon"></div>
-            <div>
-                <p class="catogory-text">Fresh and Organic</p>
-                <p class="catogory-sub-text">Choose your desired ones.</p>
-            </div>
-        </div>
-    </div>
+    </section>
     <!--HOME CONTENT END-->
 
     <!--CATOGORY CONTENT-->
@@ -165,7 +171,7 @@
                     <h1>Fresher & Faster</h1>
                     <p>A supermarket is a self-service shop offering a wide variety of food, beverages and household
                         products, organized into sections.</p>
-                    <button class="button1 button2">Learn More >></button>
+                    <a href="About.html"><button class="button1 button2">Learn More >></button></a>
                 </div>
                 <div class="ad-img">
                     <img src="Images & Logos/ad-img.png">
@@ -330,8 +336,8 @@
                             <img src="Images & Logos/dp (2).png" alt="profile pic">
                         </div>
                         <div class="name-user">
-                            <strong>Tharindu Madarasinghe</strong>
-                            <span>@madaransitr</span>
+                            <strong>Geesith Kariyawasam</strong>
+                            <span>@geesithkariyawasm</span>
                         </div>
                     </div>
                     <div class="review-comment">
@@ -353,6 +359,7 @@
     </section>
     <!--REVIEWS SECTION END-->
     <script src="script.js"></script>
+
 </body>
 
 </html>

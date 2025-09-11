@@ -1,0 +1,95 @@
+ /*nav*/
+ nav{
+    margin-top: -130px;
+ }
+ /*table*/
+    .table{
+        margin-top:-1%;
+        display: flex;
+        justify-content: center;
+
+        
+    }
+     table {
+      width: 80%;       /* Full screen width */
+      height:100vh;
+      border-collapse: collapse;
+    }
+    td {
+      text-align:left;
+      font-size: 20px;
+    }
+    .col {
+        width: 85%;
+        position: relative;
+        margin-top: 106px;
+
+    }
+    /*===Title===*/
+    .title {
+      text-align: center;
+      margin: 141px 0 42px;
+    }
+    .title h1 {
+      font-family: "MonumentExtend";
+      font-size: 30px;
+      font-weight: bold;
+    }
+    .title p {
+      font-size: 16px;
+      color: #555;
+      margin-top: -7px;
+    }
+    
+    /*===Team ===*/
+    .tm {
+      text-align: center;
+      margin: 135px 0 40px;
+    }
+    .team {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 75px;
+  }
+
+  .teamm-track {
+    display: flex;
+    transition: transform 5s ease-in-out;
+  }
+
+  .teamm {
+    min-width: 20%; /* 5 visible */
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .teamm img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .teamm p {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .spacer{
+    height: 30vh;
+  }
+  /*===About Images===*/
+.about-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 115px;
+}
+.about-image img {
+    width: 82%;
+    height: 325px;
+    border-radius: 10px;
+}

@@ -27,6 +27,7 @@
 }
 body{
     background-color: #F6F6F6;
+    scroll-behavior: smooth;
 }
 /*=====NAVIGATION BAR=====*/
 .checkout-btn {
@@ -266,8 +267,8 @@ nav .login-form a p:hover {
     line-height: 4vh;
 }
 .home-image {
-    width: 643px;
-    margin-left: 55%;
+    width: 685px;
+    margin-left: 53%;
 }
 .button-box {
     margin-top: 5.5vh;

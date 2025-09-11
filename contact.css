@@ -324,11 +324,16 @@ textarea {
     gap: 8px;
     font-size: 16px;
     padding: 15px 16px;
-    background-color: #0d0837;
+    background-color: transparent;
     color: #fff;
-    border: none;
+    border: 2px solid #f6f6f6;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.send-button:hover {
+    background-color: var(--green);
+    transition-duration: 0.5s;
 }
 
 .send-button img {
@@ -433,8 +438,10 @@ footer hr {
 }
 
 .ancors h3 {
-    margin: 0px 0px -11px 29px;
-    padding-left: 4rem;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.45rem;
+    padding-left: 14.5rem;
 }
 
 .ancors {
@@ -481,6 +488,7 @@ footer hr {
     font-weight: bold;
     color: #ffffff;
     font-size: 1.45rem;
+    padding-left: 14.5rem;
 }
 
 .email p {
@@ -499,7 +507,7 @@ footer hr {
 
 .social-media span i {
     color: #F6F6F6;
-    padding-right: 10px ;
+    padding-right: 10px;
 }
 
 .social-media span a {
