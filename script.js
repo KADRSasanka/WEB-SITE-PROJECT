@@ -75,7 +75,9 @@ document.getElementById("reviewLink").addEventListener("click", function(e) {
     behavior: "smooth"
   });
 });
-// About Us  team member slide show
+
+
+//team member slide show
 const sha = document.getElementById('teammTrack');
 let types = Array.from(document.querySelectorAll('.teamm'));
 const totalTypes = types.length / 2; // original types count
