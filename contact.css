@@ -438,10 +438,10 @@ footer hr {
 }
 
 .ancors h3 {
-    margin: 0px 0px -11px 29px;
-    padding-left: 4rem;
-    display: flex;
-    justify-content: center;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.45rem;
+    padding-left: 14.5rem;
 }
 
 .ancors {
