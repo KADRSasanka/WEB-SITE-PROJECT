@@ -77,7 +77,6 @@ document.getElementById("reviewLink").addEventListener("click", function(e) {
 });
 
 
-//team member slide show
 const sha = document.getElementById('teammTrack');
 let types = Array.from(document.querySelectorAll('.teamm'));
 const totalTypes = types.length / 2; // original types count
@@ -103,3 +102,6 @@ function moveSlide() {
 
 // Move one slide every 4 seconds
 setInterval(moveSlide, 4000);
+
+  <div class="spacer"></div> //Just to scroll down -->
+  
