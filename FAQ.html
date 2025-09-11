@@ -80,7 +80,7 @@
 
     <!--FAQ Section-->
     <div class="wrapper">        
-        <h1>Frequently Asked Question</h1>
+        <p class="heading1">Frequently Asked <span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Questions</span></p>
 
         <div class="faq">
             <button class="accordion">
@@ -132,20 +132,34 @@
         <div class="faq">
             <button class="accordion">
                 Do you offer customer support?
+                <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="pannel">
                 <p>Absolutely! Our customer support team is available 24/7 via live chat, email, or phone.</p>
             </div>
-        </div>
-        <div class="faq">
-            <button class="accordion">
-                Do I need an account to shop on Xpreesmart?
-            </button>
-            <div class="pannel">
-                <p>No, you can shop as a guest. However, creating an account lets you track orders, save addresses, and enjoy a faster checkout.</p>
-            </div>
-        </div>   
-        </div>
-        </div>
+        </div>  
+        
+        <script>
+            var acc = document.getElementsByClassName
+            ("accordion");
+            var i;
+
+            for(i = 0; i < acc.length ; i++){
+                acc[i].addEventListener("click", function
+                () {
+                    this.classList.toggle("active");
+                    this.parentElement.classList.toggle
+                    ("active");
+
+                    var pannel = this.nextElementSibling;
+
+                    if(pannel.style.display === "block") {
+                        pannel.style.display = "none";
+                    }else {
+                        pannel.style.display = "block";
+                    }
+                });
+            }
+        </script>
     </body>
 </html>
