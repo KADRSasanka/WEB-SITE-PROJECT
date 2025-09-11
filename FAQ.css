@@ -27,7 +27,7 @@
 }
 body{
     background-color: #F6F6F6;
-    background-image: url(Images\ &\ Logos/images.jpeg);
+    background-image: url(Images\ &\ Logos/background-image);
 }
 nav {
     margin-top: -95px;
@@ -36,7 +36,6 @@ nav {
     max-width: 50%;
     margin: auto;
     margin-top: 7rem;
-    box-shadow: inset;
 }
 
 .wrapper > p,
