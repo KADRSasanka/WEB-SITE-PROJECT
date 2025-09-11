@@ -79,88 +79,87 @@
     <!--NAVIGATION BAR END-->
 
     <!--FAQ Section-->
-    <section class="faq-section">
-        <h1>Frequently Asekd Questions</h1>
+    <div class="wrapper">        
+        <p class="heading1">Frequently Asked <span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Questions</span></p>
 
         <div class="faq">
-            <button class="faq-question">
-                What is Xpreesmart?        
-            <span>+</span></button>
-            <div class="faq-answer">
-                <p>Xpreesmart is an online platform where you can shop for a wide range of products at affordable prices with fast delivery and excellent customer service.</p>
-            </div>    
-        </div>
-
-        <div class="faq">
-            <button class="faq-question">
-                How do I place an order?       
-            <span>+</span></button>
-            <div class="faq-answer">
-                <p>Simply browse our website, add items to your cart, and proceed to checkout. You can pay securely using multiple payment options.</p>
-            </div>    
-        </div>
-
-        <div class="faq">
-            <button class="faq-question">
-                What payment methods do you accept?      
-            <span>+</span></button>
-            <div class="faq-answer">
-                <p>We accept major credit/debit cards, mobile payments, and cash on delivery (where available).</p>
-            </div>    
-        </div>
-
-        <div class="faq">
-            <button class="faq-question">
-                 How long will delivery take?     
-            <span>+</span></button>
-            <div class="faq-answer">
-                <p>Delivery times depend on your location. Typically, orders are delivered within 2–5 business days.</p>
-            </div>    
-        </div>
-
-        <div class="faq">
-            <button class="faq-question">
-                 Can I track my order?    
-            <span>+</span></button>
-            <div class="faq-answer">
-                <p>Yes, once your order is confirmed, you will receive a tracking number via email or SMS to follow your package.</p>
-            </div>    
-        </div>
-
-        <div class="faq">
-            <button class="faq-question">
-                 Do you offer customer support?
-            <span>+</span></button>
-            <div class="faq-answer">
-                <p>Absolutely! Our customer support team is available 24/7 via live chat, email, or phone.</p>
-            </div>    
-        </div>
-        </section>
-
-        <script src="script.js">
+            <button class="accordion">
+                What is Xpreesmart?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+                <p>Xpreesmart is an online platform where you can shop for a wide range of products at affordable prices with fast delivery and excellent customer service.
+                </p>
+            </div>
+        </div>    
         
-        document.addEvenListener("DOMContentLoaded", () =>{    
-            const questions = document.querySelectorAll(".faq-question");
+        <div class="faq">
+            <button class="accordion">
+                How do I place an order?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+                <p>Simply browse our website, add items to your cart, and proceed to checkout. You can pay securely using multiple payment options.</p>
+            </div>
+        </div> 
+        <div class="faq">
+            <button class="accordion">
+                What payment methods do you accept?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+                <p>We accept major credit/debit cards, mobile payments, and cash on delivery (where available).</p>
+            </div>
+        </div>
+        <div class="faq">
+            <button class="accordion">
+                How long will delivery take?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+                <p>Delivery times depend on your location. Typically, orders are delivered within 2–5 business days.</p>
+            </div>
+        </div>
+        <div class="faq">
+            <button class="accordion">
+                Can I track my order?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+                <p>Yes, once your order is confirmed, you will receive a tracking number via email or SMS to follow your package.</p>
+            </div>
+        </div>
+        <div class="faq">
+            <button class="accordion">
+                Do you offer customer support?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+                <p>Absolutely! Our customer support team is available 24/7 via live chat, email, or phone.</p>
+            </div>
+        </div>  
+        
+        <script>
+            var acc = document.getElementsByClassName
+            ("accordion");
+            var i;
 
-            quesions.forEach(q=> {
-                q.addEventListener("click", () => {                
-                    const answer = q.nextElementSibling;
+            for(i = 0; i < acc.length ; i++){
+                acc[i].addEventListener("click", function
+                () {
+                    this.classList.toggle("active");
+                    this.parentElement.classList.toggle
+                    ("active");
 
-                    if (answer.style.maxHeight && answer.style.maxHeight !== "0px" ){
-                        answer.style.maxHeight = "0px";
-                        q.querySelector("span").textContent = "+"; 
+                    var pannel = this.nextElementSibling;
 
-                    } else{
-                        answer.style.maxHeight = answer.scrollHeight + "px";
-                        q.querySelector("span").textContent = "-";
-
+                    if(pannel.style.display === "block") {
+                        pannel.style.display = "none";
+                    }else {
+                        pannel.style.display = "block";
                     }
                 });
-            });
-
-        });
-
-
-    </script>    
-</body>
+            }
+        </script>
+    </body>
 </html>
