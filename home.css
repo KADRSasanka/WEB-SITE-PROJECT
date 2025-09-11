@@ -95,6 +95,22 @@ nav .icons div:hover {
     background: var(--green);
     color: #F6F6F6;
 }
+/*
+nav .icons .icon-cart {
+    position: relative;
+}
+nav .icons .icon-cart .cart-span {
+    display: flex;
+    font-size: 0.75rem;
+    width: 20px; height: 20px;
+    background-color: red;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; right: 0px;
+}*/
 /*=====MENU ICON (Hidden in Large Displays)=====*/
 #btn {
     display: none;
@@ -149,7 +165,7 @@ nav .shopping-cart {
     transition: 1s ease;
 }
 nav .shopping-cart.active {
-    right: 2rem;
+    right: 1rem;
 }
 nav .shopping-cart .box {
     display: flex;
@@ -206,7 +222,7 @@ nav .login-form {
     transition: 1s ease;
 }
 nav .login-form.active {
-    right: 2rem;
+    right: 1rem;
 }
 nav .login-form .box {
     width: 100%;

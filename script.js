@@ -20,7 +20,7 @@ cartBtn.onclick = (e) => {
 
 let loginForm = document.querySelector('.login-form');
 let loginBtn = document.querySelector('#login-btn');
-    // Toggle login form when clicking the cart icon
+    // Toggle login form when clicking the login icon
 loginBtn.onclick = (e) => {
     loginForm.classList.toggle('active');
     searchForm.classList.remove('active');
@@ -30,7 +30,7 @@ loginBtn.onclick = (e) => {
 
 let navbar = document.querySelector('ul');
 let menuBtn = document.querySelector('#btn');
-    // Toggle login form when clicking the cart icon
+    // Toggle login form when clicking the menu icon
 menuBtn.onclick = (e) => {
     navbar.classList.toggle('active');
     searchForm.classList.remove('active');
@@ -38,12 +38,13 @@ menuBtn.onclick = (e) => {
     loginForm.classList.remove('active');
 };
 
-window.onscroll = () => {
+window.onscroll = (e) => {
     searchForm.classList.remove('active');
     shoppingCart.classList.remove('active');
     loginForm.classList.remove('active');
     navbar.classList.remove('active');
 }
+/*
 document.getElementById("catogorieslink").addEventListener("click", function(e) {
   e.preventDefault(); // prevent default jump
   document.getElementById("catogories").scrollIntoView({
@@ -75,7 +76,7 @@ document.getElementById("reviewLink").addEventListener("click", function(e) {
     behavior: "smooth"
   });
 });
-
+*/
 
 const sha = document.getElementById('teammTrack');
 let types = Array.from(document.querySelectorAll('.teamm'));
