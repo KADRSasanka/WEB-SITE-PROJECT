@@ -95,7 +95,6 @@ nav .icons div:hover {
     background: var(--green);
     color: #F6F6F6;
 }
-/*
 nav .icons .icon-cart {
     position: relative;
 }
@@ -110,14 +109,15 @@ nav .icons .icon-cart .cart-span {
     border-radius: 50%;
     position: absolute;
     top: 50%; right: 0px;
-}*/
+}
+
 /*=====MENU ICON (Hidden in Large Displays)=====*/
 #btn {
     display: none;
 }
 nav .search-form {
     position: absolute;
-    top: 105%; right: -105%;
+    top: 105%; right: -110%;
     width: 25rem;
     height: 4rem;
     background: #F6F6F6;
@@ -127,7 +127,7 @@ nav .search-form {
     align-items: center;
     box-shadow: var(--box-shadow);
     transition: 1s ease;
-    z-index: 999;
+    z-index: 1000;
 }
 nav .search-form.active {
     right: 1rem;
@@ -161,7 +161,7 @@ nav .shopping-cart {
     box-shadow: var(--box-shadow);
     width: 25rem;
     background: #F6F6F6;
-    z-index: 999;
+    z-index: 1000;
     transition: 1s ease;
 }
 nav .shopping-cart.active {
@@ -218,7 +218,7 @@ nav .login-form {
     border-radius: 0.5rem;
     background: #F6F6F6;
     text-align: center;
-    z-index: 999;
+    z-index: 1000;
     transition: 1s ease;
 }
 nav .login-form.active {
