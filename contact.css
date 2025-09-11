@@ -324,11 +324,16 @@ textarea {
     gap: 8px;
     font-size: 16px;
     padding: 15px 16px;
-    background-color: #0d0837;
+    background-color: transparent;
     color: #fff;
-    border: none;
+    border: 2px solid #f6f6f6;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.send-button:hover {
+    background-color: var(--green);
+    transition-duration: 0.5s;
 }
 
 .send-button img {
@@ -432,11 +437,38 @@ footer hr {
     color: #f6f6f6;
 }
 
+.ancors h3 {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.45rem;
+    padding-left: 14.5rem;
+}
 
 .ancors {
-    padding-right: 20%;
+    padding-right: 11rem;
+    margin: 10px;
     font-size: 18px;
     color: #ffffff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.lists {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0 0 0;
+    padding: 0.5rem 0px 0 6rem;
+}
+
+.left,
+.right {
+    margin: 0;
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .ancors ul {
@@ -456,6 +488,7 @@ footer hr {
     font-weight: bold;
     color: #ffffff;
     font-size: 1.45rem;
+    padding-left: 5.5rem;
 }
 
 .email p {
@@ -474,7 +507,7 @@ footer hr {
 
 .social-media span i {
     color: #F6F6F6;
-    padding-right: 10px ;
+    padding-right: 10px;
 }
 
 .social-media span a {
