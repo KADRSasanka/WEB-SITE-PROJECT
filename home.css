@@ -115,6 +115,7 @@ nav .icons .icon-cart .cart-span {
 #btn {
     display: none;
 }
+/*===SEARCH FORM===*/
 nav .search-form {
     position: absolute;
     top: 105%; right: -110%;
@@ -149,6 +150,8 @@ nav .search-form label {
 nav .search-form label:hover {
     color: var(--green);
 }
+/*===SEARCH FORM END===*/
+/*===CART===*/
 .cart-span {
     font-size: 5px;
     border-radius: 50%;
@@ -159,20 +162,60 @@ nav .shopping-cart {
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: var(--box-shadow);
-    width: 25rem;
+    width: 30rem;
     background: #F6F6F6;
     z-index: 1000;
+    display: flex; flex-direction: column;
+    /*display: grid;
+    grid-template-rows: 70px 1fr 70px;*/
     transition: 1s ease;
 }
 nav .shopping-cart.active {
     right: 1rem;
 }
-nav .shopping-cart .box {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    position: relative; margin: 0.7rem 0;
+nav .shopping-cart .box .item .product-image {
+    height: 90%;
 }
+nav .shopping-cart .box .item img {
+    width: 100%; height: 100%;
+    margin: 0;
+}
+nav .shopping-cart .box .item {
+    display: grid;
+    grid-template-columns: 65px 140px 85px 1fr;
+    gap: 10px;
+    align-items: center; text-align: center;
+}
+.box {
+    overflow: auto;
+}
+.box::-webkit-scrollbar {
+    width: 0;
+}
+.box .item .quantity span {
+    display: inline-block;
+    width: 17.5px; height: 17.5px;
+    background-color: var(--dark);
+    color: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.box .item .quantity span:nth-child(2) {
+    background-color: transparent;
+    color: var(--dark);
+}
+.box .item:nth-child(even) {
+    background-color: #328e6e14;
+}
+nav .shopping-cart .box {
+    display: grid;
+    align-items: center;
+    gap: 0.25rem;
+    position: relative; margin: 0.7rem 0;
+    flex-grow: 1;
+    overflow-y: auto; /* optional: scroll if too many items */
+}
+/*
 nav .shopping-cart .box img {
     height: 5.5rem;
 }
@@ -198,6 +241,7 @@ nav .shopping-cart .box .content span {
 nav .shopping-cart .box .content .quantity {
     padding-left: 1rem;
 }
+*/
 nav .shopping-cart .total {
     font-size: 1.5rem;
     padding: 1rem 0;
@@ -208,7 +252,10 @@ nav .shopping-cart .checkout-btn {
     display: block;
     text-align: center;
     margin: 1rem;
+    cursor: pointer;
 }
+/*===CART ENDS===*/
+/*===LOGIN FORM===*/
 nav .login-form {
     position: absolute;
     top: 105%; right: -110%;
@@ -247,6 +294,7 @@ nav .login-form a p:hover {
     color: var(--green);
     transform: scale(1.2);
 }
+/*===LOGIN FORM ENDS===*/
 
 
 /*=====MAIN HOME CONTENT=====*/
