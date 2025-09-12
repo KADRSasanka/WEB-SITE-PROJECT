@@ -35,7 +35,7 @@ body{
     display: inline-block;
     padding: 0.7rem 2rem;
     font-size: 1.5rem;
-    border-radius: 0.5rem;
+    border-radius: 0rem;
     border: 0.2rem solid var(--dark);
     color: var(--dark);
     cursor: pointer;
@@ -219,17 +219,6 @@ nav .shopping-cart .box {
 nav .shopping-cart .box img {
     height: 5.5rem;
 }
-nav .shopping-cart .box .fa-trash {
-    font-size: 1.5rem;
-    position: absolute;
-    top: 50%; right: 2rem;
-    cursor: pointer;
-    color: var(--light);
-    transform: translateY(-50%);
-}
-nav .shopping-cart .box .fa-trash:hover {
-    color: var(--green);
-}
 nav .shopping-cart .box .content h3 {
     font-size: 1.5rem;
     color: var(--dark);
@@ -248,10 +237,14 @@ nav .shopping-cart .total {
     text-align: center;
     color: var(--dark);
 }
-nav .shopping-cart .checkout-btn {
+nav .shopping-cart .btn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+nav .shopping-cart .checkout-btn{ 
     display: block;
     text-align: center;
-    margin: 1rem;
+    margin: 0;
     cursor: pointer;
 }
 /*===CART ENDS===*/
@@ -508,14 +501,14 @@ nav .login-form a p:hover {
 .all-next:hover {
     transform: scale(1.2);
 }
-.product-container {
+.productContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     width: 90%;
     margin: 0 5% 0 5%;
     gap: 2.5rem;
 }
-.product-card {
+.productCard {
     width: 100%;
     height: 30rem;
     border-radius: 0.5rem;
@@ -523,7 +516,7 @@ nav .login-form a p:hover {
     text-align: center;
     outline: 0.1rem solid rgb(170, 170, 170);
 }
-.product-card:hover {
+.productCard:hover {
     box-shadow: var(--box-shadow);
     outline: 0.25rem solid #0ac273;
     transform: translateY(-5px);
@@ -535,34 +528,34 @@ nav .login-form a p:hover {
     border-radius: 0.5rem;
     overflow: hidden;
 }
-.product-container .product-card .product-image img {
+.productContainer .productCard .product-image img {
     background-size: contain;
     width: 14rem;
     margin: 10px 0 0 0;
 }
-.product-container .product-card h3{
+.productContainer .productCard h3{
     color: var(--dark);
     margin-top: -0.1rem;
 }
-.product-container .product-card p {
+.productContainer .productCard p {
     margin-top: -0.8rem;
 }
-.product-container .product-card .price {
+.productContainer .productCard .price {
     color: #328E6E;
     margin: 0 0 0.5rem 0;
     font-size: 16px;
 }
-.product-card .buy-now {
+.productCard .buy-now {
     padding: 1rem 2.5rem 1rem 2.5rem;
     font-size: 1.15rem;
     border-radius: 0.4rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.product-card .buy-now i {
+.productCard .buy-now i {
     color: inherit;
 }
-.product-card .buy-now:hover {
+.productCard .buy-now:hover {
     background-color: transparent;
     outline: 0.15rem solid #328E6E;
     color: #328E6E;
