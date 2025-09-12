@@ -51,13 +51,17 @@ window.onscroll = (e) => {
 let listProductHTML = document.querySelector('.listProduct');
 let listProducts = [];
 
+const addDataToHTML = () => {
+  listProductHTML.innerHTML = '';
+}
+
 const initApp = () => {
   //get data from JSON
   fetch('h-products.json')
-  then(response => response.json())
-  then(data => {
+  .then(response => response.json())
+  .then(data => {
     listProducts = data;
-    console.log(listProducts);
+    addDataToHTML();
   })
 }
 initApp();
