@@ -1,6 +1,14 @@
 let searchForm = document.querySelector('.search-form');
+let shoppingCart = document.querySelector('.shopping-cart');
+let loginForm = document.querySelector('.login-form');
+let navbar = document.querySelector('ul');
+
 let searchBtn = document.querySelector('#search-btn');
-    // Toggle search form when clicking the search icon
+let cartBtn = document.querySelector('#cart-btn');
+let loginBtn = document.querySelector('#login-btn');
+let menuBtn = document.querySelector('#btn');
+
+// Toggle search form
 searchBtn.onclick = (e) => {
     searchForm.classList.toggle('active');
     shoppingCart.classList.remove('active');
@@ -8,9 +16,7 @@ searchBtn.onclick = (e) => {
     navbar.classList.remove('active');
 };
 
-let shoppingCart = document.querySelector('.shopping-cart');
-let cartBtn = document.querySelector('#cart-btn');
-    // Toggle cart form when clicking the cart icon
+// Toggle cart
 cartBtn.onclick = (e) => {
     shoppingCart.classList.toggle('active');
     searchForm.classList.remove('active');
@@ -18,9 +24,7 @@ cartBtn.onclick = (e) => {
     navbar.classList.remove('active');
 };
 
-let loginForm = document.querySelector('.login-form');
-let loginBtn = document.querySelector('#login-btn');
-    // Toggle login form when clicking the cart icon
+// Toggle login form
 loginBtn.onclick = (e) => {
     loginForm.classList.toggle('active');
     searchForm.classList.remove('active');
@@ -28,9 +32,7 @@ loginBtn.onclick = (e) => {
     navbar.classList.remove('active');
 };
 
-let navbar = document.querySelector('ul');
-let menuBtn = document.querySelector('#btn');
-    // Toggle login form when clicking the cart icon
+// Toggle menu
 menuBtn.onclick = (e) => {
     navbar.classList.toggle('active');
     searchForm.classList.remove('active');
@@ -38,12 +40,28 @@ menuBtn.onclick = (e) => {
     loginForm.classList.remove('active');
 };
 
-window.onscroll = () => {
+// Remove all active when scrolling
+window.onscroll = (e) => {
     searchForm.classList.remove('active');
     shoppingCart.classList.remove('active');
     loginForm.classList.remove('active');
     navbar.classList.remove('active');
+};
+
+let listProductHTML = document.querySelector('.listProduct');
+let listProducts = [];
+
+const initApp = () => {
+  //get data from JSON
+  fetch('h-products.json')
+  then(response => response.json())
+  then(data => {
+    listProducts = data;
+    console.log(listProducts);
+  })
 }
+initApp();
+
 document.getElementById("catogorieslink").addEventListener("click", function(e) {
   e.preventDefault(); // prevent default jump
   document.getElementById("catogories").scrollIntoView({
@@ -75,5 +93,3 @@ document.getElementById("reviewLink").addEventListener("click", function(e) {
     behavior: "smooth"
   });
 });
-
-
