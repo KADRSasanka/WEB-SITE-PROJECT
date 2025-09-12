@@ -51,29 +51,26 @@ td {
     margin-top: 75px;
   }
 
-.teamm-track {
+  .teamm-track {
     display: flex;
     transition: transform 5s ease-in-out;
   }
 
-.teamm {
+  .teamm {
     min-width: 20%; /* 5 visible */
     text-align: center;
     padding: 10px;
     box-sizing: border-box;
   }
-.sub-heading {
-    font-family: "MonumentExtend";
-    color: #062743;
-}
-.teamm img {
+
+  .teamm img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
   }
 
-.teamm p {
+  .teamm p {
     margin-top: 20px;
     font-weight: bold;
     font-size: 15px;
