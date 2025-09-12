@@ -27,8 +27,14 @@
 }
 body{
     background-color: #F6F6F6;
+<<<<<<< HEAD
     background-image:url("Images\ &\ Logos/Background02.jpg");
     background-size: cover;
+=======
+    background-image:url("Images\ &\ Logos/background.png");
+    background-size: cover;
+    background-position: center;
+>>>>>>> 3a9de694474668e0a61a53f5a5297c39072b3b3c
 }
 nav {
     margin-top: -100px;

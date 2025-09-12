@@ -5,11 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="semantic.css">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="SignUP.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="shortcut icon" href="Images & Logos/novax-black.png" type="image/x-icon">
     <title>Xpress Mart</title>
 </head>
 <body>
-    
+    <div class="signup-box">
+    <a href="index.html"><i class="fa-solid fa-xmark close-btn" onclick="document.querySelector('.signup-box').style.display='none'"></i></a>
+
+    <div class="logo">
+      <img src="Images & Logos/novax-black.png" alt="Supermarket Logo">
+    </div>
+
+    <h2>REGISTRATION</h2>
+    <form action="#">
+      <div class="row">
+        <div class="col">
+          <label for="firstname">First Name</label>
+          <input type="text" id="firstname" placeholder="First name" required>
+        </div>
+        <div class="col">
+          <label for="lastname">Last Name</label>
+          <input type="text" id="lastname" placeholder="Last name" required>
+        </div>
+      </div>
+
+      <label for="email">Email</label>
+      <input type="email" class="full-input" id="email" placeholder="Enter your email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" class="full-input" id="phone" placeholder="0771234567" required>
+
+      <label for="address">Delivery Address</label>
+      <input type="text" class="full-input" id="address" placeholder="No.3, Pitipana Road, Homagama, 10200" required>
+
+      <div class="row">
+        <div class="col">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" required>
+        </div>
+        <div class="col">
+          <label for="confirm">Confirm Password</label>
+          <input type="password" id="confirm" placeholder="Re-enter password" required>
+        </div>
+      </div>
+
+      <button type="submit">SIGN UP</button>
+    </form>
+  </div>
 </body>
 </html>

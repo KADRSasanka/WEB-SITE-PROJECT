@@ -48,6 +48,19 @@ window.onscroll = (e) => {
     navbar.classList.remove('active');
 };
 
+let listProductHTML = document.querySelector('.listProduct');
+let listProducts = [];
+
+const initApp = () => {
+  //get data from JSON
+  fetch('h-products.json')
+  then(response => response.json())
+  then(data => {
+    listProducts = data;
+    console.log(listProducts);
+  })
+}
+initApp();
 
 document.getElementById("catogorieslink").addEventListener("click", function(e) {
   e.preventDefault(); // prevent default jump
