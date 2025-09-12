@@ -1,3 +1,8 @@
+ /*Body*/
+body{
+
+    background: #f6f6f6f5;
+  }
  /*nav*/
 nav{
     margin-top: -130px;
@@ -9,7 +14,7 @@ nav{
         justify-content: center;     
     }
 table {
-      width: 80%;       /* Full screen width */
+      width: 80%;      
       height:100vh;
       border-collapse: collapse;
     }
@@ -74,7 +79,4 @@ td {
     margin-top: 20px;
     font-weight: bold;
     font-size: 15px;
-  }
-.spacer{
-    height: 30vh;
   }
