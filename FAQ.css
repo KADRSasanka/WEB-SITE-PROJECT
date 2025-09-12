@@ -27,7 +27,7 @@
 }
 body{
     background-color: #F6F6F6;
-    background-image:url("Images\ &\ Logos/background.png");
+    background-image:url("Images\ &\ Logos/imageB1");
     background-size: cover;
     background-position: center;
 }
@@ -79,7 +79,7 @@ nav {
 
 .pannel {
     padding: 0 2rem 2.5rem 2rem;
-    background-color: #ffffff;
+    background-color: #e5e8df;
     overflow: hidden;
     /* background-color: rgb(154, 177, 143); */
     display: none;

@@ -75,8 +75,17 @@ td {
     object-fit: cover;
   }
 
-  .teamm p {
-    margin-top: 20px;
+  .teamm h4 {
+    margin-top: -8px;
     font-weight: bold;
     font-size: 15px;
+  }
+  .teamm p {
+    
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+    max-width: 225px; /* force shorter line */
+    margin: 0 auto;   /* center the text */
+    
   }
