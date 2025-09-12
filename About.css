@@ -22,6 +22,17 @@ td {
       margin-top: 115px;
 
     }
+.col p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin: 16px 119px 39px 0;
+    }
+.col img {
+      width: 85%;
+      height:373px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
     /*===Title===*/
 .title {
       text-align: center;
