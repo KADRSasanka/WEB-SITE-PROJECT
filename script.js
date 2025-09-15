@@ -112,13 +112,13 @@ const addToCartHTML = () => {
       totalQuantity = totalQuantity + cart.quantity;
       // Find the matching product safely
       //let info = productContainers.find((value) => value.id == cart.product_id);
+      let positionProduct = productContainers.findIndex((value) => value.id == cart.product_id);
+      let info = productContainers[positionProduct];
       //if (!info) return; // skip if product not found
       totalPrice += info.price * cart.quantity; // add to total price
       let newCart = document.createElement('div');
       newCart.classList.add('item');
       newCart.dataset.id = cart.product_id;
-      let positionProduct = productContainers.findIndex((value) => value.id == cart.product_id);
-      let info = productContainers[positionProduct];
       newCart.innerHTML = `
         <div class="product-image"><img src="${info.image}"></div>
         <div class="name">${info.name}</div>
