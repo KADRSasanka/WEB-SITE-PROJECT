@@ -1,23 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+:root {
+    --green: #136045;
+    --dark: #062743;
+    --light: #F6F6F6;
+    --box-shadow: 0.3rem 0.3rem rgba(0,0,0,0.2);
+    --border: .2rem solid rgba(0,0,0,0.1);
+    --outline: .1rem solid rgba(0,0,0,0.1);
+    --outline-hover: .2rem solid var(--dark);
+}
+
 body {
     background: url("Images\ &\ Logos/background.png");
     background-size: cover;
     background-position: center;
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-
 }
 
-
 .signup-box {
-  background: #fff;
+  background: var(--light);
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  width: 650px;
-  border-top: 6px solid #22c55e;
+  box-shadow: 0 4px 15px --box-shadow;
+  width: 32.5%;
+  /*border-top: 6px solid #22c55e;*/
   text-align: center;
   position: relative; /* Needed for close button */
 }
@@ -29,7 +38,9 @@ body {
 
 .signup-box h2 {
   margin-bottom: 20px;
-  color: #16a34a;
+  color: var(--green);
+  font-family: 'MonumentExtend';
+  letter-spacing: 1.5px;
 }
 
 .signup-box label {
@@ -42,10 +53,16 @@ body {
 
 .signup-box input {
   width: 90%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1.5px solid #676767d4;
   outline: none;
+  cursor: pointer;
+}
+.signup-box input:hover {
+    border: none;
+    border-bottom: 2px solid #2e8888ec;
+    background-color: #7978781f;
 }
 
 .signup-box .full-input {
@@ -53,14 +70,14 @@ body {
 }
 
 .signup-box input:focus {
-  border-color: #16a34a;
+  border-color: var(--green);
 }
 
 /* Make inputs side by side with spacing */
 .row {
   display: flex;
   gap: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
 }
 
 .col {
@@ -68,12 +85,12 @@ body {
 }
 
 .signup-box button {
-  width: 30%;
+  width: 60%;
   padding: 12px;
-  background: #16a34a;
-  border: none;
+  background: transparent;
+  border: 1.5px solid var(--green);
   border-radius: 10px;
-  color: white;
+  color: var(--green);
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
@@ -81,7 +98,9 @@ body {
 }
 
 .signup-box button:hover {
-  background: #15803d;
+  background: var(--green);
+  color: var(--light);
+  border: 1.5px solid var(--green);
 }
 
 /* Close button using Font Awesome */
@@ -98,4 +117,8 @@ body {
 .close-btn:hover {
   color: #e11d48;
   transform: scale(1.2);
+}
+
+#email, #phone, #address {
+  margin-bottom: 1.5rem;
 }
