@@ -13,7 +13,7 @@
     <!-- Firebase SDKs -->
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
-        import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
+        import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
         import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
 
         //Firebase config
@@ -32,11 +32,9 @@
         const db = getFirestore(app);
 
         const googleProvider = new GoogleAuthProvider();
-        const facebookProvider = new FacebookAuthProvider();
 
         window.auth = auth;
         window.googleProvider = googleProvider;
-        window.facebookProvider = facebookProvider;
         window.db = db;
 
         // Function to save user data to Firestore
@@ -68,20 +66,6 @@
             } catch (error) {
                 console.error('Google sign in error:', error);
                 alert('Google sign in failed: ' + error.message);
-            }
-        };
-
-        // Facebook Sign In
-        window.facebookSignIn = async () => {
-            try {
-                const result = await signInWithPopup(auth, facebookProvider);
-                const user = result.user;
-                await saveUserData(user);
-                alert('Facebook sign in successful!');
-                // Redirect or update UI as needed
-            } catch (error) {
-                console.error('Facebook sign in error:', error);
-                alert('Facebook sign in failed: ' + error.message);
             }
         };
 
@@ -177,9 +161,6 @@
             <p>Or sign up with:</p>
             <button type="button" onclick="googleSignIn()" style="background: #4285f4; color: white; border: none; padding: 10px; border-radius: 5px; margin: 5px; cursor: pointer;">
                 <i class="fab fa-google"></i> Google
-            </button>
-            <button type="button" onclick="facebookSignIn()" style="background: #1877f2; color: white; border: none; padding: 10px; border-radius: 5px; margin: 5px; cursor: pointer;">
-                <i class="fab fa-facebook"></i> Facebook
             </button>
     </div>
 
