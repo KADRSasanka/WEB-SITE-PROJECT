@@ -1,0 +1,353 @@
+[
+  {
+    "id": 1,
+    "name": "Salmon",
+    "price": 1200,
+    "image": "Images & Logos/products/PRD1.png",
+    "section": "sec1"
+  },
+  {
+    "id": 2,
+    "name": "Chicken Breast",
+    "price": 950,
+    "image": "Images & Logos/products/PRD1.png",
+    "section": "sec1"
+  },
+  {
+    "id": 3,
+    "name": "Mutton",
+    "price": 1800,
+    "image": "Images & Logos/products/PRD1.png",
+    "section": "sec1"
+  },
+  {
+    "id": 4,
+    "name": "Prawns",
+    "price": 1500,
+    "image": "Images & Logos/products/PRD1.png",
+    "section": "sec1"
+  },
+  {
+    "id": 5,
+    "name": "Beef Steak",
+    "price": 2200,
+    "image": "Images & Logos/products/PRD1.png",
+    "section": "sec1"
+  },
+  {
+    "id": 6,
+    "name": "Tuna",
+    "price": 1100,
+    "image": "Images & Logos/products/PRD1.png",
+    "section": "sec1"
+  },
+  {
+    "id": 7,
+    "name": "Duck Meat",
+    "price": 1350,
+    "image": "Images & Logos/products/PRD1.png",
+    "section": "sec1"
+  },
+  {
+    "id": 8,
+    "name": "Crab",
+    "price": 2000,
+    "image": "Images & Logos/products/PRD1.png",
+    "section": "sec1"
+  },
+
+ 
+
+  {
+    "id": 9,
+    "name": "Banana",
+    "price": 499,
+    "image": "Images & Logos/products/PRD 2.png",
+    "section": "sec2"
+  },
+  {
+    "id": 10,
+    "name": "Pineapple",
+    "price": 269,
+    "image": "Images & Logos/products/PRD 2.png",
+    "section": "sec2"
+  },
+  {
+    "id": 11,
+    "name": "Orange",
+    "price": 45,
+    "image": "Images & Logos/products/PRD 2.png",
+    "section": "sec2"
+  },
+  {
+    "id": 12,
+    "name": "Carrot",
+    "price": 255,
+    "image": "Images & Logos/products/PRD 2.png",
+    "section": "sec2"
+  },
+  {
+    "id": 13,
+    "name": "Pumpkin",
+    "price": 205,
+    "image": "Images & Logos/products/PRD 2.png",
+    "section": "sec2"
+  },
+  {
+    "id": 14,
+    "name": "Tomato",
+    "price": 180,
+    "image": "Images & Logos/products/PRD 2.png",
+    "section": "sec2"
+  },
+  {
+    "id": 15,
+    "name": "Grapes",
+    "price": 750,
+    "image": "Images & Logos/products/PRD 2.png",
+    "section": "sec2"
+  },
+  {
+    "id": 16,
+    "name": "Apple",
+    "price": 650,
+    "image": "Images & Logos/products/PRD 2.png",
+    "section": "sec2"
+  },
+
+ 
+
+  {
+    "id": 17,
+    "name": "Dish Soap",
+    "price": 350,
+    "image": "Images & Logos/products/PRD3.png",
+    "section": "sec3"
+  },
+  {
+    "id": 18,
+    "name": "Laundry Powder",
+    "price": 450,
+    "image": "Images & Logos/products/PRD3.png",
+    "section": "sec3"
+  },
+  {
+    "id": 19,
+    "name": "Shampoo",
+    "price": 600,
+    "image": "Images & Logos/products/PRD3.png",
+    "section": "sec3"
+  },
+  {
+    "id": 20,
+    "name": "Toilet Paper",
+    "price": 150,
+    "image": "Images & Logos/products/PRD3.png",
+    "section": "sec3"
+  },
+  {
+    "id": 21,
+    "name": "Toothpaste",
+    "price": 200,
+    "image": "Images & Logos/products/PRD3.png",
+    "section": "sec3"
+  },
+  {
+    "id": 22,
+    "name": "Soap Bar",
+    "price": 120,
+    "image": "Images & Logos/products/PRD3.png",
+    "section": "sec3"
+  },
+  {
+    "id": 23,
+    "name": "Broom",
+    "price": 300,
+    "image": "Images & Logos/products/PRD3.png",
+    "section": "sec3"
+  },
+  {
+    "id": 24,
+    "name": "Mop",
+    "price": 500,
+    "image": "Images & Logos/products/PRD3.png",
+    "section": "sec3"
+  },
+
+  
+
+  {
+    "id": 25,
+    "name": "Rice",
+    "price": 120,
+    "image": "Images & Logos/products/PRD4.png",
+    "section": "sec4"
+  },
+  {
+    "id": 26,
+    "name": "Lentils",
+    "price": 200,
+    "image": "Images & Logos/products/PRD4.png",
+    "section": "sec4"
+  },
+  {
+    "id": 27,
+    "name": "Flour",
+    "price": 180,
+    "image": "Images & Logos/products/PRD4.png",
+    "section": "sec4"
+  },
+  {
+    "id": 28,
+    "name": "Sugar",
+    "price": 125,
+    "image": "Images & Logos/products/PRD4.png",
+    "section": "sec4"
+  },
+  {
+    "id": 29,
+    "name": "Salt",
+    "price": 70,
+    "image": "Images & Logos/products/PRD4.png",
+    "section": "sec4"
+  },
+  {
+    "id": 30,
+    "name": "Cooking Oil",
+    "price": 950,
+    "image": "Images & Logos/products/PRD4.png",
+    "section": "sec4"
+  },
+  {
+    "id": 31,
+    "name": "Spices Pack",
+    "price": 450,
+    "image": "Images & Logos/products/PRD4.png",
+    "section": "sec4"
+  },
+  {
+    "id": 32,
+    "name": "Tea Leaves",
+    "price": 600,
+    "image": "Images & Logos/products/PRD4.png",
+    "section": "sec4"
+  },
+
+
+
+  {
+    "id": 33,
+    "name": "Fresh Milk",
+    "price": 200,
+    "image": "Images & Logos/products/PRD5.png",
+    "section": "sec5"
+  },
+  {
+    "id": 34,
+    "name": "Cheese",
+    "price": 700,
+    "image": "Images & Logos/products/PRD5.png",
+    "section": "sec5"
+  },
+  {
+    "id": 35,
+    "name": "Yogurt",
+    "price": 150,
+    "image": "Images & Logos/products/PRD5.png",
+    "section": "sec5"
+  },
+  {
+    "id": 36,
+    "name": "Butter",
+    "price": 550,
+    "image": "Images & Logos/products/PRD5.png",
+    "section": "sec5"
+  },
+  {
+    "id": 37,
+    "name": "Milk Powder",
+    "price": 500,
+    "image": "Images & Logos/products/PRD5.png",
+    "section": "sec5"
+  },
+  {
+    "id": 38,
+    "name": "Cream",
+    "price": 400,
+    "image": "Images & Logos/products/PRD5.png",
+    "section": "sec5"
+  },
+  {
+    "id": 39,
+    "name": "Ghee",
+    "price": 950,
+    "image": "Images & Logos/products/PRD5.png",
+    "section": "sec5"
+  },
+  {
+    "id": 40,
+    "name": "Paneer",
+    "price": 600,
+    "image": "Images & Logos/products/PRD5.png",
+    "section": "sec5"
+  },
+
+
+
+  {
+    "id": 41,
+    "name": "Coca Cola",
+    "price": 300,
+    "image": "Images & Logos/products/PRD6.png",
+    "section": "sec6"
+  },
+  {
+    "id": 42,
+    "name": "Pepsi",
+    "price": 290,
+    "image": "Images & Logos/products/PRD6.png",
+    "section": "sec6"
+  },
+  {
+    "id": 43,
+    "name": "Sprite",
+    "price": 280,
+    "image": "Images & Logos/products/PRD6.png",
+    "section": "sec6"
+  },
+  {
+    "id": 44,
+    "name": "Fanta",
+    "price": 270,
+    "image": "Images & Logos/products/PRD6.png",
+    "section": "sec6"
+  },
+  {
+    "id": 45,
+    "name": "Energy Drink",
+    "price": 550,
+    "image": "Images & Logos/products/PRD6.png",
+    "section": "sec6"
+  },
+  {
+    "id": 46,
+    "name": "Mineral Water",
+    "price": 100,
+    "image": "Images & Logos/products/PRD6.png",
+    "section": "sec6"
+  },
+  {
+    "id": 47,
+    "name": "Iced Tea",
+    "price": 350,
+    "image": "Images & Logos/products/PRD6.png",
+    "section": "sec6"
+  },
+  {
+    "id": 48,
+    "name": "Fruit Juice",
+    "price": 400,
+    "image": "Images & Logos/products/PRD6.png",
+    "section": "sec6"
+  }
+]
