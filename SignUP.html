@@ -9,6 +9,110 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="shortcut icon" href="Images & Logos/novax-black.png" type="image/x-icon">
     <title>Xpress Mart</title>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
+        import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
+        import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
+
+        //Firebase config
+        const firebaseConfig = {
+          apiKey: "AIzaSyBrl-0nPMZdoesAfmgch9jsvaAU2pbfFTs",
+          authDomain: "web-final-project-c9286.firebaseapp.com",
+          projectId: "web-final-project-c9286",
+          storageBucket: "web-final-project-c9286.firebasestorage.app",
+          messagingSenderId: "809040985043",
+          appId: "1:809040985043:web:9ef5ef5213573ac6b4cd26",
+          measurementId: "G-PMTD4Z4CKC"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        const googleProvider = new GoogleAuthProvider();
+
+        window.auth = auth;
+        window.googleProvider = googleProvider;
+        window.db = db;
+
+        // Function to save user data to Firestore
+        async function saveUserData(user) {
+            try {
+                await setDoc(doc(db, 'users', user.uid), {
+                    uid: user.uid,
+                    email: user.email,
+                    displayName: user.displayName,
+                    photoURL: user.photoURL,
+                    phoneNumber: user.phoneNumber || '',
+                    address: '', // Can be updated later
+                    createdAt: new Date().toISOString()
+                });
+                console.log('User data saved successfully');
+            } catch (error) {
+                console.error('Error saving user data:', error);
+            }
+        }
+
+        // Google Sign In
+        window.googleSignIn = async () => {
+            try {
+                const result = await signInWithPopup(auth, googleProvider);
+                const user = result.user;
+                await saveUserData(user);
+                alert('Google sign in successful!');
+                // Redirect or update UI as needed
+            } catch (error) {
+                console.error('Google sign in error:', error);
+                alert('Google sign in failed: ' + error.message);
+            }
+        };
+
+        // Email/Password Sign Up (existing form logic can be added here)
+        window.emailSignUp = async (email, password, phone, address) => {
+            try {
+                const result = await createUserWithEmailAndPassword(auth, email, password);
+                const user = result.user;
+                await saveUserData({
+                    ...user,
+                    phoneNumber: phone,
+                    address: address
+                });
+                alert('Email sign up successful!');
+                // Redirect or update UI as needed
+            } catch (error) {
+                console.error('Email sign up error:', error);
+                alert('Email sign up failed: ' + error.message);
+            }
+        };
+
+        // Email/Password Sign In (if needed)
+        window.emailSignIn = async (email, password) => {
+            try {
+                const result = await signInWithEmailAndPassword(auth, email, password);
+                const user = result.user;
+                // Data already saved on sign up, but can update if needed
+                alert('Email sign in successful!');
+                // Redirect or update UI as needed
+            } catch (error) {
+                console.error('Email sign in error:', error);
+                alert('Email sign in failed: ' + error.message);
+            }
+        };
+
+        // Listen to auth state changes
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log('User is signed in:', user);
+                // Update UI to show logged in state
+            } else {
+                console.log('User is signed out');
+                // Update UI to show logged out state
+            }
+        });
+    </script>
+
 </head>
 <body>
     <div class="signup-box">
@@ -53,6 +157,29 @@
 
       <button type="submit">SIGN UP</button>
     </form>
+    <div style="margin-top: 20px;">
+            <p>Or sign up with:</p>
+            <button type="button" onclick="googleSignIn()" style="background: #4285f4; color: white; border: none; padding: 10px; border-radius: 5px; margin: 5px; cursor: pointer;">
+                <i class="fab fa-google"></i> Google
+            </button>
+    </div>
+
   </div>
+  <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            if (password !== document.getElementById('confirmPassword').value) {
+                alert('Passwords do not match!');
+                return;
+            }
+            // Call the emailSignUp function
+            window.emailSignUp(email, password, phone, address);
+        });
+  </script>
+
 </body>
 </html>
