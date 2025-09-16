@@ -14,11 +14,16 @@
     --outline-hover: .2rem solid var(--dark);
 }
 
+nav {
+  margin-top: -82px;
+}
+
 .mainContainer {
     background-color: transparent;
     width: 100%;
     margin: 13.5vh 0 0 0;
-    position: absolute;
+    position: relative;
+    padding-top: 1px;
 }
 section{
     margin-top:4rem ;
@@ -33,7 +38,6 @@ section{
     width: 99.75%;
     margin: 50px 3px;
     border-radius: 20px;
-    top: 840%;
   }
   .leftcontent {
     position: absolute;
