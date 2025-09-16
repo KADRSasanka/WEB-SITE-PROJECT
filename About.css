@@ -89,3 +89,51 @@ td {
     margin: 0 auto;   /* center the text */
     
   }
+  /*===Footer===*/
+  .footer {
+    background-color: #328E6E;
+    color: white;
+    text-align: center;
+    padding: 215px 0;
+    position: relative;
+    width: 99.75%;
+    margin: 50px 3px;
+    border-radius: 20px;
+  }
+  .leftcontent {
+    position: absolute;
+    top: 45%;
+    left: 29px;
+    transform: translateY(-50%);
+    text-align: left;
+    width: 19%;
+  }
+  .leftcontent h3 {
+    margin-top: 18px;
+    left: 73px;
+    font-size: 46px;
+    font-weight: bold;
+    position:absolute;
+  }
+  .leftcontent p {
+
+    margin: 92px 0 0;
+    font-size: 20px;
+  }
+  .leftcontent table {
+    margin-top: 20px;
+  }
+  .footer-logo{
+    margin-top: 2%;
+    left: -3%;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+  }
+  .socialmedia {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin-right:15px;
+    margin-top: 20px;
+  }
