@@ -25,7 +25,7 @@ body {
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 4px 15px --box-shadow;
-  width: 32.5%;
+  width: 30%;
   /*border-top: 6px solid #22c55e;*/
   text-align: center;
   position: relative; /* Needed for close button */
@@ -37,7 +37,7 @@ body {
 }
 
 .signup-box h2 {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: var(--green);
   font-family: 'MonumentExtend';
   letter-spacing: 1.5px;
@@ -94,7 +94,7 @@ body {
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .signup-box button:hover {
@@ -102,6 +102,24 @@ body {
   color: var(--light);
   border: 1.5px solid var(--green);
 }
+/*
+p {
+  margin-bottom: 0.25rem;
+}
+.signup-box .googleButton {
+  border: 1.5px solid #4285f4;
+  background-color: transparent;
+  color: #4285f4;
+  padding: 10px; 
+  margin: 5px; 
+  cursor: pointer;
+}
+.signup-box .googleButton:hover {
+  border: 1.5px solid #4285f4;
+  background-color: #4285f4;
+  color: #F6F6F6;
+}
+*/
 
 /* Close button using Font Awesome */
 .close-btn {
