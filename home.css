@@ -420,6 +420,7 @@ nav .login-form a p:hover {
     box-shadow: var(--box-shadow);
     outline: 0.1rem solid rgb(100, 100, 100);
     text-align: center;
+    height: 100%;
     transition: transform 0.5s ease-out;
 }
 .item-catogory-section .box-container .box:hover {
