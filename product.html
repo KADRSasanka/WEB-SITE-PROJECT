@@ -11,6 +11,11 @@
     <title>Xpress Mart</title>
 </head>
 <body>
+    <!--Preloader -->
+    <div id="preloader" class="loader">
+        <div class="justify-content-center jimu-primary-loading"></div>
+    </div>
+
     <!--NAVIGATION BAR-->
     <nav>
         <img src="Images & Logos/novax-white.png" alt="Logos"> <!--LOGO-->
@@ -132,5 +137,12 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <!--Preloader Script -->
+    <script>
+        window.addEventListener("load", () => {
+        const loader = document.getElementById("preloader");
+        loader.classList.add("hidden"); // fade out
+        });
+    </script>
 </body>
 </html>

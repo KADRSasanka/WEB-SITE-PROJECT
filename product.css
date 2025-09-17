@@ -20,3 +20,56 @@
     margin: 13.5vh 0 0 0;
     position: absolute;
 }
+
+/* Loader */
+.loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #fff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.loader.hidden { opacity: 0; visibility: hidden; }
+
+/* Loader Animation (from Uiverse) */
+.jimu-primary-loading:before,
+.jimu-primary-loading:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.jimu-primary-loading:before { left: -19.992px; }
+.jimu-primary-loading:after {
+  left: 19.992px;
+  animation-delay: 0.32s !important;
+}
+.jimu-primary-loading:before,
+.jimu-primary-loading:after,
+.jimu-primary-loading {
+  background: #076fe5;
+  animation: loading-keys 0.8s infinite ease-in-out;
+  width: 13.6px; height: 32px;
+}
+.jimu-primary-loading {
+  margin: auto;
+  position: absolute;
+  right: calc(50% - 6.8px);
+  top: calc(50% - 16px);
+  animation-delay: 0.16s !important;
+}
+@keyframes loading-keys {
+  0%, 80%, 100% {
+    opacity: .75;
+    box-shadow: 0 0 #076fe5;
+    height: 32px;
+  }
+  40% {
+    opacity: 1;
+    box-shadow: 0 -8px #076fe5;
+    height: 40px;
+  }
+}
