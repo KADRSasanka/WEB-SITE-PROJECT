@@ -1,0 +1,3 @@
+-- products seed
+USE website_db;
+INSERT INTO products (name, description, price) VALUES ('Hellman''s Real Myonnaise', '', 499.0);\nINSERT INTO products (name, description, price) VALUES ('Dove Intense Repair Shampoo', '', 350.0);\nINSERT INTO products (name, description, price) VALUES ('Sparklin 1L Water Bottle', '', 580.7);\nINSERT INTO products (name, description, price) VALUES ('Chicken Wings', '', 660.0);\nINSERT INTO products (name, description, price) VALUES ('Tomato', '', 300.0);\nINSERT INTO products (name, description, price) VALUES ('Milka Alpine Choco Bar', '', 310.5);\nINSERT INTO products (name, description, price) VALUES ('Pedigree Vital Dog Food', '', 1800.0);\nINSERT INTO products (name, description, price) VALUES ('Chocolate Muffins', '', 170.0);\n

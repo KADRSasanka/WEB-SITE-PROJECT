@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="shortcut icon" href="Images & Logos/novax-black.png" type="image/x-icon">
     <title>Xpress Mart</title>
-    
 </head>
 <body>
     <div class="signup-box">
@@ -20,7 +19,7 @@
     </div>
 
     <h2>REGISTRATION</h2>
-    <form action="signUp.php" method="POST">
+    <form action="#">
       <div class="row">
         <div class="col">
           <!--<label for="firstname">First Name</label>-->
@@ -54,30 +53,6 @@
 
       <button type="submit">SIGN UP</button>
     </form>
-    <!--
-    <div style="margin-top: 15px;">
-            <p>Or sign up with:</p>
-            <button class="googleButton" type="button" onclick="googleSignIn()">
-                <i class="fab fa-google"></i> Google
-            </button>
-    </div>
-    -->
   </div>
-  <script>
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
-            if (password !== document.getElementById('confirmPassword').value) {
-                alert('Passwords do not match!');
-                return;
-            }
-            // Call the emailSignUp function
-            window.emailSignUp(email, password, phone, address);
-        });
-  </script>
-
 </body>
 </html>

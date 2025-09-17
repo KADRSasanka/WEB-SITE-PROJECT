@@ -34,9 +34,6 @@ body{
 nav {
     margin-top: -100px;
 }
-nav ul li, nav .icons div i {
-    font-size: 1.15rem;
-}
 .wrapper {
     max-width: 50%;
     margin: auto;
