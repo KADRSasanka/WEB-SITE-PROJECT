@@ -2,125 +2,89 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="semantic.css">
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="contact.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="shortcut icon" href="Images & Logos/novax-black.png" type="image/x-icon">
-    <title>Xpress Mart</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="semantic.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="shortcut icon" href="Images & Logos/novax-black.png" type="image/x-icon">
+  <title>Xpress Mart</title>
 </head>
 
 <body>
-    <!--NAVIGATION BAR-->
-    <nav>
-        <img src="Images & Logos/novax-white.png" alt="Logos"> <!--LOGO-->
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="index.html#categories">Categories</a></li>
-            <li><a href="product.html">Products</a></li>
-            <li><a href="index.html#review">Review</a></li>
-            <li><a href="FAQ.html">FAQs</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="icons">
-            <div><i class="fa-solid fa-bars" style="color: #ffffff;" id="btn"></i></div>
-            <div><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;" id="search-btn"></i></div>
-            <div><i class="fa-solid fa-cart-shopping" style="color: #ffffff;" id="cart-btn"></i><span
-                    class="cart-span">0</span></div>
-            <div><i class="fa-solid fa-circle-user" style="color: #ffffff;" id="login-btn"></i></div>
-        </div>
-        <form action="" class="search-form">
-            <input type="search" name="search-box" id="search-box" placeholder="search here...">
-            <label for="search-box" class="fa-solid fa-magnifying-glass"></label>
-        </form>
-        <div class="shopping-cart">
-            <div class="box">
-                <i class="fa-solid fa-trash" style="color: #062743;"></i>
-                <img src="Images & Logos/img1-watermelon.png" alt="Watermelon">
-                <div class="content">
-                    <h3>Watermelon</h3>
-                    <span class="price">LKR 160.00</span>
-                    <span class="quantity">Qty: 1</span>
-                </div>
-            </div>
-            <div class="box">
-                <i class="fa-solid fa-trash" style="color: #062743;"></i>
-                <img src="Images & Logos/img2-onion.png" alt="Watermelon">
-                <div class="content">
-                    <h3>Onion</h3>
-                    <span class="price">LKR 160.00</span>
-                    <span class="quantity">Qty: 1</span>
-                </div>
-            </div>
-            <div class="box">
-                <i class="fa-solid fa-trash" style="color: #062743;"></i>
-                <img src="Images & Logos/img3-chicken.png" alt="Watermelon">
-                <div class="content">
-                    <h3>Chicken</h3>
-                    <span class="price">LKR 160.00</span>
-                    <span class="quantity">Qty: 1</span>
-                </div>
-            </div>
-            <div class="total">TOTAL: LKR 650.58</div>
-            <a href="#" class="checkout-btn">CheckOut</a>
-        </div>
-        <form action="" class="login-form">
-            <h3>LOGIN NOW</h3>
-            <input type="email" placeholder="Your E-mail" class="box box1">
-            <input type="password" placeholder="Your Password" class="box box1">
-            <a href="#">
-                <p>Forgot My Password</p>
-            </a>
-            <a href="#">
-                <p>Dont Have an Account</p>
-            </a>
-            <input type="submit" value="LOG IN" class="checkout-btn">
-        </form>
-    </nav>
-    <!--NAVIGATION BAR END-->
-
-    <div class="contact-form">
-        <form action="POST">
-            <h1>Get In Touch With Us</h1>
-            <div class="contact-details">
-                <p>
-                    <label for="name">Full Name : </label>
-                    <input type="text" name="fname" id="fname" placeholder="Full Name">
-                </p>
-                <p>
-                    <label for="email">Email Address : </label>
-                    <input type="text" name="fname" id="fname" placeholder="Email Address">
-                </p>
-                <p>
-                    <label for="subject">Subject : </label>
-                    <input type="text" name="fname" id="fname" placeholder="Subject">
-                </p>
-                <p>
-                    <label for="message">Your Message : </label>
-                    <textarea id="message" name="message" rows="5" placeholder="Write your message here..."
-                        required></textarea>
-                </p>
-                <button class="send-button">Submit<i class="fa-solid fa-arrow-right"
-                        style="color: #ffffff;"></i></button>
-            </div>
-        </form>
+  <!--NAVIGATION BAR-->
+  <nav>
+    <img src="Images & Logos/novax-white.png" alt="Logos">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="index.html#categories">Categories</a></li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="index.html#review">Review</a></li>
+      <li><a href="FAQ.html">FAQs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="icons">
+      <div><i class="fa-solid fa-bars" style="color: #ffffff;" id="btn"></i></div>
+      <div><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;" id="search-btn"></i></div>
+      <div><i class="fa-solid fa-cart-shopping" style="color: #ffffff;" id="cart-btn"></i><span
+          class="cart-span">0</span></div>
+      <div><i class="fa-solid fa-circle-user" style="color: #ffffff;" id="login-btn"></i></div>
     </div>
+    <form action="" class="search-form">
+      <input type="search" name="search-box" id="search-box" placeholder="search here...">
+      <label for="search-box" class="fa-solid fa-magnifying-glass"></label>
+    </form>
+    <div class="shopping-cart"></div>
+    <form action="" class="login-form">
+      <h3>LOGIN NOW</h3>
+      <input type="email" placeholder="Your E-mail" class="box box1">
+      <input type="password" placeholder="Your Password" class="box box1">
+      <a href="#"><p>Forgot My Password</p></a>
+      <a href="#"><p>Dont Have an Account</p></a>
+      <input type="submit" value="LOG IN" class="checkout-btn">
+    </form>
+  </nav>
+  <!--NAVIGATION BAR END-->
 
-<!--FOOTER-->
-<div class="footer">
-  <div class="leftcontent" >
-    <img src="Images & Logos/novax-white.png" alt="Logo" class="footer-logo">
-    <h3 style="color: white;">XpressMart</h3>
-    <p style="color: white;">Your neighborhood partner for fresh, local, and sustainable groceries.</p>
-    
-    <img src="Images & Logos/facebook.png" alt="facebook" class="socialmedia">
-    <img src="Images & Logos/insta.png" alt="instagram" class="socialmedia">
-    <img src="Images & Logos/twitter.png" alt="twitter" class="socialmedia">
-    <img src="Images & Logos/printerest.png" alt="pinterest" class="socialmedia">
-    <img src="Images & Logos/yt.png" alt="youtube" class="socialmedia">
+  <!-- CONTACT FORM -->
+  <div class="contact-form">
+    <form id="contactForm">
+      <h1>Get In Touch With Us</h1>
+      <div class="contact-details">
+        <p>
+          <label for="name">Full Name : </label>
+          <input type="text" name="name" id="name" placeholder="Full Name" required>
+        </p>
+        <p>
+          <label for="email">Email Address : </label>
+          <input type="email" name="email" id="email" placeholder="Email Address" required>
+        </p>
+        <p>
+          <label for="subject">Subject : </label>
+          <input type="text" name="subject" id="subject" placeholder="Subject" required>
+        </p>
+        <p>
+          <label for="message">Your Message : </label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+        </p>
+        <button type="submit" class="send-button">Submit <i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i></button>
+      </div>
+    </form>
+  </div>
+
+  <!--FOOTER-->
+  <div class="footer">
+    <div class="leftcontent">
+      <img src="Images & Logos/novax-white.png" alt="Logo" class="footer-logo">
+      <h3 style="color: white;">XpressMart</h3>
+      <p style="color: white;">Your neighborhood partner for fresh, local, and sustainable groceries.</p>
+      <img src="Images & Logos/facebook.png" alt="facebook" class="socialmedia">
+      <img src="Images & Logos/insta.png" alt="instagram" class="socialmedia">
+      <img src="Images & Logos/twitter.png" alt="twitter" class="socialmedia">
+      <img src="Images & Logos/printerest.png" alt="pinterest" class="socialmedia">
+      <img src="Images & Logos/yt.png" alt="youtube" class="socialmedia">
     </div>
     <div class="rightcontent">
       <div class="sha">
@@ -132,35 +96,68 @@
             <td><h3 style="color: white;">Contact info</h3></td>
           </tr>
           <tr>
-            <td><a href="#"style="color: white;">About Us</a></td>
-            <td><a href="#"style="color: white;">My Account</a></td>
-            <td><a href="#"style="color: white;">Privacy</a></td>
-            <td><a href="#"style="color: white;">033-1122334</a></td>
+            <td><a href="#" style="color: white;">About Us</a></td>
+            <td><a href="#" style="color: white;">My Account</a></td>
+            <td><a href="#" style="color: white;">Privacy</a></td>
+            <td><a href="#" style="color: white;">033-1122334</a></td>
           </tr>
           <tr>
-            <td><a href="#"style="color: white;">Contact Us</a></td>
-            <td><a href="#"style="color: white;">Track your Order</a></td>
-            <td><a href="#"style="color: white;">Terms & Conditions</a></td>
-            <td><a href="#"style="color: white;">Xpressmart@gamil.com</a></td>
+            <td><a href="#" style="color: white;">Contact Us</a></td>
+            <td><a href="#" style="color: white;">Track your Order</a></td>
+            <td><a href="#" style="color: white;">Terms & Conditions</a></td>
+            <td><a href="#" style="color: white;">Xpressmart@gamil.com</a></td>
           </tr>
           <tr>
-            <td><a href="#"style="color: white;">Careers</a></td>
-            <td><a href="#"style="color: white;">FAQ</a></td>
-            <td><a href="#"style="color: white;">Contact Us</a></td>
-            <td><a href="#"style="color: white;">226/1, Pitipana North, Homagama.</a></td>
-
+            <td><a href="#" style="color: white;">Careers</a></td>
+            <td><a href="#" style="color: white;">FAQ</a></td>
+            <td><a href="#" style="color: white;">Contact Us</a></td>
+            <td><a href="#" style="color: white;">226/1, Pitipana North, Homagama.</a></td>
+          </tr>
         </table>
       </div>
     </div>
-<hr>
-<h4 style="color: white;">Copyright 2025 <span>XpressMart</span> Rights Recieved.</h4>
-<div class="copyright">
-<img src="Images & Logos/copyright.png  " class="copyright" alt="copyright">
-</div>
-</div>
-<!--FOOTER END-->
-    <script src="script.js"></script>
+    <hr>
+    <h4 style="color: white;">Copyright 2025 <span>XpressMart</span> Rights Reserved.</h4>
+    <div class="copyright">
+      <img src="Images & Logos/copyright.png" class="copyright" alt="copyright">
+    </div>
+  </div>
+  <!--FOOTER END-->
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const subject = document.getElementById("subject").value;
+      const message = document.getElementById("message").value;
+
+      const telegramBotToken = '8408270336:AAEFM_XhT8ASAPv9gKlalHDoX2ROaB8pSaY';
+      const chatId = '1316864152';
+
+      const textMessage = 
+        `📩 New Contact Form Submission:\n\n👤 Name: ${name}\n📧 Email: ${email}\n📝 Subject: ${subject}\n💬 Message: ${message}`;
+
+      fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text: textMessage })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok) {
+          alert("✅ Message sent successfully!");
+          document.getElementById("contactForm").reset();
+        } else {
+          alert("❌ Failed to send message.");
+        }
+      })
+      .catch(err => {
+        console.error("Error:", err);
+        alert("⚠️ Error sending message.");
+      });
+    });
+  </script>
 </body>
-
-
 </html>
