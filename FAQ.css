@@ -104,3 +104,6 @@ nav ul li, nav .icons div i {
 .faq.active {
     border: none;
 }
+.footer {
+    margin-bottom: 0;
+}

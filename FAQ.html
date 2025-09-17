@@ -17,15 +17,15 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="About.html">About</a></li>
             <li><a href="index.html#categories">Categories</a></li>
-            <li><a href="product.html">Products</a></li>
+            <li><a href="#">Products</a></li>
             <li><a href="index.html#review">Review</a></li>
-            <li><a href="#">FAQs</a></li>
+            <li><a href="FAQ.html">FAQs</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="icons">
             <div><i class="fa-solid fa-bars" style="color: #ffffff;" id="btn"></i></div>
             <div><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;" id="search-btn"></i></div>
-            <div><i class="fa-solid fa-cart-shopping" style="color: #ffffff;" id="cart-btn"></i><span class="cart-span">0</span></div>
+            <div class="icon-cart"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;" id="cart-btn"></i><span class="cart-span">0</span></div>
             <div><i class="fa-solid fa-circle-user" style="color: #ffffff;" id="login-btn"></i></div>
         </div>
         <form action="" class="search-form">
@@ -34,34 +34,23 @@
         </form>
         <div class="shopping-cart">
             <div class="box">
-                <i class="fa-solid fa-trash" style="color: #062743;"></i>
-                <img src="Images & Logos/img1-watermelon.png" alt="Watermelon">
-                <div class="content">
-                    <h3>Watermelon</h3>
-                    <span class="price">LKR 160.00</span>
-                    <span class="quantity">Qty: 1</span>
+                <div class="item">
+                    <!--
+                    <div class="product-image"><img src="Images & Logos/products/pr1.png"></div>
+                    <div class="name">Name</div>
+                    <div class="price">LKR 499/-</div>
+                    <div class="quantity">
+                        <span class="minus">-</span>
+                        <span>1</span>
+                        <span class="plus">+</span>
+                    </div>
+                    -->
                 </div>
             </div>
-            <div class="box">
-                <i class="fa-solid fa-trash" style="color: #062743;"></i>
-                <img src="Images & Logos/img2-onion.png" alt="Watermelon">
-                <div class="content">
-                    <h3>Onion</h3>
-                    <span class="price">LKR 160.00</span>
-                    <span class="quantity">Qty: 1</span>
-                </div>
-            </div>
-            <div class="box">
-                <i class="fa-solid fa-trash"  style="color: #062743;"></i>
-                <img src="Images & Logos/img3-chicken.png" alt="Watermelon">
-                <div class="content">
-                    <h3>Chicken</h3>
-                    <span class="price">LKR 160.00</span>
-                    <span class="quantity">Qty: 1</span>
-                </div>
-            </div>
-            <div class="total">TOTAL: LKR 650.58</div>
-            <a href="#" class="checkout-btn">CheckOut</a>
+            
+            <div class="total">TOTAL: LKR 0.00</div>
+            <button class="checkout-btn">CheckOut</button>
+            
         </div>
         <form action="" class="login-form">
             <h3>LOGIN NOW</h3>
@@ -138,6 +127,57 @@
                 <p>Absolutely! Our customer support team is available 24/7 via live chat, email, or phone.</p>
             </div>
         </div>  
+    </div>
+    <!--FOOTER-->
+  <div class="footer">
+    <div class="leftcontent">
+      <img src="Images & Logos/novax-white.png" alt="Logo" class="footer-logo">
+      <h3 style="color: white;">XpressMart</h3>
+      <p style="color: white;">Your neighborhood partner for fresh, local, and sustainable groceries.</p>
+      <img src="Images & Logos/facebook.png" alt="facebook" class="socialmedia">
+      <img src="Images & Logos/insta.png" alt="instagram" class="socialmedia">
+      <img src="Images & Logos/twitter.png" alt="twitter" class="socialmedia">
+      <img src="Images & Logos/printerest.png" alt="pinterest" class="socialmedia">
+      <img src="Images & Logos/yt.png" alt="youtube" class="socialmedia">
+    </div>
+    <div class="rightcontent">
+      <div class="sha">
+        <table>
+          <tr>
+            <td><h3 style="color: white;">Company</h3></td>
+            <td><h3 style="color: white;">Customer Services</h3></td>
+            <td><h3 style="color: white;">Our Information</h3></td>
+            <td><h3 style="color: white;">Contact info</h3></td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color: white;">About Us</a></td>
+            <td><a href="#" style="color: white;">My Account</a></td>
+            <td><a href="#" style="color: white;">Privacy</a></td>
+            <td><a href="#" style="color: white;">033-1122334</a></td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color: white;">Contact Us</a></td>
+            <td><a href="#" style="color: white;">Track your Order</a></td>
+            <td><a href="#" style="color: white;">Terms & Conditions</a></td>
+            <td><a href="#" style="color: white;">Xpressmart@gamil.com</a></td>
+          </tr>
+          <tr>
+            <td><a href="#" style="color: white;">Careers</a></td>
+            <td><a href="#" style="color: white;">FAQ</a></td>
+            <td><a href="#" style="color: white;">Contact Us</a></td>
+            <td><a href="#" style="color: white;">226/1, Pitipana North, Homagama.</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <hr>
+    <h4 style="color: white;">Copyright 2025 <span>XpressMart</span> Rights Reserved.</h4>
+    <div class="copyright">
+      <img src="Images & Logos/copyright.png" class="copyright" alt="copyright">
+    </div>
+  </div>
+  <!--FOOTER END-->
+        
         
         <script>
             var acc = document.getElementsByClassName
@@ -161,6 +201,6 @@
                 });
             }
         </script>
-        
+        <script src="script.js"></script>
     </body>
 </html>
