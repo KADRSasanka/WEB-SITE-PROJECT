@@ -220,10 +220,11 @@ document.getElementById("reviewLink").addEventListener("click", function(e) {
 // Add this to your existing script.js file
 
 // Admin credentials (in a real application, this would be handled server-side)
+/*
 const adminCredentials = {
     email: 'admin@xpressmart.lk',
     password: 'admin123'
-};
+};*/
 
 // Enhanced login form handling
 document.addEventListener('DOMContentLoaded', function() {
