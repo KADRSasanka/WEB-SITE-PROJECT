@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'MonumentExtend';
     src: url(MonumentExtended-Regular.otf);
@@ -33,6 +34,9 @@ body{
 }
 nav {
     margin-top: -100px;
+}
+nav ul li, nav .icons div i {
+    font-size: 1.15rem;
 }
 .wrapper {
     max-width: 50%;
@@ -100,4 +104,8 @@ nav {
 
 .faq.active {
     border: none;
+}
+.footer {
+    margin-bottom: 0;
+
 }
