@@ -8,7 +8,311 @@
     <link rel="stylesheet" href="product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="shortcut icon" href="Images & Logos/novax-black.png" type="image/x-icon">
-    <title>Xpress Mart</title>
+    <title>Products - Xpress Mart</title>
+    <style>
+        /* Enhanced login form styles */
+        .login-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .login-form h3 {
+            color: #2c3e50;
+            margin-bottom: 5px; 
+            margin-top: 3px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .admin-section {
+            border-top: 2px solid #ecf0f1;
+            margin-top: 20px;
+            padding-top: 20px;
+        }
+
+        .admin-section h4 {
+            color: #27ae60;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .admin-login-btn {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .admin-login-btn:hover {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .error-message {
+            color: #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+
+        .success-message {
+            color: #27ae60;
+            background: rgba(39, 174, 96, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            border: 1px solid rgba(39, 174, 96, 0.2);
+        }
+
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid #27ae60;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Product loading styles */
+        .product-loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #27ae60;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Product card styles */
+        .productCard {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            margin: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .productCard:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .productCard .product-image {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .productCard .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .productCard:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .productCard h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .productCard .price {
+            color: #27ae60;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .productCard .buy-now {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            width: 100%;
+        }
+
+        .productCard .buy-now:hover {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            transform: translateY(-2px);
+        }
+
+        /* No products message */
+        .no-products {
+            text-align: center;
+            padding: 50px 20px;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        .no-products i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #bdc3c7;
+        }
+
+        /* Responsive grid */
+        .productContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .productContainer {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+            }
+        }
+
+        /* FIXED CART STYLING */
+        .shopping-cart .box .item {
+            display: block !important;
+            flex-direction: column !important;
+        }
+
+        .shopping-cart .item .cart-item {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            width: 100% !important;
+            margin-bottom: 10px !important;
+            padding: 8px !important;
+            border-bottom: 1px solid #eee !important;
+            box-sizing: border-box !important;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .cart-item .product-image {
+            width: 40px !important;
+            height: 40px !important;
+            margin-right: 8px !important;
+            flex-shrink: 0 !important;
+        }
+
+        .cart-item .product-image img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 4px !important;
+        }
+
+        .cart-item .item-info {
+            flex: 1 !important;
+            margin-right: 5px !important;
+        }
+
+        .cart-item .name {
+            font-size: 0.8rem !important;
+            font-weight: 600 !important;
+            margin-bottom: 2px !important;
+            line-height: 1.1 !important;
+        }
+
+        .cart-item .price {
+            font-size: 0.75rem !important;
+            color: #27ae60 !important;
+        }
+
+        .cart-item .controls {
+            display: flex !important;
+            align-items: center !important;
+            gap: 4px !important;
+        }
+
+        .cart-item .quantity {
+            display: flex !important;
+            align-items: center !important;
+            gap: 2px !important;
+        }
+
+        .cart-item .quantity span {
+            background: #f0f0f0 !important;
+            padding: 2px 6px !important;
+            border-radius: 3px !important;
+            font-size: 0.7rem !important;
+            cursor: pointer !important;
+            user-select: none !important;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .cart-item .remove-btn {
+            background: #e74c3c !important;
+            color: white !important;
+            border: none !important;
+            padding: 2px 6px !important;
+            border-radius: 3px !important;
+            font-size: 0.7rem !important;
+            cursor: pointer !important;
+            margin-left: 4px !important;
+            min-width: 20px;
+        }
+
+        .cart-item .remove-btn:hover {
+            background: #c0392b !important;
+        }
+    </style>
 </head>
 <body>
     <!--NAVIGATION BAR-->
@@ -36,16 +340,7 @@
         <div class="shopping-cart">
             <div class="box">
                 <div class="item">
-                    <!--
-                    <div class="product-image"><img src="Images & Logos/products/pr1.png"></div>
-                    <div class="name">Name</div>
-                    <div class="price">LKR 499/-</div>
-                    <div class="quantity">
-                        <span class="minus">-</span>
-                        <span>1</span>
-                        <span class="plus">+</span>
-                    </div>
-                    -->
+                    <!-- Cart items will be populated dynamically -->
                 </div>
             </div>
             
@@ -53,17 +348,31 @@
             <button class="checkout-btn">CheckOut</button>
             
         </div>
-        <form action="" class="login-form">
+        <form class="login-form" id="loginForm">
+            <div id="loginMessage"></div>
             <h3>LOGIN NOW</h3>
-            <input type="email" placeholder="Your E-mail" class="box box1">
-            <input type="password" placeholder="Your Password" class="box box1">
+            
+            <!-- Regular User Login -->
+            <input type="email" placeholder="Your E-mail" class="box box1" id="userEmail">
+            <input type="password" placeholder="Your Password" class="box box1" id="userPassword">
             <a href="#">
                 <p>Forgot My Password</p>
             </a>
             <a href="SignUP.html">
                 <p>Dont Have an Account</p>
             </a>
-            <input type="submit" value="LOG IN" class="checkout-btn">
+            <input type="submit" value="LOG IN" class="checkout-btn" id="userLoginBtn">
+            
+            <!-- Admin Login Section -->
+            <div class="admin-section">
+                <h4><i class="fas fa-shield-alt"></i>Admin Access</h4>
+                <input type="text" placeholder="Admin Username" class="box box1" id="adminUsername">
+                <input type="password" placeholder="Admin Password" class="box box1" id="adminPassword">
+                <button type="button" class="admin-login-btn" id="adminLoginBtn">
+                    <i class="fas fa-user-cog"></i>
+                    Admin Login
+                </button>
+            </div>
         </form>
     </nav>
     <!--NAVIGATION BAR END-->
@@ -73,43 +382,61 @@
         <!--PRODUCT SECTION1-->
         <section id="sec1">
             <p class="heading1">Fish & <span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Meat</span></p>
-            <div class="productContainer">
-                
+            <div class="productContainer" data-category="Fish & Meat">
+                <div class="product-loading">
+                    <div class="spinner"></div>
+                    <p>Loading Fish & Meat products...</p>
+                </div>
             </div>
         </section>
         <!--PRODUCT SECTION2-->
         <section id="sec2">
             <p class="heading1">Fruits & <span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Vegetables</span></p>
-            <div class="productContainer">
-                
+            <div class="productContainer" data-category="Fruits & Vegetables">
+                <div class="product-loading">
+                    <div class="spinner"></div>
+                    <p>Loading Fruits & Vegetables...</p>
+                </div>
             </div>
         </section>
         <!--PRODUCT SECTION3-->
         <section id="sec3">
             <p class="heading1">Bakery Items & <span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Cakes</span></p>
-            <div class="productContainer">
-                
+            <div class="productContainer" data-category="Bakery Items & Cakes">
+                <div class="product-loading">
+                    <div class="spinner"></div>
+                    <p>Loading Bakery Items & Cakes...</p>
+                </div>
             </div>
         </section>
         <!--PRODUCT SECTION4-->
         <section id="sec4">
             <p class="heading1">Dairy Products & <span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Protein</span></p>
-            <div class="productContainer">
-                
+            <div class="productContainer" data-category="Dairy Products & Protein">
+                <div class="product-loading">
+                    <div class="spinner"></div>
+                    <p>Loading Dairy Products & Protein...</p>
+                </div>
             </div>
         </section>
         <!--PRODUCT SECTION5-->
         <section id="sec5">
             <p class="heading1">Household <span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Materials</span></p>
-            <div class="productContainer">
-                
+            <div class="productContainer" data-category="Household Materials">
+                <div class="product-loading">
+                    <div class="spinner"></div>
+                    <p>Loading Household Materials...</p>
+                </div>
             </div>
         </section>
         <!--PRODUCT SECTION6-->
         <section id="sec6">
             <p class="heading1">Processed <span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Foods</span></p>
-            <div class="productContainer">
-                
+            <div class="productContainer" data-category="Processed Foods">
+                <div class="product-loading">
+                    <div class="spinner"></div>
+                    <p>Loading Processed Foods...</p>
+                </div>
             </div>
         </section>
     </div>
@@ -136,21 +463,21 @@
                 <td><h3 style="color: white;">Contact info</h3></td>
             </tr>
             <tr>
-                <td><a href="#"style="color: white;">About Us</a></td>
+                <td><a href="About.html"style="color: white;">About Us</a></td>
                 <td><a href="#"style="color: white;">My Account</a></td>
                 <td><a href="#"style="color: white;">Privacy</a></td>
                 <td><a href="#"style="color: white;">033-1122334</a></td>
             </tr>
             <tr>
-                <td><a href="#"style="color: white;">Contact Us</a></td>
+                <td><a href="contact.html"style="color: white;">Contact Us</a></td>
                 <td><a href="#"style="color: white;">Track your Order</a></td>
-                <td><a href="#"style="color: white;">Terms & Conditions</a></td>
-                <td><a href="#"style="color: white;">Xpressmart@gamil.com</a></td>
+                <td><a href="FAQ.html"style="color: white;">Terms & Conditions</a></td>
+                <td><a href="mailto:Xpressmart@gamil.com" style="color: white;">Xpressmart@gamil.com</a></td>
             </tr>
             <tr>
                 <td><a href="#"style="color: white;">Careers</a></td>
-                <td><a href="#"style="color: white;">FAQ</a></td>
-                <td><a href="#"style="color: white;">Contact Us</a></td>
+                <td><a href="FAQ.html"style="color: white;">FAQ</a></td>
+                <td><a href="contact.html"style="color: white;">Contact Us</a></td>
                 <td><a href="#"style="color: white;">226/1, Pitipana North, Homagama.</a></td>
 
             </table>
@@ -164,6 +491,477 @@
     </div>
     <!--FOOTER END-->
 
-    <script src="product.js"></script>
+    <script>
+        // Global variables
+        let allProducts = [];
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Category mapping for database
+        const categoryMapping = {
+            'Fish & Meat': 'sec1',
+            'Fruits & Vegetables': 'sec2', 
+            'Bakery Items & Cakes': 'sec3',
+            'Dairy Products & Protein': 'sec4',
+            'Household Materials': 'sec5',
+            'Processed Foods': 'sec6'
+        };
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAllProducts();
+            updateCartDisplay();
+            initializeNavigation();
+            initializeAdminLogin();
+            
+            // Handle URL hash navigation
+            if (window.location.hash) {
+                const targetElement = document.querySelector(window.location.hash);
+                if (targetElement) {
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }, 500);
+                }
+            }
+        });
+
+        // Load all products from database
+        function loadAllProducts() {
+            console.log('Loading products from database...');
+            
+            fetch('get_data.php?type=products&status=active')
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Products data received:', data);
+                    if (data.success && data.data && data.data.length > 0) {
+                        allProducts = data.data;
+                        displayProductsByCategory();
+                    } else {
+                        console.log('No products found, loading static fallback');
+                        loadStaticProducts();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading products:', error);
+                    console.log('Loading static fallback products');
+                    loadStaticProducts();
+                });
+        }
+
+        // Display products by category
+        function displayProductsByCategory() {
+            // Group products by category
+            const productsByCategory = {};
+            
+            allProducts.forEach(product => {
+                const category = product.category;
+                if (!productsByCategory[category]) {
+                    productsByCategory[category] = [];
+                }
+                productsByCategory[category].push(product);
+            });
+
+            // Display products in each section
+            Object.keys(categoryMapping).forEach(category => {
+                const sectionId = categoryMapping[category];
+                const container = document.querySelector(`#${sectionId} .productContainer`);
+                const products = productsByCategory[category] || [];
+                
+                if (products.length > 0) {
+                    container.innerHTML = products.map(product => createProductCard(product)).join('');
+                } else {
+                    container.innerHTML = `
+                        <div class="no-products">
+                            <i class="fas fa-box-open"></i>
+                            <p>No products available in ${category}</p>
+                        </div>
+                    `;
+                }
+            });
+        }
+
+        // Create product card HTML
+        function createProductCard(product) {
+            return `
+                <div class="productCard">
+                    <div class="product-image">
+                        <img src="${product.image || 'Images & Logos/products/pr1.png'}" alt="${product.name}" onerror="this.src='Images & Logos/products/pr1.png'">
+                    </div>
+                    <h3>${product.name}</h3>
+                    <p class="price">LKR ${parseFloat(product.price).toFixed(2)}</p>
+                    <button class="buy-now" onclick="addToCart(${product.id})">
+                        <i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart
+                    </button>
+                </div>
+            `;
+        }
+
+        // Static fallback products
+        function loadStaticProducts() {
+            const staticProducts = [
+                // Fish & Meat
+                {id: 1, name: "Salmon", price: 645, image: "Images & Logos/products/productPage/P1.png", category: "Fish & Meat"},
+                {id: 2, name: "Chicken Breast", price: 1200, image: "Images & Logos/products/productPage/P2.png", category: "Fish & Meat"},
+                {id: 3, name: "Mutton", price: 2300, image: "Images & Logos/products/productPage/P3.png", category: "Fish & Meat"},
+                {id: 4, name: "Prawns", price: 1900, image: "Images & Logos/products/productPage/P4.png", category: "Fish & Meat"},
+                {id: 5, name: "Beef Steak", price: 3200, image: "Images & Logos/products/productPage/P5.png", category: "Fish & Meat"},
+                {id: 6, name: "Tuna", price: 1990, image: "Images & Logos/products/productPage/P6.png", category: "Fish & Meat"},
+                {id: 7, name: "Duck Meat", price: 4200, image: "Images & Logos/products/productPage/P7.png", category: "Fish & Meat"},
+                {id: 8, name: "Crab", price: 2600, image: "Images & Logos/products/productPage/P8.png", category: "Fish & Meat"},
+                
+                // Fruits & Vegetables
+                {id: 9, name: "Strawberry", price: 750, image: "Images & Logos/products/productPage/P9.png", category: "Fruits & Vegetables"},
+                {id: 10, name: "Grapes", price: 1400, image: "Images & Logos/products/productPage/P10.png", category: "Fruits & Vegetables"},
+                {id: 11, name: "Apple", price: 450, image: "Images & Logos/products/productPage/P11.png", category: "Fruits & Vegetables"},
+                {id: 12, name: "Banana", price: 380, image: "Images & Logos/products/productPage/P12.png", category: "Fruits & Vegetables"},
+                {id: 13, name: "Pineapple", price: 624, image: "Images & Logos/products/productPage/P13.png", category: "Fruits & Vegetables"},
+                {id: 14, name: "Pumpkin", price: 400, image: "Images & Logos/products/productPage/P14.png", category: "Fruits & Vegetables"},
+                {id: 15, name: "Tomato", price: 140, image: "Images & Logos/products/productPage/P15.png", category: "Fruits & Vegetables"},
+                {id: 16, name: "Carrot", price: 390, image: "Images & Logos/products/productPage/P16.png", category: "Fruits & Vegetables"},
+
+                // Bakery Items & Cakes
+                {id: 17, name: "Muffin", price: 240, image: "Images & Logos/products/productPage/P17.png", category: "Bakery Items & Cakes"},
+                {id: 18, name: "Cheese Cake", price: 620, image: "Images & Logos/products/productPage/P18.png", category: "Bakery Items & Cakes"},
+                {id: 19, name: "Donut", price: 250, image: "Images & Logos/products/productPage/P19.png", category: "Bakery Items & Cakes"},
+                {id: 20, name: "Chocolate Cake", price: 180, image: "Images & Logos/products/productPage/P20.png", category: "Bakery Items & Cakes"},
+                {id: 21, name: "Mini Pizza", price: 300, image: "Images & Logos/products/productPage/P21.png", category: "Bakery Items & Cakes"},
+                {id: 22, name: "Fish Roll", price: 120, image: "Images & Logos/products/productPage/P22.png", category: "Bakery Items & Cakes"},
+                {id: 23, name: "Shawarma", price: 340, image: "Images & Logos/products/productPage/P23.png", category: "Bakery Items & Cakes"},
+                {id: 24, name: "Hot Dog", price: 350, image: "Images & Logos/products/productPage/P24.png", category: "Bakery Items & Cakes"},
+
+                // Dairy Products & Protein
+                {id: 25, name: "Cheese", price: 1200, image: "Images & Logos/products/productPage/P25.png", category: "Dairy Products & Protein"},
+                {id: 26, name: "Yoghurt", price: 70, image: "Images & Logos/products/productPage/P26.png", category: "Dairy Products & Protein"},
+                {id: 27, name: "Butter", price: 960, image: "Images & Logos/products/productPage/P27.png", category: "Dairy Products & Protein"},
+                {id: 28, name: "Milk Powder", price: 1200, image: "Images & Logos/products/productPage/P28.png", category: "Dairy Products & Protein"},
+                {id: 29, name: "Ice-Cream", price: 495, image: "Images & Logos/products/productPage/P29.png", category: "Dairy Products & Protein"},
+                {id: 30, name: "Curd", price: 680, image: "Images & Logos/products/productPage/P30.png", category: "Dairy Products & Protein"},
+                {id: 31, name: "Fresh Milk", price: 600, image: "Images & Logos/products/productPage/P31.png", category: "Dairy Products & Protein"},
+                {id: 32, name: "Ghee", price: 650, image: "Images & Logos/products/productPage/P32.png", category: "Dairy Products & Protein"},
+
+                // Household Materials
+                {id: 33, name: "Dishwash Liquid", price: 425, image: "Images & Logos/products/productPage/P33.png", category: "Household Materials"},
+                {id: 34, name: "Mop", price: 1300, image: "Images & Logos/products/productPage/P34.png", category: "Household Materials"},
+                {id: 35, name: "Toilet Paper", price: 575, image: "Images & Logos/products/productPage/P35.png", category: "Household Materials"},
+                {id: 36, name: "Broom", price: 950, image: "Images & Logos/products/productPage/P36.png", category: "Household Materials"},
+                {id: 37, name: "Shampoo", price: 510, image: "Images & Logos/products/productPage/P37.png", category: "Household Materials"},
+                {id: 38, name: "Soap Bar", price: 290, image: "Images & Logos/products/productPage/P38.png", category: "Household Materials"},
+                {id: 39, name: "Toothpaste", price: 280, image: "Images & Logos/products/productPage/P39.png", category: "Household Materials"},
+                {id: 40, name: "Washing Powder", price: 320, image: "Images & Logos/products/productPage/P40.png", category: "Household Materials"},
+
+                // Processed Foods
+                {id: 41, name: "Energy Drink", price: 750, image: "Images & Logos/products/productPage/P41.png", category: "Processed Foods"},
+                {id: 42, name: "Coca Cola", price: 480, image: "Images & Logos/products/productPage/P42.png", category: "Processed Foods"},
+                {id: 43, name: "Iced Tea", price: 230, image: "Images & Logos/products/productPage/P43.png", category: "Processed Foods"},
+                {id: 44, name: "Mineral Water", price: 120, image: "Images & Logos/products/productPage/P44.png", category: "Processed Foods"},
+                {id: 45, name: "Corn Flakes", price: 1250, image: "Images & Logos/products/productPage/P45.png", category: "Processed Foods"},
+                {id: 46, name: "Biscuit", price: 359, image: "Images & Logos/products/productPage/P46.png", category: "Processed Foods"},
+                {id: 47, name: "Instant Noodles", price: 130, image: "Images & Logos/products/productPage/P47.png", category: "Processed Foods"},
+                {id: 48, name: "Sugar", price: 297, image: "Images & Logos/products/productPage/P48.png", category: "Processed Foods"}
+            ];
+
+            allProducts = staticProducts;
+            displayProductsByCategory();
+        }
+
+        // FIXED Shopping cart functionality
+        function updateCartDisplay() {
+            const cartSpan = document.querySelector('.cart-span');
+            const cartContainer = document.querySelector('.shopping-cart .item');
+            const totalElement = document.querySelector('.total');
+            
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartSpan.textContent = totalItems;
+            
+            // Update cart items display
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p style="padding: 20px; text-align: center; color: #666;">Your cart is empty</p>';
+                totalElement.textContent = 'TOTAL: LKR 0.00';
+                return;
+            }
+            
+            cartContainer.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="product-image">
+                        <img src="${item.image}" onerror="this.src='Images & Logos/products/pr1.png'">
+                    </div>
+                    <div class="item-info">
+                        <div class="name">${item.name}</div>
+                        <div class="price">LKR ${parseFloat(item.price).toFixed(2)}</div>
+                    </div>
+                    <div class="controls">
+                        <div class="quantity">
+                            <span onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})">-</span>
+                            <span>${item.quantity}</span>
+                            <span onclick="updateCartQuantity(${item.id}, ${item.quantity + 1})">+</span>
+                        </div>
+                        <button class="remove-btn" onclick="removeFromCart(${item.id})">×</button>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            totalElement.textContent = `TOTAL: LKR ${total.toFixed(2)}`;
+        }
+
+        // Add to cart functionality
+        function addToCart(productId) {
+            console.log('Adding product ID:', productId);
+            
+            // Find product in the loaded products
+            const product = allProducts.find(p => parseInt(p.id) === parseInt(productId));
+            if (!product) {
+                alert('Product not found');
+                return;
+            }
+            
+            // Check if product already in cart
+            const existingItem = cart.find(item => parseInt(item.id) === parseInt(productId));
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: parseInt(product.id),
+                    name: product.name,
+                    price: parseFloat(product.price),
+                    image: product.image || 'Images & Logos/products/pr1.png',
+                    quantity: 1
+                });
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+            
+            // Show success message
+            showMessage(`${product.name} added to cart!`, 'success');
+        }
+
+        // Update cart item quantity
+        function updateCartQuantity(productId, newQuantity) {
+            console.log('Updating quantity for product ID:', productId, 'to:', newQuantity);
+            
+            if (newQuantity <= 0) {
+                removeFromCart(productId);
+                return;
+            }
+            
+            const item = cart.find(item => parseInt(item.id) === parseInt(productId));
+            if (item) {
+                item.quantity = newQuantity;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+            }
+        }
+
+        // FIXED Remove item from cart
+        function removeFromCart(productId) {
+            console.log('Removing product ID:', productId);
+            console.log('Cart before removal:', cart);
+            
+            const originalLength = cart.length;
+            cart = cart.filter(item => parseInt(item.id) !== parseInt(productId));
+            
+            console.log('Cart after removal:', cart);
+            console.log('Items removed:', originalLength - cart.length);
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        // Clear entire cart (utility function)
+        function clearCart() {
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        // Checkout functionality
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            alert(`Checkout functionality would process:\n${itemCount} items\nTotal: LKR ${total.toFixed(2)}\n\nThis would redirect to payment page.`);
+        });
+
+        // Initialize navigation functionality
+        function initializeNavigation() {
+            let navbar = document.querySelector('nav');
+            let searchForm = document.querySelector('.search-form');
+            let cartItem = document.querySelector('.shopping-cart');
+            let loginForm = document.querySelector('.login-form');
+
+            // Menu toggle
+            document.querySelector('#btn').onclick = () => {
+                navbar.classList.toggle('active');
+                searchForm.classList.remove('active');
+                cartItem.classList.remove('active');
+                loginForm.classList.remove('active');
+            }
+
+            // Search toggle
+            document.querySelector('#search-btn').onclick = () => {
+                searchForm.classList.toggle('active');
+                navbar.classList.remove('active');
+                cartItem.classList.remove('active');
+                loginForm.classList.remove('active');
+            }
+
+            // Cart toggle
+            document.querySelector('#cart-btn').onclick = () => {
+                cartItem.classList.toggle('active');
+                navbar.classList.remove('active');
+                searchForm.classList.remove('active');
+                loginForm.classList.remove('active');
+            }
+
+            // Login toggle
+            document.querySelector('#login-btn').onclick = () => {
+                loginForm.classList.toggle('active');
+                navbar.classList.remove('active');
+                searchForm.classList.remove('active');
+                cartItem.classList.remove('active');
+            }
+
+            // Close all when scrolling
+            window.onscroll = () => {
+                navbar.classList.remove('active');
+                searchForm.classList.remove('active');
+                cartItem.classList.remove('active');
+                loginForm.classList.remove('active');
+            }
+        }
+
+        // Initialize admin login functionality
+        function initializeAdminLogin() {
+            // Admin login functionality
+            document.getElementById('adminLoginBtn').addEventListener('click', function() {
+                const username = document.getElementById('adminUsername').value.trim();
+                const password = document.getElementById('adminPassword').value.trim();
+                
+                if (!username || !password) {
+                    showMessage('Please enter both username and password', 'error');
+                    return;
+                }
+                
+                // Show loading state
+                this.classList.add('loading');
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+                
+                // Send login request
+                const formData = new FormData();
+                formData.append('action', 'login');
+                formData.append('username', username);
+                formData.append('password', password);
+                
+                fetch('auth.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showMessage('Login successful! Redirecting to dashboard...', 'success');
+                        setTimeout(() => {
+                            window.location.href = 'dashboard.php';
+                        }, 1500);
+                    } else {
+                        showMessage(data.message || 'Login failed', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showMessage('Connection error. Please try again.', 'error');
+                })
+                .finally(() => {
+                    // Reset button state
+                    this.classList.remove('loading');
+                    this.innerHTML = '<i class="fas fa-user-cog"></i> Admin Login';
+                });
+            });
+
+            // Handle regular user login form submission
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('userEmail').value.trim();
+                const password = document.getElementById('userPassword').value.trim();
+                
+                if (!email || !password) {
+                    showMessage('Please enter both email and password', 'error');
+                    return;
+                }
+                
+                // Here you would implement regular user authentication
+                // For now, just show a message
+                showMessage('Regular user login not implemented yet', 'error');
+            });
+        }
+
+        // Helper function to show messages
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('loginMessage');
+            messageDiv.className = type === 'error' ? 'error-message' : 'success-message';
+            messageDiv.textContent = message;
+            messageDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Search functionality
+        document.getElementById('search-box').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                // Show all products
+                displayProductsByCategory();
+                return;
+            }
+            
+            // Filter products based on search term
+            const filteredProducts = allProducts.filter(product => 
+                product.name.toLowerCase().includes(searchTerm) ||
+                product.category.toLowerCase().includes(searchTerm)
+            );
+            
+            // Display filtered results in all sections
+            Object.keys(categoryMapping).forEach(category => {
+                const sectionId = categoryMapping[category];
+                const container = document.querySelector(`#${sectionId} .productContainer`);
+                const categoryProducts = filteredProducts.filter(p => p.category === category);
+                
+                if (categoryProducts.length > 0) {
+                    container.innerHTML = categoryProducts.map(product => createProductCard(product)).join('');
+                } else {
+                    container.innerHTML = `
+                        <div class="no-products">
+                            <i class="fas fa-search"></i>
+                            <p>No results found for "${searchTerm}" in ${category}</p>
+                        </div>
+                    `;
+                }
+            });
+        });
+
+        // Handle search form submission
+        document.querySelector('.search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+        });
+    </script>
 </body>
 </html>
