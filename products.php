@@ -14,5 +14,5 @@ $res = $conn->query('SELECT * FROM products ORDER BY id DESC');
     <p><?php echo nl2br(htmlspecialchars($row['description'])); ?></p>
   </div>
 <?php endwhile; ?>
-<p><a href="index.php">Home</a></p>
+<p><a href="main.php">Home</a></p>
 </body></html>

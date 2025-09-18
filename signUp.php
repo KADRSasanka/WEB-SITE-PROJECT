@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Reset fields
             $fname = $lname = $email = $phone = $address = $passcode = "";
             // Redirect to users list page
-            header("Location: /htdocs/index.php"); 
+            header("Location: /WEB-SITE-PROJECT.github.io/user.php"); 
             exit;
         } else {
             $errorMessage = "Error: " . $stmt->error;
