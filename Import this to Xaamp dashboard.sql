@@ -26,6 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `admin_users`
 --
+CREATE DATABASE IF NOT EXISTS xpressmart_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE website_db;
+
 
 CREATE TABLE `admin_users` (
   `id` int(11) NOT NULL,
