@@ -129,6 +129,125 @@
             from { opacity: 0.6; }
             to { opacity: 1; }
         }
+
+        /* Force vertical stacking for cart items - HIGHEST PRIORITY */
+        .shopping-cart .box .item {
+            display: block !important;
+            flex-direction: column !important;
+        }   
+
+        .shopping-cart .item .cart-item {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            width: 100% !important;
+            margin-bottom: 10px !important;
+            padding: 8px !important;
+            border-bottom: 1px solid #eee !important;
+            box-sizing: border-box !important;
+        }
+
+        .cart-item .product-image {
+            width: 40px !important;
+            height: 40px !important;
+            margin-right: 8px !important;
+            flex-shrink: 0 !important;
+        }
+
+        .cart-item .product-image img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 4px !important;
+        }
+
+        .cart-item .item-info {
+            flex: 1 !important;
+            margin-right: 5px !important;
+        }
+
+        .cart-item .name {
+            font-size: 0.8rem !important;
+            font-weight: 600 !important;
+            margin-bottom: 2px !important;
+            line-height: 1.1 !important;
+        }
+
+        .cart-item .price {
+            font-size: 0.75rem !important;
+            color: #27ae60 !important;
+        }
+
+        .cart-item .controls {
+            display: flex !important;
+            align-items: center !important;
+            gap: 4px !important;
+        }
+
+        .cart-item .quantity span {
+            background: #f0f0f0 !important;
+            padding: 2px 6px !important;
+            border-radius: 3px !important;
+            font-size: 0.7rem !important;
+            cursor: pointer !important;
+            user-select: none !important;
+        }
+
+        .cart-item .remove-btn {
+            background: #e74c3c !important;
+            color: white !important;
+            border: none !important;
+            padding: 2px 6px !important;
+            border-radius: 3px !important;
+            font-size: 0.7rem !important;
+            cursor: pointer !important;
+            margin-left: 4px !important;
+        }
+
+
+
+/* Responsive adjustments */
+        @media (max-width: 768px) {
+            .box-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+                gap: 15px !important;
+            }
+    
+            .box-container .box {
+                min-height: 150px !important;
+                padding: 15px !important;
+            }
+    
+            .box-container .box img {
+                width: 60px !important;
+                height: 60px !important;
+            }
+    
+            .box-container .box h3 {
+                font-size: 0.9rem !important;
+            }
+        }   
+
+        @media (max-width: 480px) {
+            .box-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+/* Make Fish & Meat card text longer to match other cards */
+        .box-container .box h3 {
+            min-height: 2.6em; /* Ensures consistent height for all card titles */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+/* Specific adjustment for Fish & Meat if needed */
+        .box-container .box:nth-child(3) h3 {
+            line-height: 1.3;
+            padding: 0 5px;
+        }   
+
     </style>
 </head>
 
@@ -220,8 +339,12 @@
                     from our store to your table
                 </p>
                 <div class="button-box">
-                    <button class="button1">25% off Offer</button>
-                    <button class="button1 button-spacing">Discover Us</button>
+                    <a href="product.html">
+                        <button class="button1">25% off Offer</button>
+                    </a>
+                    <a href="About.html">
+                        <button class="button1 button-spacing">Discover Us</button>
+                    </a>
                 </div>
             </div>
             <img src="Images & Logos/1234-Photoroom.png " alt="Picture" class="home-image">
@@ -325,21 +448,21 @@
                 <td><h3 style="color: white;">Contact info</h3></td>
             </tr>
             <tr>
-                <td><a href="#"style="color: white;">About Us</a></td>
+                <td><a href="About.html"style="color: white;">About Us</a></td>
                 <td><a href="#"style="color: white;">My Account</a></td>
                 <td><a href="#"style="color: white;">Privacy</a></td>
                 <td><a href="#"style="color: white;">033-1122334</a></td>
             </tr>
             <tr>
-                <td><a href="#"style="color: white;">Contact Us</a></td>
+                <td><a href="contact.html"style="color: white;">Contact Us</a></td>
                 <td><a href="#"style="color: white;">Track your Order</a></td>
-                <td><a href="#"style="color: white;">Terms & Conditions</a></td>
-                <td><a href="#"style="color: white;">Xpressmart@gamil.com</a></td>
+                <td><a href="FAQ.html"style="color: white;">Terms & Conditions</a></td>
+                <td><a href="mailto:Xpressmart@gamil.com" style="color: white;">Xpressmart@gamil.com</a></td>
             </tr>
             <tr>
                 <td><a href="#"style="color: white;">Careers</a></td>
-                <td><a href="#"style="color: white;">FAQ</a></td>
-                <td><a href="#"style="color: white;">Contact Us</a></td>
+                <td><a href="FAQ.html"style="color: white;">FAQ</a></td>
+                <td><a href="contact.html"style="color: white;">Contact Us</a></td>
                 <td><a href="#"style="color: white;">226/1, Pitipana North, Homagama.</a></td>
 
             </table>
@@ -756,22 +879,24 @@
             }
             
             cartContainer.innerHTML = cart.map(item => `
-                <div class="cart-item" style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #eee;">
-                    <div class="product-image" style="width: 50px; height: 50px; margin-right: 10px;">
-                        <img src="${item.image}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;" onerror="this.src='Images & Logos/products/pr1.png'">
-                    </div>
-                    <div style="flex: 1;">
-                        <div class="name" style="font-weight: 600; margin-bottom: 5px;">${item.name}</div>
-                        <div class="price" style="color: #27ae60;">LKR ${parseFloat(item.price).toFixed(2)}</div>
-                    </div>
-                    <div class="quantity" style="display: flex; align-items: center; gap: 8px;">
-                        <span class="minus" onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})" style="cursor: pointer; background: #f0f0f0; padding: 5px 8px; border-radius: 3px; user-select: none;">-</span>
-                        <span>${item.quantity}</span>
-                        <span class="plus" onclick="updateCartQuantity(${item.id}, ${item.quantity + 1})" style="cursor: pointer; background: #f0f0f0; padding: 5px 8px; border-radius: 3px; user-select: none;">+</span>
-                    </div>
-                    <button onclick="removeFromCart(${item.id})" style="background: #e74c3c; color: white; border: none; padding: 5px 8px; border-radius: 3px; margin-left: 10px; cursor: pointer;">×</button>
+                <div class="cart-item">
+                    <div class="product-image">
+                    <img src="${item.image}" onerror="this.src='Images & Logos/products/pr1.png'">
                 </div>
-            `).join('');
+            <div class="item-info">
+                <div class="name">${item.name}</div>
+                <div class="price">LKR ${parseFloat(item.price).toFixed(2)}</div>
+            </div>
+            <div class="controls">
+                <div class="quantity">
+                    <span onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})">-</span>
+                    <span>${item.quantity}</span>
+                    <span onclick="updateCartQuantity(${item.id}, ${item.quantity + 1})">+</span>
+                </div>
+            <button class="remove-btn" onclick="removeFromCart(${item.id})">×</button>
+            </div>
+        </div>
+    `).join('');
             
             // Update total
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
