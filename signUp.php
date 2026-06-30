@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "xpressmart"; // Updated database name
+$database = "website_db"; // Updated database name
 
 // Create connection
 $connection = new mysqli($servername, $username, $password, $database);

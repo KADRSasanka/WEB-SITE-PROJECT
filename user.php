@@ -32,7 +32,7 @@
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
-                $database = "xpressmart"; // Updated database
+                $database = "website_db"; // Updated database
 
                 // Create connection
                 $connection = new mysqli($servername, $username, $password, $database);
