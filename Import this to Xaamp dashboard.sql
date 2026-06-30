@@ -64,13 +64,13 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `image`, `description`, `status`, `created_at`) VALUES
-(167, 'Household Materials', 'Images & Logos/s5.png', 'Cleaning supplies and household essentials', 'active', '2025-09-17 03:53:06'),
-(194, 'Fruits & Vegetables', 'Images & Logos/s2.png', 'Fresh fruits and organic vegetables', 'active', '2025-09-17 03:55:40'),
-(250, 'Dairy Products & Protein', 'Images & Logos/s4.png', 'Milk, cheese, yogurt and protein products', 'active', '2025-09-17 03:58:07'),
-(255, 'Bakery Items & Cakes', 'Images & Logos/s3.png', 'Fresh baked goods and delicious cakes', 'active', '2025-09-17 04:01:42'),
-(258, 'Processed Foods', 'Images & Logos/s6.png', 'Canned goods and processed food items', 'active', '2025-09-17 04:01:42'),
-(277, 'Fish & Meat', 'Images & Logos/s1.png', 'Fresh fish and quality meat products', 'active', '2025-09-17 04:02:03');
+INSERT INTO `categories` (`id`, `name`, `image`, `description`, `status`) VALUES
+(167, 'Household Materials', 'Images & Logos/s5.png', 'Cleaning supplies and household essentials', 'active'),
+(194, 'Fruits & Vegetables', 'Images & Logos/s2.png', 'Fresh fruits and organic vegetables', 'active'),
+(250, 'Dairy Products & Protein', 'Images & Logos/s4.png', 'Milk, cheese, yogurt and protein products', 'active'),
+(255, 'Bakery Items & Cakes', 'Images & Logos/s3.png', 'Fresh baked goods and delicious cakes', 'active'),
+(258, 'Processed Foods', 'Images & Logos/s6.png', 'Canned goods and processed food items', 'active'),
+(277, 'Fish & Meat', 'Images & Logos/s1.png', 'Fresh fish and quality meat products', 'active');
 
 -- --------------------------------------------------------
 
