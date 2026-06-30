@@ -1,7 +1,7 @@
 <?php
 // Database connection only (without table creation)
 $host = 'localhost';
-$dbname = 'xpressmart_db';
+$dbname = 'website_db';
 $username = 'root'; // Change this to your database username
 $password = '';     // Change this to your database password
 
