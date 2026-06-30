@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="semantic.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="shortcut icon" href="Images & Logos/novax-black.png" type="image/x-icon">
+    <title>Xpress Mart</title>
+    <style>
+        /* Enhanced login form styles */
+        .login-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .login-form h3 {
+            color: #2c3e50;
+            margin-bottom: 5px; margin-top: 3px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .admin-section {
+            border-top: 2px solid #ecf0f1;
+            margin-top: 20px;
+            padding-top: 20px;
+        }
+
+        .admin-section h4 {
+            color: #27ae60;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .admin-login-btn {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .admin-login-btn:hover {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .error-message {
+            color: #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+
+        .success-message {
+            color: #27ae60;
+            background: rgba(39, 174, 96, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            border: 1px solid rgba(39, 174, 96, 0.2);
+        }
+
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid #27ae60;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Product card loading styles */
+        .product-loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+
+        .product-card-placeholder {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+            animation: pulse 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { opacity: 0.6; }
+            to { opacity: 1; }
+        }
+
+        /* Force vertical stacking for cart items - HIGHEST PRIORITY */
+        .shopping-cart .box .item {
+            display: block !important;
+            flex-direction: column !important;
+        }   
+
+        .shopping-cart .item .cart-item {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            width: 100% !important;
+            margin-bottom: 10px !important;
+            padding: 8px !important;
+            border-bottom: 1px solid #eee !important;
+            box-sizing: border-box !important;
+        }
+
+        .cart-item .product-image {
+            width: 40px !important;
+            height: 40px !important;
+            margin-right: 8px !important;
+            flex-shrink: 0 !important;
+        }
+
+        .cart-item .product-image img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 4px !important;
+        }
+
+        .cart-item .item-info {
+            flex: 1 !important;
+            margin-right: 5px !important;
+        }
+
+        .cart-item .name {
+            font-size: 0.8rem !important;
+            font-weight: 600 !important;
+            margin-bottom: 2px !important;
+            line-height: 1.1 !important;
+        }
+
+        .cart-item .price {
+            font-size: 0.75rem !important;
+            color: #27ae60 !important;
+        }
+
+        .cart-item .controls {
+            display: flex !important;
+            align-items: center !important;
+            gap: 4px !important;
+        }
+
+        .cart-item .quantity span {
+            background: #f0f0f0 !important;
+            padding: 2px 6px !important;
+            border-radius: 3px !important;
+            font-size: 0.7rem !important;
+            cursor: pointer !important;
+            user-select: none !important;
+        }
+
+        .cart-item .remove-btn {
+            background: #e74c3c !important;
+            color: white !important;
+            border: none !important;
+            padding: 2px 6px !important;
+            border-radius: 3px !important;
+            font-size: 0.7rem !important;
+            cursor: pointer !important;
+            margin-left: 4px !important;
+        }
+
+
+
+/* Responsive adjustments */
+        @media (max-width: 768px) {
+            .box-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+                gap: 15px !important;
+            }
+    
+            .box-container .box {
+                min-height: 150px !important;
+                padding: 15px !important;
+            }
+    
+            .box-container .box img {
+                width: 60px !important;
+                height: 60px !important;
+            }
+    
+            .box-container .box h3 {
+                font-size: 0.9rem !important;
+            }
+        }   
+
+        @media (max-width: 480px) {
+            .box-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+/* Make Fish & Meat card text longer to match other cards */
+        .box-container .box h3 {
+            min-height: 2.6em; /* Ensures consistent height for all card titles */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+/* Specific adjustment for Fish & Meat if needed */
+        .box-container .box:nth-child(3) h3 {
+            line-height: 1.3;
+            padding: 0 5px;
+        }   
+
+    </style>
+</head>
+
+<body>
+    <!--Preloader -->
+    <div id="preloader" class="loader">
+        <div class="justify-content-center jimu-primary-loading"></div>
+    </div>
+    <!--NAVIGATION BAR-->
+    <nav>
+        <img src="Images & Logos/novax-white.png" alt="Logos"> <!--LOGO-->
+        <ul>
+            <li><a href="#" id="homeLink">Home</a></li>
+            <li><a href="#about" id="aboutLink">About Us</a></li>
+            <li><a href="#categories" id="catogorieslink">Categories</a></li>
+            <li><a href="#products" id="productsLink">Products</a></li>
+            <li><a href="#review" id="reviewLink">Review</a></li>
+            <li><a href="FAQ.html" id="blogsLink">FAQs</a></li>
+            <li><a href="contact.html" id="contactLink">Contact Us</a></li>
+        </ul>
+        <div class="icons">
+            <div><i class="fa-solid fa-bars" style="color: #ffffff;" id="btn"></i></div>
+            <div><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;" id="search-btn"></i></div>
+            <div class="icon-cart"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;" id="cart-btn"></i><span class="cart-span">0</span></div>
+            <div><i class="fa-solid fa-circle-user" style="color: #ffffff;" id="login-btn"></i></div>
+        </div>
+        <form action="" class="search-form">
+            <input type="search" name="search-box" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fa-solid fa-magnifying-glass"></label>
+        </form>
+        <div class="shopping-cart">
+            <div class="box">
+                <div class="item">
+                    <!--
+                    <div class="product-image"><img src="Images & Logos/products/pr1.png"></div>
+                    <div class="name">Name</div>
+                    <div class="price">LKR 499/-</div>
+                    <div class="quantity">
+                        <span class="minus">-</span>
+                        <span>1</span>
+                        <span class="plus">+</span>
+                    </div>
+                    -->
+                </div>
+            </div>
+            
+            <div class="total">TOTAL: LKR 0.00</div>
+            <button class="checkout-btn">CheckOut</button>
+            
+        </div>
+        <form class="login-form" id="loginForm">
+            <div id="loginMessage"></div>
+            <h3>LOGIN NOW</h3>
+            
+            <!-- Regular User Login -->
+            <input type="email" placeholder="Your E-mail" class="box box1" id="userEmail">
+            <input type="password" placeholder="Your Password" class="box box1" id="userPassword">
+            <a href="#">
+                <p>Forgot My Password</p>
+            </a>
+            <a href="signUp.php">
+                <p>Dont Have an Account</p>
+            </a>
+            <input type="submit" value="LOG IN" class="checkout-btn" id="userLoginBtn">
+            
+            <!-- Admin Login Section -->
+            <div class="admin-section">
+                <h4><i class="fas fa-shield-alt"></i>Admin Access</h4>
+                <input type="text" placeholder="Admin Username" class="box box1" id="adminUsername">
+                <input type="password" placeholder="Admin Password" class="box box1" id="adminPassword">
+                <button type="button" class="admin-login-btn" id="adminLoginBtn">
+                    <i class="fas fa-user-cog"></i>
+                    Admin Login
+                </button>
+            </div>
+        </form>
+    </nav>
+    <!--NAVIGATION BAR END-->
+    <!--HOME CONTENT-->
+    <section id="home">
+        <div class="home">
+            <div class="home-content">
+                <h1 class="home-content-title">Xpress Mart</h1>
+                <p class="home-content-subtitle">WHERE FRESHNESS MEETS VALUES</p>
+                <p class="content-para">
+                    We believe in bringing you the freshest ingredients and quality products. <br>
+                    Explore our wide selection of farm-fresh fruits and vegetables, premium <br>meats,
+                    and artisanal goods, all hand-picked for you. Experience the <br>difference of quality,
+                    from our store to your table
+                </p>
+                <div class="button-box">
+                    <a href="product.html">
+                        <button class="button1">25% off Offer</button>
+                    </a>
+                    <a href="About.html">
+                        <button class="button1 button-spacing">Discover Us</button>
+                    </a>
+                </div>
+            </div>
+            <img src="Images & Logos/1234-Photoroom.png " alt="Picture" class="home-image">
+        </div>
+        <section id="catogories">
+            <div class="catogories">
+                <div class="catogory-card">
+                    <div class="round"><img src="Images & Logos/secure_payment.png" class="catogory-icon"></div>
+                    <div>
+                        <p class="catogory-text">Secure Payments</p>
+                        <p class="catogory-sub-text">Your Payments are 100% free.</p>
+                    </div>
+                </div>
+                <div class="catogory-card card-2">
+                    <div class="round"><img src="Images & Logos/call_centre.png" class="catogory-icon catogory-icon ">
+                    </div>
+                    <div>
+                        <p class="catogory-text">24/7 Support</p>
+                        <p class="catogory-sub-text">Contact Us Anytime.</p>
+                    </div>
+                </div>
+                <div class="catogory-card catogory-card-extend card-3">
+                    <div class="round"><img src="Images & Logos/grocery_icon.png" class="catogory-icon"></div>
+                    <div>
+                        <p class="catogory-text">Fresh and Organic</p>
+                        <p class="catogory-sub-text">Choose your desired ones.</p>
+                    </div>
+                </div>
+        </section>
+
+        </div>
+    </section>
+    <!--HOME CONTENT END-->
+
+    <!--CATOGORY CONTENT-->
+    <section class="item-catogory-section" id="categories">
+        <p class="heading1">Discover our <span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Categories</span></p>
+        <div class="box-container" id="categoriesContainer">
+            <!-- Categories will be loaded dynamically -->
+        </div>
+    </section>
+    <!--CATOGORY CONTENT END-->
+
+    <!--AD-->
+    <section class="ad" id="about">
+        <div class="add">
+            <div class="ad-content">
+                <div class="ad-textbox">
+                    <h3>XpressMart</h3>
+                    <h1>Fresher & Faster</h1>
+                    <p>A supermarket is a self-service shop offering a wide variety of food, beverages and household
+                        products, organized into sections.</p>
+                    <a href="About.html"><button class="button1 button2">Learn More >></button></a>
+                </div>
+                <div class="ad-img">
+                    <img src="Images & Logos/ad-img.png">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--AD END-->
+    <!--PRODUCTS SECTION-->
+    <section class="product-section" id="products">
+        <p class="heading1">Best Seller <span class="heading1" style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Products</span></p>
+        <a href="product.html"><button class="all-next">All Products&nbsp;<i class="fa-solid fa-circle-arrow-right"></i></button></a>
+            <div class="productContainer" id="productContainer">
+                <!-- Products will be loaded dynamically -->
+            </div>
+    </section>
+    <!--PRODUCTS SECTION END-->
+
+    <!--REVIEWS SECTION START-->
+    <section class="review-section" id="review">
+        <p class="heading1"><span class="heading1"
+                style="color: #287e60; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Our Guests</span> Love Us</p>
+        <div class="review-box-container" id="reviewContainer">
+            <!-- Reviews will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!--FOOTER-->
+    <div class="footer">
+    <div class="leftcontent" >
+        <img src="Images & Logos/novax-white.png" alt="Logo" class="footer-logo">
+        <h3 style="color: white;">XpressMart</h3>
+        <p style="color: white;">Your neighborhood partner for fresh, local, and sustainable groceries.</p>
+        
+        <img src="Images & Logos/facebook.png" alt="facebook" class="socialmedia">
+        <img src="Images & Logos/insta.png" alt="instagram" class="socialmedia">
+        <img src="Images & Logos/twitter.png" alt="twitter" class="socialmedia">
+        <img src="Images & Logos/printerest.png" alt="pinterest" class="socialmedia">
+        <img src="Images & Logos/yt.png" alt="youtube" class="socialmedia">
+        </div>
+        <div class="rightcontent">
+        <div class="sha">
+            <table>
+            <tr>
+                <td><h3 style="color: white;">Company</h3></td>
+                <td><h3 style="color: white;">Customer Services</h3></td>
+                <td><h3 style="color: white;">Our Information</h3></td>
+                <td><h3 style="color: white;">Contact info</h3></td>
+            </tr>
+            <tr>
+                <td><a href="About.html"style="color: white;">About Us</a></td>
+                <td><a href="#"style="color: white;">My Account</a></td>
+                <td><a href="#"style="color: white;">Privacy</a></td>
+                <td><a href="#"style="color: white;">033-1122334</a></td>
+            </tr>
+            <tr>
+                <td><a href="contact.html"style="color: white;">Contact Us</a></td>
+                <td><a href="#"style="color: white;">Track your Order</a></td>
+                <td><a href="FAQ.html"style="color: white;">Terms & Conditions</a></td>
+                <td><a href="mailto:Xpressmart@gamil.com" style="color: white;">Xpressmart@gamil.com</a></td>
+            </tr>
+            <tr>
+                <td><a href="#"style="color: white;">Careers</a></td>
+                <td><a href="FAQ.html"style="color: white;">FAQ</a></td>
+                <td><a href="contact.html"style="color: white;">Contact Us</a></td>
+                <td><a href="#"style="color: white;">226/1, Pitipana North, Homagama.</a></td>
+
+            </table>
+        </div>
+        </div>
+    <hr>
+    <h4 style="color: white;">Copyright 2025 <span>XpressMart</span> Rights Recieved.</h4>
+    <div class="copyright">
+    <img src="Images & Logos/copyright.png  " class="copyright" alt="copyright">
+    </div>
+    </div>
+    <!--FOOTER END-->
+
+    <script>
+        // Smooth scrolling navigation
+        document.getElementById("catogorieslink").addEventListener("click", function(e) {
+            e.preventDefault();
+            document.getElementById("catogories").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+
+        document.getElementById("homeLink").addEventListener("click", function(e) {
+            e.preventDefault();
+            document.getElementById("home").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+        document.getElementById("aboutLink").addEventListener("click", function(e) {
+            e.preventDefault();
+            document.getElementById("about").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+        document.getElementById("productsLink").addEventListener("click", function(e) {
+            e.preventDefault();
+            document.getElementById("products").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+        document.getElementById("reviewLink").addEventListener("click", function(e) {
+            e.preventDefault();
+            document.getElementById("review").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+
+        // Admin login functionality
+        document.getElementById('adminLoginBtn').addEventListener('click', function() {
+            const username = document.getElementById('adminUsername').value.trim();
+            const password = document.getElementById('adminPassword').value.trim();
+            const messageDiv = document.getElementById('loginMessage');
+            
+            if (!username || !password) {
+                showMessage('Please enter both username and password', 'error');
+                return;
+            }
+            
+            // Show loading state
+            this.classList.add('loading');
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+            
+            // Send login request
+            const formData = new FormData();
+            formData.append('action', 'login');
+            formData.append('username', username);
+            formData.append('password', password);
+            
+            fetch('auth.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showMessage('Login successful! Redirecting to dashboard...', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.php';
+                    }, 1500);
+                } else {
+                    showMessage(data.message || 'Login failed', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showMessage('Connection error. Please try again.', 'error');
+            })
+            .finally(() => {
+                // Reset button state
+                this.classList.remove('loading');
+                this.innerHTML = '<i class="fas fa-user-cog"></i> Admin Login';
+            });
+        });
+
+        // Helper function to show messages
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('loginMessage');
+            messageDiv.className = type === 'error' ? 'error-message' : 'success-message';
+            messageDiv.textContent = message;
+            messageDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Load dynamic content
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCategories();
+            loadProducts();
+            loadReviews();
+            updateCartDisplay(); // Initialize cart display on page load
+        });
+
+        // Load categories dynamically
+        function loadCategories() {
+            fetch('get_data.php?type=categories')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('categoriesContainer');
+                    if (data.success && data.data) {
+                        container.innerHTML = data.data.map(category => `
+                            <a href="product.html#${category.name.toLowerCase().replace(/\s+/g, '')}">
+                                <div class="box">
+                                    <img src="${category.image}" alt="${category.name}">
+                                    <h3>${category.name}</h3>
+                                </div>
+                            </a>
+                        `).join('');
+                    } else {
+                        // Fallback to static categories if dynamic loading fails
+                        container.innerHTML = `
+                            <a href="product.html#sec1">
+                                <div class="box">
+                                    <img src="Images & Logos/s1.png" alt="Fish & Meat">
+                                    <h3>Fish & Meat</h3>
+                                </div>
+                            </a>
+                            <div class="box">
+                                <img src="Images & Logos/s2.png" alt="Fruits & Vegetables">
+                                <h3>Fruits & Vegetables</h3>
+                            </div>
+                            <div class="box">
+                                <img src="Images & Logos/s3.png" alt="Bakery Items & Cakes">
+                                <h3>Bakery Items & Cakes</h3>
+                            </div>
+                            <div class="box">
+                                <img src="Images & Logos/s4.png" alt="Dairy Products & Protein">
+                                <h3>Dairy Products & Protein</h3>
+                            </div>
+                            <div class="box">
+                                <img src="Images & Logos/s5.png" alt="Household Materials">
+                                <h3>Household Materials</h3>
+                            </div>
+                            <div class="box">
+                                <img src="Images & Logos/s6.png" alt="Processed Foods">
+                                <h3>Processed Foods</h3>
+                            </div>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading categories:', error);
+                    // Use fallback static content
+                    loadStaticCategories();
+                });
+        }
+
+        // Load products dynamically
+        function loadProducts() {
+            const container = document.getElementById('productContainer');
+            container.innerHTML = '<div class="product-loading"><i class="fas fa-spinner fa-spin"></i> Loading products...</div>';
+            
+            console.log('Loading products from database...');
+            
+            fetch('get_data.php?type=products&limit=6&status=active')
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Products data received:', data);
+                    if (data.success && data.data && data.data.length > 0) {
+                        currentData.products = data.data; // Store for cart functionality
+                        container.innerHTML = data.data.map(product => `
+                            <div class="productCard">
+                                <div class="product-image">
+                                    <img src="${product.image || 'Images & Logos/products/default.png'}" alt="${product.name}" onerror="this.src='Images & Logos/products/pr1.png'">
+                                </div>
+                                <h3>${product.name}</h3>
+                                <p>${product.category}</p>
+                                <p class="price">LKR ${parseFloat(product.price).toFixed(2)}</p>
+                                <button class="buy-now" onclick="addToCart(${product.id})">
+                                    <i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart
+                                </button>
+                            </div>
+                        `).join('');
+                        updateCartDisplay(); // Update cart display after loading products
+                    } else {
+                        console.log('No products found, loading static fallback');
+                        loadStaticProducts();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading products:', error);
+                    console.log('Loading static fallback products');
+                    loadStaticProducts();
+                });
+        }
+
+        // Static fallback products
+        function loadStaticProducts() {
+            const container = document.getElementById('productContainer');
+            // Set static products data for cart functionality
+            currentData.products = [
+                {id: 1, name: "Hellman's Real Mayonnaise", price: 499.00, image: "Images & Logos/products/pr1.png", category: "Household materials"},
+                {id: 2, name: "Fresh Red Apples", price: 350.00, image: "Images & Logos/products/pr1.png", category: "Fruits & Vegetables"},
+                {id: 3, name: "Fresh Milk 1L", price: 180.00, image: "Images & Logos/products/pr1.png", category: "Dairy Products"}
+            ];
+            
+            container.innerHTML = currentData.products.map(product => `
+                <div class="productCard">
+                    <div class="product-image"><img src="${product.image}"></div>
+                    <h3>${product.name}</h3>
+                    <p>${product.category}</p>
+                    <p class="price">LKR ${product.price.toFixed(2)}</p>
+                    <button class="buy-now" onclick="addToCart(${product.id})"><i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart</button>
+                </div>
+            `).join('');
+            updateCartDisplay();
+        }
+
+        // Load reviews dynamically
+        function loadReviews() {
+            fetch('get_data.php?type=reviews&status=active')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('reviewContainer');
+                    if (data.success && data.data) {
+                        container.innerHTML = data.data.map(review => `
+                            <div class="review-box">
+                                <div class="box-top">
+                                    <div class="profile">
+                                        <div class="profile-img">
+                                            <img src="${review.profile_image || 'Images & Logos/dp (2).png'}" alt="profile pic">
+                                        </div>
+                                        <div class="name-user">
+                                            <strong>${review.customer_name}</strong>
+                                            <span>@${review.customer_username || review.customer_name.toLowerCase().replace(/\s+/g, '')}</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-comment">
+                                        ${generateStarRating(review.rating)}
+                                    </div>
+                                </div>
+                                <div class="client-comment">
+                                    <p>${review.comment}</p>
+                                </div>
+                            </div>
+                        `).join('');
+                    } else {
+                        loadStaticReviews();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading reviews:', error);
+                    loadStaticReviews();
+                });
+        }
+
+        // Generate star rating HTML
+        function generateStarRating(rating) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= rating) {
+                    stars += '<i class="fa-solid fa-star"></i>';
+                } else if (i - 0.5 <= rating) {
+                    stars += '<i class="fa-solid fa-star-half-stroke"></i>';
+                } else {
+                    stars += '<i class="fa-regular fa-star"></i>';
+                }
+            }
+            return stars;
+        }
+
+        // Load static reviews as fallback
+        function loadStaticReviews() {
+            document.getElementById('reviewContainer').innerHTML = `
+                <div class="review-box">
+                    <div class="box-top">
+                        <div class="profile">
+                            <div class="profile-img">
+                                <img src="Images & Logos/dp (2).png" alt="profile pic">
+                            </div>
+                            <div class="name-user">
+                                <strong>Nisanasala Niroshani</strong>
+                                <span>@niroshanidmn</span>
+                            </div>
+                        </div>
+                        <div class="review-comment">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                    </div>
+                    <div class="client-comment">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam incidunt molestiae adipisci odio
+                            deleniti sapiente, totam praesentium in aut, commodi repellendus pariatur hic impedit numquam reprehenderit
+                            corrupti dolorum officiis consequatur!</p>
+                    </div>
+                </div>
+                <div class="review-box">
+                    <div class="box-top">
+                        <div class="profile">
+                            <div class="profile-img">
+                                <img src="Images & Logos/dp (2).png" alt="profile pic">
+                            </div>
+                            <div class="name-user">
+                                <strong>Aseka Dissanayaka</strong>
+                                <span>@dissanayakadman</span>
+                            </div>
+                        </div>
+                        <div class="review-comment">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="client-comment">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam incidunt molestiae adipisci odio
+                            deleniti sapiente, totam praesentium in aut, commodi repellendus pariatur hic impedit numquam reprehenderit
+                            corrupti dolorum officiis consequatur!</p>
+                    </div>
+                </div>
+                <div class="review-box">
+                    <div class="box-top">
+                        <div class="profile">
+                            <div class="profile-img">
+                                <img src="Images & Logos/dp (2).png" alt="profile pic">
+                            </div>
+                            <div class="name-user">
+                                <strong>Manushi Athukorala</strong>
+                                <span>@athukorlamp</span>
+                            </div>
+                        </div>
+                        <div class="review-comment">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="client-comment">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam incidunt molestiae adipisci odio
+                            deleniti sapiente, totam praesentium in aut, commodi repellendus pariatur hic impedit numquam reprehenderit
+                            corrupti dolorum officiis consequatur!</p>
+                    </div>
+                </div>
+                <div class="review-box">
+                    <div class="box-top">
+                        <div class="profile">
+                            <div class="profile-img">
+                                <img src="Images & Logos/dp (2).png" alt="profile pic">
+                            </div>
+                            <div class="name-user">
+                                <strong>Geesith Kariyawasam</strong>
+                                <span>@geesithkariyawasm</span>
+                            </div>
+                        </div>
+                        <div class="review-comment">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="client-comment">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam incidunt molestiae adipisci odio
+                            deleniti sapiente, totam praesentium in aut, commodi repellendus pariatur hic impedit numquam reprehenderit
+                            corrupti dolorum officiis consequatur!</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Shopping cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Update cart display
+        function updateCartDisplay() {
+            const cartSpan = document.querySelector('.cart-span');
+            const cartContainer = document.querySelector('.shopping-cart .item');
+            const totalElement = document.querySelector('.total');
+            
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartSpan.textContent = totalItems;
+            
+            // Update cart items display
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p style="padding: 20px; text-align: center; color: #666;">Your cart is empty</p>';
+                totalElement.textContent = 'TOTAL: LKR 0.00';
+                return;
+            }
+            
+            cartContainer.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="product-image">
+                    <img src="${item.image}" onerror="this.src='Images & Logos/products/pr1.png'">
+                </div>
+            <div class="item-info">
+                <div class="name">${item.name}</div>
+                <div class="price">LKR ${parseFloat(item.price).toFixed(2)}</div>
+            </div>
+            <div class="controls">
+                <div class="quantity">
+                    <span onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})">-</span>
+                    <span>${item.quantity}</span>
+                    <span onclick="updateCartQuantity(${item.id}, ${item.quantity + 1})">+</span>
+                </div>
+            <button class="remove-btn" onclick="removeFromCart(${item.id})">×</button>
+            </div>
+        </div>
+    `).join('');
+            
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            totalElement.textContent = `TOTAL: LKR ${total.toFixed(2)}`;
+        }
+
+        // Add to cart functionality
+        function addToCart(productId) {
+            // Find product in the loaded products
+            const product = currentData.products.find(p => p.id == productId);
+            if (!product) {
+                alert('Product not found');
+                return;
+            }
+            
+            // Check if product already in cart
+            const existingItem = cart.find(item => item.id == productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: parseFloat(product.price),
+                    image: product.image || 'Images & Logos/products/pr1.png',
+                    quantity: 1
+                });
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+            
+            // Show success message
+            showMessage(`${product.name} added to cart!`, 'success');
+        }
+
+        // Update cart item quantity
+        function updateCartQuantity(productId, newQuantity) {
+            if (newQuantity <= 0) {
+                removeFromCart(productId);
+                return;
+            }
+            
+            const item = cart.find(item => item.id == productId);
+            if (item) {
+                item.quantity = newQuantity;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+            }
+        }
+
+        // Remove item from cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id != productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        // Checkout functionality
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            alert(`Checkout functionality would process:\n${itemCount} items\nTotal: LKR ${total.toFixed(2)}\n\nThis would redirect to payment page.`);
+        });
+
+        // Store current data for cart functionality
+        let currentData = {
+            products: [],
+            categories: [],
+            reviews: []
+        };
+
+        // Navigation functionality (from original script.js)
+        let navbar = document.querySelector('nav');
+        let searchForm = document.querySelector('.search-form');
+        let cartItem = document.querySelector('.shopping-cart');
+        let loginForm = document.querySelector('.login-form');
+
+        // Menu toggle
+        document.querySelector('#btn').onclick = () => {
+            navbar.classList.toggle('active');
+            searchForm.classList.remove('active');
+            cartItem.classList.remove('active');
+            loginForm.classList.remove('active');
+        }
+
+        // Search toggle
+        document.querySelector('#search-btn').onclick = () => {
+            searchForm.classList.toggle('active');
+            navbar.classList.remove('active');
+            cartItem.classList.remove('active');
+            loginForm.classList.remove('active');
+        }
+
+        // Cart toggle
+        document.querySelector('#cart-btn').onclick = () => {
+            cartItem.classList.toggle('active');
+            navbar.classList.remove('active');
+            searchForm.classList.remove('active');
+            loginForm.classList.remove('active');
+        }
+
+        // Login toggle
+        document.querySelector('#login-btn').onclick = () => {
+            loginForm.classList.toggle('active');
+            navbar.classList.remove('active');
+            searchForm.classList.remove('active');
+            cartItem.classList.remove('active');
+        }
+
+        // Close all when scrolling
+        window.onscroll = () => {
+            navbar.classList.remove('active');
+            searchForm.classList.remove('active');
+            cartItem.classList.remove('active');
+            loginForm.classList.remove('active');
+        }
+
+        // Handle regular user login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('userEmail').value.trim();
+            const password = document.getElementById('userPassword').value.trim();
+            
+            if (!email || !password) {
+                showMessage('Please enter both email and password', 'error');
+                return;
+            }
+            
+            // Here you would implement regular user authentication
+            // For now, just show a message
+            showMessage('Regular user login not implemented yet', 'error');
+        });
+    </script>
+    <!--REVIEWS SECTION END-->
+    <script src="script.js"></script>
+
+    <!--Preloader Script -->
+    <script>
+        window.addEventListener("load", () => {
+        const loader = document.getElementById("preloader");
+        loader.classList.add("hidden"); // fade out
+        });
+    </script>
+</body>
+
+</html>

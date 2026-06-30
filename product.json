@@ -1,0 +1,353 @@
+[
+  {
+    "id": 1,
+    "name": "Salmon",
+    "price": 645,
+    "image": "Images & Logos/products/productPage/P1.png",
+    "section": "sec1"
+  },
+  {
+    "id": 2,
+    "name": "Chicken Breast",
+    "price": 1200,
+    "image": "Images & Logos/products/productPage/P2.png",
+    "section": "sec1"
+  },
+  {
+    "id": 3,
+    "name": "Mutton",
+    "price": 2300,
+    "image": "Images & Logos/products/productPage/P3.png",
+    "section": "sec1"
+  },
+  {
+    "id": 4,
+    "name": "Prawns",
+    "price": 1900,
+    "image": "Images & Logos/products/productPage/P4.png",
+    "section": "sec1"
+  },
+  {
+    "id": 5,
+    "name": "Beef Steak",
+    "price": 3200,
+    "image": "Images & Logos/products/productPage/P5.png",
+    "section": "sec1"
+  },
+  {
+    "id": 6,
+    "name": "Tuna",
+    "price": 1990,
+    "image": "Images & Logos/products/productPage/P6.png",
+    "section": "sec1"
+  },
+  {
+    "id": 7,
+    "name": "Duck Meat",
+    "price": 4200,
+    "image": "Images & Logos/products/productPage/P7.png",
+    "section": "sec1"
+  },
+  {
+    "id": 8,
+    "name": "Crab",
+    "price": 2600,
+    "image": "Images & Logos/products/productPage/P8.png",
+    "section": "sec1"
+  },
+
+ 
+
+  {
+    "id": 9,
+    "name": "Strawberry",
+    "price": 750,
+    "image": "Images & Logos/products/productPage/P9.png",
+    "section": "sec2"
+  },
+  {
+    "id": 10,
+    "name": "Grapes",
+    "price": 1400,
+    "image": "Images & Logos/products/productPage/P10.png",
+    "section": "sec2"
+  },
+  {
+    "id": 11,
+    "name": "Apple",
+    "price": 450,
+    "image": "Images & Logos/products/productPage/P11.png",
+    "section": "sec2"
+  },
+  {
+    "id": 12,
+    "name": "Banana",
+    "price": 380,
+    "image": "Images & Logos/products/productPage/P12.png",
+    "section": "sec2"
+  },
+  {
+    "id": 13,
+    "name": "Pineapple",
+    "price": 624,
+    "image": "Images & Logos/products/productPage/P13.png",
+    "section": "sec2"
+  },
+  {
+    "id": 14,
+    "name": "Pumkin",
+    "price": 400,
+    "image": "Images & Logos/products/productPage/P14.png",
+    "section": "sec2"
+  },
+  {
+    "id": 15,
+    "name": "Tomato",
+    "price": 140,
+    "image": "Images & Logos/products/productPage/P15.png",
+    "section": "sec2"
+  },
+  {
+    "id": 16,
+    "name": "Carrot",
+    "price": 390,
+    "image": "Images & Logos/products/productPage/P16.png",
+    "section": "sec2"
+  },
+
+ 
+
+  {
+    "id": 17,
+    "name": "Muffin",
+    "price": 240,
+    "image": "Images & Logos/products/productPage/P17.png",
+    "section": "sec3"
+  },
+  {
+    "id": 18,
+    "name": "Cheese Cake",
+    "price": 620,
+    "image": "Images & Logos/products/productPage/P18.png",
+    "section": "sec3"
+  },
+  {
+    "id": 19,
+    "name": "Donut",
+    "price": 250,
+    "image": "Images & Logos/products/productPage/P19.png",
+    "section": "sec3"
+  },
+  {
+    "id": 20,
+    "name": "Chocolate Cake",
+    "price": 180,
+    "image": "Images & Logos/products/productPage/P20.png",
+    "section": "sec3"
+  },
+  {
+    "id": 21,
+    "name": "Mini Pizza",
+    "price": 300,
+    "image": "Images & Logos/products/productPage/P21.png",
+    "section": "sec3"
+  },
+  {
+    "id": 22,
+    "name": "Fish Roll",
+    "price": 120,
+    "image": "Images & Logos/products/productPage/P22.png",
+    "section": "sec3"
+  },
+  {
+    "id": 23,
+    "name": "Shawarma",
+    "price": 340,
+    "image": "Images & Logos/products/productPage/P23.png",
+    "section": "sec3"
+  },
+  {
+    "id": 24,
+    "name": "Hot Dog",
+    "price": 350,
+    "image": "Images & Logos/products/productPage/P24.png",
+    "section": "sec3"
+  },
+
+  
+
+  {
+    "id": 25,
+    "name": "Cheese",
+    "price": 1200,
+    "image": "Images & Logos/products/productPage/P25.png",
+    "section": "sec4"
+  },
+  {
+    "id": 26,
+    "name": "Yoghurt",
+    "price": 70,
+    "image": "Images & Logos/products/productPage/P26.png",
+    "section": "sec4"
+  },
+  {
+    "id": 27,
+    "name": "Butter",
+    "price": 960,
+    "image": "Images & Logos/products/productPage/P27.png",
+    "section": "sec4"
+  },
+  {
+    "id": 28,
+    "name": "Milk Powder",
+    "price": 1200,
+    "image": "Images & Logos/products/productPage/P28.png",
+    "section": "sec4"
+  },
+  {
+    "id": 29,
+    "name": "Ice-Cream",
+    "price": 495,
+    "image": "Images & Logos/products/productPage/P29.png",
+    "section": "sec4"
+  },
+  {
+    "id": 30,
+    "name": "Curd",
+    "price": 680,
+    "image": "Images & Logos/products/productPage/P30.png",
+    "section": "sec4"
+  },
+  {
+    "id": 31,
+    "name": "Fresh Milk",
+    "price": 600,
+    "image": "Images & Logos/products/productPage/P31.png",
+    "section": "sec4"
+  },
+  {
+    "id": 32,
+    "name": "Ghee",
+    "price": 650,
+    "image": "Images & Logos/products/productPage/P32.png",
+    "section": "sec4"
+  },
+
+
+
+  {
+    "id": 33,
+    "name": "Dishwash Liquid",
+    "price": 425,
+    "image": "Images & Logos/products/productPage/P33.png",
+    "section": "sec5"
+  },
+  {
+    "id": 34,
+    "name": "Mop",
+    "price": 1300,
+    "image": "Images & Logos/products/productPage/P34.png",
+    "section": "sec5"
+  },
+  {
+    "id": 35,
+    "name": "Toilet Paper",
+    "price": 575,
+    "image": "Images & Logos/products/productPage/P35.png",
+    "section": "sec5"
+  },
+  {
+    "id": 36,
+    "name": "Broom",
+    "price": 950,
+    "image": "Images & Logos/products/productPage/P36.png",
+    "section": "sec5"
+  },
+  {
+    "id": 37,
+    "name": "Shampoo",
+    "price": 510,
+    "image": "Images & Logos/products/productPage/P37.png",
+    "section": "sec5"
+  },
+  {
+    "id": 38,
+    "name": "Soap Bar",
+    "price": 290,
+    "image": "Images & Logos/products/productPage/P38.png",
+    "section": "sec5"
+  },
+  {
+    "id": 39,
+    "name": "Toothpaste",
+    "price": 280,
+    "image": "Images & Logos/products/productPage/P39.png",
+    "section": "sec5"
+  },
+  {
+    "id": 40,
+    "name": "Washing Powder",
+    "price": 320,
+    "image": "Images & Logos/products/productPage/P40.png",
+    "section": "sec5"
+  },
+
+
+
+  {
+    "id": 41,
+    "name": "Energy Drink",
+    "price": 750,
+    "image": "Images & Logos/products/productPage/P41.png",
+    "section": "sec6"
+  },
+  {
+    "id": 42,
+    "name": "Coca Cola",
+    "price": 480,
+    "image": "Images & Logos/products/productPage/P42.png",
+    "section": "sec6"
+  },
+  {
+    "id": 43,
+    "name": "Iced Tea",
+    "price": 230,
+    "image": "Images & Logos/products/productPage/P43.png",
+    "section": "sec6"
+  },
+  {
+    "id": 44,
+    "name": "Mineral Water",
+    "price": 120,
+    "image": "Images & Logos/products/productPage/P44.png",
+    "section": "sec6"
+  },
+  {
+    "id": 45,
+    "name": "Corn Flakes",
+    "price": 1250,
+    "image": "Images & Logos/products/productPage/P45.png",
+    "section": "sec6"
+  },
+  {
+    "id": 46,
+    "name": "Biscuit",
+    "price": 359,
+    "image": "Images & Logos/products/productPage/P46.png",
+    "section": "sec6"
+  },
+  {
+    "id": 47,
+    "name": "Instant Noodles",
+    "price": 130,
+    "image": "Images & Logos/products/productPage/P47.png",
+    "section": "sec6"
+  },
+  {
+    "id": 48,
+    "name": "Suger",
+    "price": 297,
+    "image": "Images & Logos/products/productPage/P48.png",
+    "section": "sec6"
+  }
+]

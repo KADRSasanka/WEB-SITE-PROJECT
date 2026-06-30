@@ -1,0 +1,58 @@
+[
+    {
+        "id" : 1,
+        "name" : "Hellman's Real Myonnaise",
+        "category" : "Household Materials",
+        "price" : 499.00,
+        "image" : "Images & Logos/products/pr1.png"
+    },
+    {
+        "id" : 2,
+        "name" : "Dove Intense Repair Shampoo",
+        "category" : "Household Materials",
+        "price" : 350.00,
+        "image" : "Images & Logos/products/pr2.jpg"
+    },
+    {
+        "id" : 3,
+        "name" : "Sparklin 1L Water Bottle",
+        "category" : "Household Materials",
+        "price" : 580.70,
+        "image" : "Images & Logos/products/pr3.jpg"
+    },
+    {
+        "id" : 4,
+        "name" : "Chicken Wings",
+        "category" : "Fish and Meats",
+        "price" : 660.00,
+        "image" : "Images & Logos/products/pr4.png"
+    },
+    {
+        "id" : 5,
+        "name" : "Tomato",
+        "category" : "Fruits & Vegetables",
+        "price" : 300.00,
+        "image" : "Images & Logos/products/pr5.png"
+    },
+    {
+        "id" : 6,
+        "name" : "Milka Alpine Choco Bar",
+        "category" : "Processed Foods",
+        "price" : 310.50,
+        "image" : "Images & Logos/products/pr6.png"
+    },
+    {
+        "id" : 7,
+        "name" : "Pedigree Vital Dog Food",
+        "category" : "Processed Foods",
+        "price" : 1800.00,
+        "image" : "Images & Logos/products/pr7.png"
+    },
+    {
+        "id" : 8,
+        "name" : "Chocolate Muffins",
+        "category" : "Bakery Items & Cakes",
+        "price" : 170.00,
+        "image" : "Images & Logos/products/pr8.png"
+    }
+]

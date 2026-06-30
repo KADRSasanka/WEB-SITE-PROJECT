@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Xpress Mart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar.collapsed {
+            width: 80px;
+        }
+
+        .sidebar-header {
+            padding: 0 20px 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .sidebar-header h2 {
+            color: #27ae60;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-header p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: rgba(39, 174, 96, 0.2);
+            border-left-color: #27ae60;
+            transform: translateX(5px);
+        }
+
+        .sidebar-menu i {
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .dashboard-header {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dashboard-header h1 {
+            color: #2c3e50;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .dashboard-header h1 i {
+            margin-right: 15px;
+            color: #27ae60;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logout-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logout-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--card-color), var(--card-color-light));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .stat-info h3 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .stat-info p {
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+
+        .section-header h2 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header i {
+            margin-right: 10px;
+            color: #27ae60;
+        }
+
+        .action-btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: auto;
+        }
+
+        .action-btn:hover {
+            background: #2ecc71;
+            transform: translateY(-2px);
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .data-table th {
+            background: #34495e;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-inactive {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #27ae60;
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+        }
+
+        /* Chart Container */
+        .chart-container {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chart-placeholder {
+            text-align: center;
+            color: #7f8c8d;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 70px;
+            }
+            
+            .sidebar-menu span {
+                display: none;
+            }
+            
+            .main-content {
+                padding: 15px;
+            }
+            
+            .dashboard-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <button class="toggle-btn" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="sidebar-header">
+                <h2>XpressMart</h2>
+                <p>Admin Panel</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="#" class="menu-link active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a></li>
+                <li><a href="#" class="menu-link" data-section="products">
+                    <i class="fas fa-box"></i>
+                    <span>Products</span>
+                </a></li>
+                <li><a href="#" class="menu-link" data-section="orders">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Orders</span>
+                </a></li>
+                <li><a href="#" class="menu-link" data-section="customers">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a></li>
+                <li><a href="#" class="menu-link" data-section="categories">
+                    <i class="fas fa-tags"></i>
+                    <span>Categories</span>
+                </a></li>
+                <li><a href="#" class="menu-link" data-section="inventory">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Inventory</span>
+                </a></li>
+                <li><a href="#" class="menu-link" data-section="reviews">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews</span>
+                </a></li>
+                <li><a href="#" class="menu-link" data-section="analytics">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a></li>
+                <li><a href="#" class="menu-link" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <h1><i class="fas fa-tachometer-alt"></i>Admin Dashboard</h1>
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <div>
+                        <p style="margin: 0; font-weight: 600; color: #2c3e50;">Admin User</p>
+                        <p style="margin: 0; font-size: 0.8rem; color: #7f8c8d;">Administrator</p>
+                    </div>
+                    <button class="logout-btn" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <div id="dashboard-section" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card" style="--card-color: #3498db; --card-color-light: #5dade2;">
+                        <div class="stat-icon" style="background: linear-gradient(45deg, #3498db, #5dade2);">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>1,247</h3>
+                            <p>Total Products</p>
+                        </div>
+                    </div>
+                    <div class="stat-card" style="--card-color: #e74c3c; --card-color-light: #ec7063;">
+                        <div class="stat-icon" style="background: linear-gradient(45deg, #e74c3c, #ec7063);">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>542</h3>
+                            <p>Total Orders</p>
+                        </div>
+                    </div>
+                    <div class="stat-card" style="--card-color: #27ae60; --card-color-light: #58d68d;">
+                        <div class="stat-icon" style="background: linear-gradient(45deg, #27ae60, #58d68d);">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>2,891</h3>
+                            <p>Total Customers</p>
+                        </div>
+                    </div>
+                    <div class="stat-card" style="--card-color: #f39c12; --card-color-light: #f7dc6f;">
+                        <div class="stat-icon" style="background: linear-gradient(45deg, #f39c12, #f7dc6f);">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>LKR 89,420</h3>
+                            <p>Total Revenue</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-placeholder">
+                        <i class="fas fa-chart-line" style="font-size: 4rem; margin-bottom: 20px; color: #bdc3c7;"></i>
+                        <h3>Sales Analytics Chart</h3>
+                        <p>Integration with Chart.js or similar library would go here</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div id="products-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-box"></i>Products Management</h2>
+                    <button class="action-btn" onclick="openAddProduct()">
+                        <i class="fas fa-plus"></i> Add Product
+                    </button>
+                </div>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#PR001</td>
+                            <td>Hellman's Real Mayonnaise</td>
+                            <td>Household Materials</td>
+                            <td>LKR 499.00</td>
+                            <td>45</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <button class="action-btn" style="padding: 5px 10px; margin-right: 5px;">Edit</button>
+                                <button class="action-btn" style="background: #e74c3c; padding: 5px 10px;">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#PR002</td>
+                            <td>Fresh Apples</td>
+                            <td>Fruits & Vegetables</td>
+                            <td>LKR 350.00</td>
+                            <td>120</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <button class="action-btn" style="padding: 5px 10px; margin-right: 5px;">Edit</button>
+                                <button class="action-btn" style="background: #e74c3c; padding: 5px 10px;">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#PR003</td>
+                            <td>Chicken Breast</td>
+                            <td>Fish & Meat</td>
+                            <td>LKR 850.00</td>
+                            <td>0</td>
+                            <td><span class="status-badge status-inactive">Out of Stock</span></td>
+                            <td>
+                                <button class="action-btn" style="padding: 5px 10px; margin-right: 5px;">Edit</button>
+                                <button class="action-btn" style="background: #e74c3c; padding: 5px 10px;">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Orders Section -->
+            <div id="orders-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-shopping-cart"></i>Orders Management</h2>
+                </div>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#ORD001</td>
+                            <td>John Doe</td>
+                            <td>2025-09-15</td>
+                            <td>3</td>
+                            <td>LKR 1,249.00</td>
+                            <td><span class="status-badge status-pending">Pending</span></td>
+                            <td>
+                                <button class="action-btn" style="padding: 5px 10px; margin-right: 5px;">View</button>
+                                <button class="action-btn" style="background: #f39c12; padding: 5px 10px;">Process</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#ORD002</td>
+                            <td>Jane Smith</td>
+                            <td>2025-09-14</td>
+                            <td>2</td>
+                            <td>LKR 699.00</td>
+                            <td><span class="status-badge status-active">Completed</span></td>
+                            <td>
+                                <button class="action-btn" style="padding: 5px 10px; margin-right: 5px;">View</button>
+                                <button class="action-btn" style="background: #3498db; padding: 5px 10px;">Invoice</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Customers Section -->
+            <div id="customers-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-users"></i>Customers Management</h2>
+                </div>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Orders</th>
+                            <th>Total Spent</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#CUS001</td>
+                            <td>John Doe</td>
+                            <td>john@email.com</td>
+                            <td>+94 77 123 4567</td>
+                            <td>15</td>
+                            <td>LKR 12,450.00</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>#CUS002</td>
+                            <td>Jane Smith</td>
+                            <td>jane@email.com</td>
+                            <td>+94 77 234 5678</td>
+                            <td>8</td>
+                            <td>LKR 6,750.00</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Other sections with similar structure -->
+            <div id="categories-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-tags"></i>Categories Management</h2>
+                    <button class="action-btn">Add Category</button>
+                </div>
+                <p>Manage product categories here...</p>
+            </div>
+
+            <div id="inventory-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-warehouse"></i>Inventory Management</h2>
+                </div>
+                <p>Track stock levels and inventory here...</p>
+            </div>
+
+            <div id="reviews-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-star"></i>Reviews Management</h2>
+                </div>
+                <p>Manage customer reviews here...</p>
+            </div>
+
+            <div id="analytics-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-line"></i>Analytics</h2>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-placeholder">
+                        <i class="fas fa-chart-bar" style="font-size: 4rem; margin-bottom: 20px; color: #bdc3c7;"></i>
+                        <h3>Detailed Analytics</h3>
+                        <p>Sales reports, customer analytics, and business insights</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="settings-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-cog"></i>Settings</h2>
+                </div>
+                <div class="form-group">
+                    <label>Store Name</label>
+                    <input type="text" class="form-control" value="Xpress Mart">
+                </div>
+                <div class="form-group">
+                    <label>Store Email</label>
+                    <input type="email" class="form-control" value="admin@xpressmart.lk">
+                </div>
+                <div class="form-group">
+                    <label>Store Phone</label>
+                    <input type="tel" class="form-control" value="+94 77 123 4567">
+                </div>
+                <button class="action-btn">Save Settings</button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Sidebar toggle functionality
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+        }
+
+        // Menu navigation
+        document.querySelectorAll('.menu-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.menu-link').forEach(l => l.classList.remove('active'));
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Hide all sections
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show selected section
+                const sectionId = this.getAttribute('data-section') + '-section';
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+
+                // Update header title
+                const headerTitle = document.querySelector('.dashboard-header h1');
+                const sectionName = this.querySelector('span').textContent;
+                headerTitle.innerHTML = `<i class="${this.querySelector('i').className}"></i>${sectionName}`;
+            });
+        });
+
+        // Logout functionality
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                // In a real application, you would clear session data and redirect
+                alert('Logging out...');
+                // window.location.href = 'index.html';
+            }
+        }
+
+        // Add product functionality
+        function openAddProduct() {
+            alert('Add Product modal would open here');
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in (in a real app, this would check session/token)
+            const isLoggedIn = localStorage.getItem('adminLoggedIn');
+            if (!isLoggedIn) {
+                // Redirect to login page
+                // window.location.href = 'index.html#login';
+                console.log('Would redirect to login page');
+            }
+        });
+
+        // Simulate real-time updates
+        setInterval(() => {
+            // Update stats with slight variations
+            const statsNumbers = document.querySelectorAll('.stat-info h3');
+            statsNumbers.forEach(stat => {
+                if (!stat.textContent.includes('LKR')) {
+                    const currentValue = parseInt(stat.textContent.replace(',', ''));
+                    const variation = Math.floor(Math.random() * 10) - 5; // -5 to +5
+                    const newValue = Math.max(0, currentValue + variation);
+                    stat.textContent = newValue.toLocaleString();
+                }
+            });
+        }, 30000); // Update every 30 seconds
+    </script>
+</body>
+</html>
